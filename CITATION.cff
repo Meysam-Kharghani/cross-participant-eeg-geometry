@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated work and the source EmoEEG-MC dataset."
+title: "Cross-Participant Reproducible EEG Geometry During Emotional Experience"
+type: software
+authors:
+  - family-names: Kharghani
+    given-names: Meysam
+    orcid: "https://orcid.org/0009-0004-9527-756X"
+license: MIT

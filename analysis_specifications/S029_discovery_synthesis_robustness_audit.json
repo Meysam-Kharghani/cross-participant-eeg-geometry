@@ -1,0 +1,28 @@
+{
+  "phase": "discovery_synthesis",
+  "source_hashes": {
+    "mapping_inference_final_lock": "29f7265b0d63ae2348d35ff76a5a89f318e86b6a120ede9c6f60e3d01a6d6948",
+    "mapping_inference_contract": "4cb2ca181e6b1b5528eb3c238f1795e94558b3988fb5da3991f37b576ca3a775",
+    "cross_person_alignment_fit_final_lock": "64bb8278afd0ddc17b46521180753e5537333e9e55a93741eece62d406864150",
+    "mapping_design_final_lock": "c8c344f4b5f5a220f48d01ecb5a7518ab93108188bdaf17a80cabe1a8289c1ce",
+    "secondary_models_contract": "0fd9f95f1f2a2626411f2ee82c9efae378143ab96824843bae5dfb3c0351df8d",
+    "trial_manifest": "6f130a2431e3f0c4fc881c2e8e20ea99290459fc97b6c6695da746ac38a82cab",
+    "trajectory_lopo": "8eb5ba6a3ff2c8888f4fdbc64b41f82e5b5923280efa86f904c80f926a592e4c"
+  },
+  "interpretation_policy_canonical_sha256": "5f91f9a291e02eeb3b820a12866a2d7c46690159531a387bddbd471b0cf0b209",
+  "check_manifest_sha256": "a8f36f1670f768fe68af40e16e0ec161d75ca73255e0b56cbe526cd19023780b",
+  "seed": 540,
+  "permutations_lopo_subset": 10000,
+  "no_refit_alignment": true,
+  "no_change_family_count_or_assignment": true,
+  "no_model_retuning": true,
+  "validation_opened": false,
+  "confirmation_opened": false,
+  "structural_gate_thresholds": {
+    "overall_lopo_agreement_minimum": 0.99,
+    "minimum_subject_lopo_agreement": 0.9,
+    "subjects_at_or_above_0_95_minimum": 30,
+    "participants_with_both_full_fit_families_minimum": 31
+  },
+  "sensitivity_results_cannot_override_prespecified_mapping_inference_primary_decisions": true
+}

@@ -1,0 +1,62 @@
+{
+  "forbidden": [
+    "renaming Family 1/2 as positive/negative, imagery/video, pleasure/pain, appraisal/reporting, or any semantic state based on Discovery alone",
+    "choosing a report subset after inspecting its score and then treating it as confirmatory",
+    "opening Validation/Confirmation behavioral semantics in this phase",
+    "changing K, family assignments, EEG geometry, or original mapping_inference results"
+  ],
+  "global_multiplicity": "Holm across N1, N2, N3, N4 global p-values; child semantic claims require both parent global Holm<0.05 and child maxT<0.05.",
+  "historical_tests_not_rebranded_as_new": {
+    "10D_report_mean_profile": "already formally tested as mapping_inference H1 and unsupported",
+    "7_level_emotion_category": "already formally tested as mapping_inference H5 and unsupported",
+    "context": "already formally tested as mapping_inference H4 and unsupported",
+    "stimulus_identity": "already formally tested as mapping_inference H6 and unsupported"
+  },
+  "new_primary_domains": {
+    "N1_binary_task_stimulus_structure": {
+      "children": [
+        "nominal positive-vs-negative stimulus polarity (neutral excluded)",
+        "context x polarity difference-in-differences",
+        "late-vs-early acquisition half",
+        "context-switch-vs-repeat"
+      ],
+      "test": "participant contrast vector; joint 10000 sign-flip maxT family"
+    },
+    "N2_full_10D_report_predictive_information": {
+      "model": "fixed L2 logistic C=1, leave-one-participant-out; nuisance baseline vs nuisance+all 10 reports",
+      "null": "within-participant family-label permutations; full pipeline refit",
+      "question": "can same-trial 10D report vector predict fixed family in an unseen participant beyond context + acquisition order?",
+      "subset_atlas": "all 2^10-1=1023 nonempty report subsets scored with a fixed LOPO linear-ridge screen for speed; descriptive only, no best-subset p-value"
+    },
+    "N3_nonlinear_report_structure": {
+      "children": [
+        "component_balance",
+        "mixed_affect",
+        "overall_emotion_intensity",
+        "emotion_entropy",
+        "top2_margin",
+        "rating_extremity",
+        "liking_valence_gap",
+        "valence_component_discrepancy",
+        "stimulus_valence_congruence",
+        "target_emotion_dominance"
+      ],
+      "test": "participant family2-minus-family1 contrasts; joint sign-flip maxT"
+    },
+    "N4_family_sequence_persistence": {
+      "null": "within-participant sequence permutation preserving family counts",
+      "question": "do adjacent trials stay in the same family more or less often than expected from each participant's family occupancy?"
+    }
+  },
+  "phase": "family_interpretability_extension",
+  "scientific_role": "post-specification Discovery-only family-interpretability extension; no semantic relabeling without new held-out replication",
+  "secondary_exploratory_but_multiplicity_controlled": {
+    "K_resolution_hierarchy": "outcome-free K2-vs-K3/K4/K6 nestedness diagnostics",
+    "family_axis": "continuous signed centroid-distance axis and assignment margin; descriptive only",
+    "low_vs_high_original_reports": "within-participant bottom vs top tertile, middle omitted; joint maxT across 10 reports",
+    "occupancy_reliability": "family2 occupancy first-half vs second-half and imagery vs video"
+  },
+  "seed": 20260812,
+  "validation_confirmation": "remain unopened in family_interpretability_extension; any supported interpretation requires a new authoritative held-out behavior-to-EEG event lineage before replication",
+  "why_K2_is_a_clue_not_a_binary_truth": "K=2 is the selected parsimonious stable coarse partition. Binary explanations are prioritized but continuous, nonlinear, sequential and hierarchical alternatives are tested too."
+}

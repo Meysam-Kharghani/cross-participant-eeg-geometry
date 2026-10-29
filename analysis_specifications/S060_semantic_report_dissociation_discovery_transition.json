@@ -1,0 +1,160 @@
+{
+  "cohort": {
+    "all_paired_rows": 1252,
+    "eligible_rows": 1237,
+    "eligible_subjects": 31,
+    "minimum_paired_trials_per_participant": 30,
+    "no_behavior_based_exclusion": true,
+    "source_manifest": "outputs/interpretability/semantic_report_dissociation_design_semantic_report_dissociation_design_specification/tables/semantic_report_dissociation_design_prespecified_discovery_report_transition_pair_manifest.csv"
+  },
+  "data_values_permitted_in_discovery_report_transition_multiresolution_fit": {
+    "Confirmation": false,
+    "Validation": false,
+    "behavioral_reports": false,
+    "context_as_target": false,
+    "emotion_category": false,
+    "physiology": false,
+    "rating_early_compact_EEG": true,
+    "stimulus_identity": false,
+    "stimulus_late_compact_EEG": true
+  },
+  "discovery_only": true,
+  "forbidden": [
+    "using any report value to choose K or centroids",
+    "using emotion category/context/stimulus identity to choose K",
+    "refitting experience K=2/3/4 families",
+    "calling a report-transition family an emotion or cognitive state",
+    "interpreting rating_early activity as distortion, dishonesty, suppression, or exaggeration"
+  ],
+  "prespecified_by": "semantic_report_dissociation_design",
+  "generated_at": "2026-08-19T23:51:24+03:30",
+  "multi_resolution_discovery": {
+    "algorithm": "participant-weighted KMeans",
+    "all_eligible_resolutions_retained": true,
+    "candidate_K": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "canonical_label_rule": "lexicographic ordering of centroids in the fixed 14-cell coordinate order; never behavioral ordering",
+    "continuous_signature_always_retained": true,
+    "max_iter": 500,
+    "n_init": 100,
+    "no_eligible_K_rule": "do not force discrete report-transition families; retain the continuous 14-cell report-transition signature and close only the discrete sub-branch",
+    "no_single_K_forced": true,
+    "seed": 540,
+    "stability": {
+      "comparison": "ARI versus corresponding full Discovery K solution",
+      "eligibility_thresholds": {
+        "ARI_10th_percentile_at_least": 0.3,
+        "collapse_rate_at_most": 0.1,
+        "median_ARI_at_least": 0.6,
+        "minimum_participant_weighted_occupancy": 0.05,
+        "minimum_participants_per_family": 5,
+        "minimum_trials_per_family": 30
+      },
+      "participant_fraction_without_replacement": 0.8,
+      "repeats": 200,
+      "trial_fraction_within_retained_participant_without_replacement": 0.8
+    },
+    "tol": 1e-07
+  },
+  "next_if_eligible_K": "specification and execute one-shot Validation structural transfer for all eligible report-transition K",
+  "next_if_no_eligible_K": "continue with the fixed continuous report-transition signature; do not invent discrete families",
+  "phase": "discovery_report_transition_multiresolution_fit",
+  "primary_question": "Does the transition from late stimulus processing into the rating/report stage contain stable cross-person structure that is distinct from the already fixed stimulus_early -> stimulus_late experience structure?",
+  "representation": {
+    "blocks": [
+      {
+        "name": "time_frequency_channel_median_iqr",
+        "start": 0,
+        "stop": 60
+      },
+      {
+        "name": "morphology_channel_median_iqr",
+        "start": 60,
+        "stop": 72
+      },
+      {
+        "name": "plv_channel_median_iqr",
+        "start": 72,
+        "stop": 84
+      },
+      {
+        "name": "waveform_dct_channel_median_iqr",
+        "start": 84,
+        "stop": 124
+      },
+      {
+        "name": "covariance_summary",
+        "start": 124,
+        "stop": 145
+      },
+      {
+        "name": "plv_global",
+        "start": 145,
+        "stop": 169
+      }
+    ],
+    "cross_person_standardization": [
+      "within participant, robust-center each transformed signature cell by participant median",
+      "divide by participant IQR; use Discovery participant-balanced pooled IQR when local IQR <= 1e-8",
+      "winsorize to [-6, 6]"
+    ],
+    "participant_stage_preprocessing": [
+      "for each participant and each stage separately, median-impute each of the 169 compact cells using that participant/stage only",
+      "subtract that participant/stage feature median",
+      "divide by that participant/stage feature IQR",
+      "if stage IQR <= 1e-8, use participant-pooled stimulus_late+rating_early IQR for the same feature",
+      "if pooled IQR also <= 1e-8, use scale 1.0 and record local constancy",
+      "winsorize standardized feature values to [-6, 6]"
+    ],
+    "participant_weight": "each participant contributes total weight 1",
+    "stages": [
+      "stimulus_late",
+      "rating_early"
+    ],
+    "trial_signature": {
+      "cosine_transform": "arctanh after clipping to [-1+1e-6, 1-1e-6]",
+      "fixed_coordinate_order": "[RMS, transformed cosine] for each of the six prespecified blocks in discovery_stimulus_experience_multiresolution_fit order, then [global RMS, global transformed cosine]",
+      "global": [
+        "RMS displacement across all 169 compact cells",
+        "cosine similarity across all 169 compact cells"
+      ],
+      "per_block": [
+        "RMS displacement between standardized stimulus_late and rating_early profiles",
+        "cosine similarity between standardized stimulus_late and rating_early profiles"
+      ],
+      "positive_distance_transform": "log1p",
+      "total_signature_cells": 14
+    }
+  },
+  "scientific_role": "Discovery-only outcome-free multi-resolution structural analysis of stimulus_late -> rating_early EEG reconfiguration",
+  "source_store": {
+    "compact": "outputs/large/secondary_models_secondary_models_cache_v1/epoch_store/epoch_compact_float32.npy",
+    "compact_sha256": "0e6ba0ffe3f72c4f639d443f422b040b3f9db8461e56cfd3e18fb6de072d2d3e",
+    "manifest": "outputs/large/secondary_models_secondary_models_cache_v1/epoch_store/epoch_manifest.csv",
+    "manifest_sha256": "7c25a3f77a00fcccd0a03bade656d6066c0641a7e34a76f092fcc43171b296e1",
+    "root": "outputs/large/secondary_models_secondary_models_cache_v1/epoch_store",
+    "source_cells_per_epoch": 169,
+    "values_opened_in_semantic_report_dissociation_design": false
+  },
+  "structural_comparison_after_discovery_report_transition_multiresolution_fit_lock_only": {
+    "allowed": true,
+    "experience_reference_K": [
+      2,
+      3,
+      4
+    ],
+    "metrics": [
+      "ARI and NMI between each eligible report-transition K and each experience K on common trials",
+      "participant-balanced contingency tables",
+      "directional conditional occupancy matrices"
+    ],
+    "purpose": "quantify whether experience-period organization and report-stage transition organization are coupled; never use the experience labels to choose report-transition K"
+  }
+}

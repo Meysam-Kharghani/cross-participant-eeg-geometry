@@ -1,0 +1,14 @@
+{
+  "phase": "discovery_multimodal_inference",
+  "generated_at": "2026-08-08T20:34:10+03:30",
+  "discovery_primary_support_any": false,
+  "discovery_support_plus_robustness_any": false,
+  "Confirmation_physio_may_open": false,
+  "supported_tests_for_validation": [],
+  "forbidden": [
+    "retuning Family 1/2",
+    "opening Confirmation physiology",
+    "testing unsupported Discovery hypotheses in held-out data",
+    "outcome-driven physiology feature selection"
+  ]
+}

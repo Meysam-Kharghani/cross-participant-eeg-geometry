@@ -1,0 +1,16 @@
+{
+  "opened_at": "2026-07-26T02:24:24+03:30",
+  "status": "completed",
+  "primary_run": true,
+  "rerun_identical": false,
+  "canonical_sha256": "e31f96f918e806d466fd2bccc85b94d5c9dc96002bf97a97a442e8059a0365ed",
+  "split_sha256": "0f6156e2a0de5af59dd3a7cd15b2a4a914dc0a0540b9d941fa6676a697f8d453",
+  "validation_spec_sha256": "096d5881494f7a85828a9b7407a98360f6f8c1905cfa1d013036495badff302a",
+  "script_sha256": "aaf8d35f772cf72c94e277d1bc4e1260428a546ecb096bec36e59494649c68a2",
+  "discovery_participants": 36,
+  "validation_participants": 12,
+  "confirmation_participants_analyzed": 0,
+  "completed_at": "2026-07-26T02:24:46+03:30",
+  "summary_sha256": "43c43e778a6eb989313bc63d97ac663e168b2bb0bbb27a662a79d4e6043b2354",
+  "confirmation_opened": false
+}

@@ -1,0 +1,39 @@
+{
+  "advance_K": [
+    2,
+    3,
+    4
+  ],
+  "advance_rule": "all and only Validation-replicated K advance unchanged; no ranking, winner selection, K reselection, centroid refit, threshold tuning, or family renaming",
+  "confirmation_signal_opening_in_validation_experience_transfer_synthesis": false,
+  "confirmation_signal_opening_in_confirmation_experience_transfer_design": false,
+  "confirmation_signal_opening_requires_separate_post_confirmation_experience_transfer_design_execution_phase": true,
+  "forbidden": [
+    "ranking K=2/3/4 by Validation performance",
+    "selecting a single preferred K after seeing Validation",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family relabeling",
+    "semantic naming",
+    "Validation behavioral/category/context/stimulus target access",
+    "Validation rating_early EEG access",
+    "Confirmation EEG access in validation_experience_transfer_synthesis",
+    "Confirmation behavioral/category/context/stimulus target access"
+  ],
+  "prespecified_boundaries": {
+    "Confirmation_behavioral_values_read": false,
+    "Confirmation_signal_values_read": false,
+    "Validation_behavioral_values_read": false,
+    "Validation_rating_early_values_read": false,
+    "semantic_relabeling_permitted": false
+  },
+  "generated_at": "2026-08-19T23:21:19+03:30",
+  "phase": "validation_experience_transfer_synthesis",
+  "reuse_unchanged": [
+    "outputs/interpretability/validation_experience_transfer_design_validation_experience_transfer_design_specification/tables/validation_experience_transfer_design_prespecified_centroids.csv",
+    "outputs/interpretability/validation_experience_transfer_design_validation_experience_transfer_design_specification/tables/validation_experience_transfer_design_discovery_fallback_iqr.csv",
+    "outputs/interpretability/validation_experience_transfer_design_validation_experience_transfer_design_specification/tables/validation_experience_transfer_design_support_thresholds.csv",
+    "outputs/interpretability/validation_experience_transfer_design_validation_experience_transfer_design_specification/tables/validation_experience_transfer_design_validation_gate_spec.csv"
+  ]
+}

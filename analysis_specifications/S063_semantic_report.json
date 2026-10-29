@@ -1,0 +1,698 @@
+{
+  "A1_nominal_category_experience_family": {
+    "Cramers_V": "weighted Pearson chi-square V = sqrt(chi2/(total_weight*min(r-1,c-1)))",
+    "NMI": "weighted mutual information / sqrt(weighted H(category)*weighted H(family)); 0 if denominator is zero",
+    "analysis_rows": "experience discrete assignment + authoritative emotion_category; no report or context requirement",
+    "claim_boundary": "non-significance is not positive proof of label mismatch; weak/diffuse mapping is reported with exact held-out effect sizes and mixing matrices",
+    "co_primary_parent_p": "Bonferroni omnibus across NMI and Cramer's V: min(1, 2*min(p_NMI,p_V))",
+    "metric_specific_p": "(1 + count(null >= observed))/(B+1)",
+    "mixing_outputs": [
+      "participant-balanced P(family|category)",
+      "participant-balanced P(category|family)",
+      "H(family|category)",
+      "H(category|family)",
+      "normalized H(family|category)/H(family)",
+      "normalized H(category|family)/H(category)",
+      "per-category maximum-family concentration",
+      "per-family maximum-category concentration"
+    ],
+    "null": "permute family labels within participant, preserving each participant family counts",
+    "participant_weight": "within each K/test, each participant total weight = 1",
+    "permutations": 10000,
+    "tail": "upper",
+    "tested_K": [
+      2,
+      3,
+      4
+    ],
+    "weighted_contingency": "sum participant-balanced trial weights by category x family"
+  },
+  "A2_joint_reports_experience_family": {
+    "C_grid": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "analysis_rows": "experience discrete assignment + all ten finite reports + authoritative context + prespecified acquisition_fraction",
+    "baseline_X": [
+      "context_video",
+      "acquisition_fraction",
+      "acquisition_fraction_squared"
+    ],
+    "full_X": [
+      "baseline_X",
+      "all_10_reports_in_prespecified_order"
+    ],
+    "inner_selection": "5 deterministic participant-group folds inside outer training data; choose C maximizing participant-balanced balanced accuracy; ties choose smaller C",
+    "model": "multinomial logistic regression, L2, lbfgs, intercept, max_iter=4000, tol=1e-8",
+    "null": "permute complete 10-report row vectors within participant, preserving report covariance; rerun nested pipeline",
+    "outer": "leave-one-participant-out",
+    "permutations": 1000,
+    "predictor_scaling": "fit mean/std on outer/inner training rows only; zero std -> 1; never fit scaler on held-out participant",
+    "primary_statistic": "participant-balanced held-out BA(full)-BA(nuisance)",
+    "single_report_followups": "nuisance+one-report vs nuisance, same permutation draws; Holm across ten; interpret only if the corresponding A2 parent survives A-family Holm",
+    "tail": "upper",
+    "tested_K": [
+      2,
+      3,
+      4
+    ],
+    "training_weights": "each training participant total weight 1, multiplied by inverse training class frequency class balancing"
+  },
+  "A_family_multiplicity": {
+    "alpha": 0.05,
+    "correction": "Holm within split across the six parent p-values",
+    "no_cross_K_winner_selection": true,
+    "parents": [
+      "A1_K2",
+      "A1_K3",
+      "A1_K4",
+      "A2_K2",
+      "A2_K3",
+      "A2_K4"
+    ]
+  },
+  "B2_incremental_reports_from_transition_signature": {
+    "M0": "context_video + acquisition_fraction + acquisition_fraction_squared",
+    "M1": "M0 + 14D prespecified continuous experience signature",
+    "M2": "M1 + 14D prespecified continuous report-transition signature",
+    "X_scaling": "training-only mean/std per predictor; zero std -> 1",
+    "Y_scaling": "training-only mean/std separately for each of ten reports; zero std -> 1; no held-out target centering/calibration",
+    "alpha_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "analysis_rows": "complete 10-report vector + authoritative context + acquisition_fraction + finite 14D experience signature + finite 14D report-transition signature",
+    "dimension_followups": "dimension-specific Delta-R2 from the same held-out predictions; Holm across ten; interpret only if B2 parent p<0.05",
+    "estimator": "participant-weighted multivariate ridge with intercept",
+    "inner_selection": "5 deterministic participant-group folds inside outer training data; select alpha separately for M0/M1/M2 minimizing participant-balanced multivariate MSE; ties choose larger alpha",
+    "null": "permute complete 10-report row vectors within participant and rerun the full nested ridge pipeline",
+    "outer": "leave-one-participant-out",
+    "permutations": 1000,
+    "primary_statistic": "participant-balanced mean of Delta-R2=M2_R2-M1_R2; within held-out participant, R2=1-SSE_model/SSE_zero where SSE_zero predicts zero in training-standardized target space",
+    "tail": "upper"
+  },
+  "B3_discrete_transition_family_reports": {
+    "heldout_rows": "participant_eligible=True",
+    "model": "exact A2 joint-10-report multinomial-logistic framework, but outcome is transition family",
+    "parent_multiplicity": "Holm across B3_K2 and B3_K3 within split",
+    "permutations": 1000,
+    "single_report_followups": "same one-report framework, Holm across ten, only after that B3 parent survives B3 Holm",
+    "status": "secondary; structural activation gate already satisfied cross-split",
+    "tested_K": [
+      2,
+      3
+    ]
+  },
+  "absolute_lineage_rules": {
+    "acquisition_fraction": "Use subject_acquisition_order_1based / subject-specific maximum order in the authoritative timing/outcome source before EEG-semantic intersection. This reproduces the historical primary_analysis_reference nuisance convention; do not recompute the denominator after target/EEG exclusions.",
+    "discovery_context_category": "derivative_closure corrected Discovery master only; require the layer-specific authoritative flag needed by the test.",
+    "heldout_context": "validation_source_epoch_lineage/confirmation_source_epoch_lineage authoritative timing manifest event-grammar context only. During target materialization, it must agree with the corresponding safe metadata schedule context for that global trial; disagreement makes context/category unavailable.",
+    "heldout_stimulus_category": "Never use canonical stimulus_id/emotion_category. Recompute context-specific trial index from the complete safe metadata schedule, then map (subject_id, authoritative context, context-specific index) through the exact README sequence parser prespecified by README_SEQUENCE_CORE_SHA256. Missing or ambiguous sequence item => unavailable; no fallback.",
+    "join_keys": {
+      "Confirmation": "subject_id + trial_number; retain prespecified structural raw_behavior_row_id",
+      "Discovery": "raw_behavior_row_id + subject_id integrity check",
+      "Validation": "subject_id + trial_number; retain prespecified structural raw_behavior_row_id"
+    },
+    "no_global_exclusion_mask": true,
+    "per_test_complete_case_only": true,
+    "reports": "Discovery: primary_analysis_reference outcome manifest. Validation/Confirmation: only the ten report columns from the prespecified canonical trial table, keyed by subject_id + trial_number_global and source-audited against the raw behavior TSV inventory. Canonical context/stimulus/category columns are forbidden."
+  },
+  "execution_order": [
+    {
+      "order": 1,
+      "phase": "discovery_semantic_report_execution",
+      "role": "Discovery semantic/report execution A1/A2/B2/B3"
+    },
+    {
+      "order": 2,
+      "phase": "validation_semantic_report_execution",
+      "role": "one-shot Validation target materialization + semantic/report execution, all prespecified tests"
+    },
+    {
+      "order": 3,
+      "phase": "validation_confirmation_semantic_design",
+      "role": "Validation synthesis + Confirmation semantic opening/analysis specification; no Confirmation values"
+    },
+    {
+      "order": 4,
+      "phase": "confirmation_semantic_report_execution",
+      "role": "one-shot Confirmation target materialization + semantic/report execution, all prespecified tests"
+    },
+    {
+      "order": 5,
+      "phase": "cross_split_semantic_report_synthesis",
+      "role": "cross-split semantic/report synthesis and claim specification"
+    }
+  ],
+  "forbidden": [
+    "canonical context, canonical stimulus_id, or canonical emotion_category as held-out target",
+    "post-hoc report subset selection",
+    "selecting one K by semantic strength",
+    "changing structural family IDs",
+    "changing EEG signatures/centroids/support thresholds",
+    "split-specific family relabeling",
+    "using behavior to alter any structural decision",
+    "calling report-transition activity distortion, dishonesty, suppression, exaggeration, or conscious editing",
+    "external replication claim"
+  ],
+  "generated_at": "2026-08-20T02:00:51+03:30",
+  "phase": "semantic_report_execution_design",
+  "seed": 540,
+  "semantic_naming_rule": "No family is renamed automatically. Any future semantic name requires a separate pre-prespecified naming rule and strong, specific, directionally stable held-out mapping.",
+  "source_inventory_hashed_without_value_parsing": [
+    {
+      "path": "<DATASET_ROOT>/sub-07/beh/sub-07_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "459496834c286ebe65b9c010bed27bcea4944415f64cf7b0bb21e345dabffc85",
+      "size_bytes": 2461,
+      "split": "validation",
+      "subject_id": "sub-07",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-07_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "87b37be0f4288a0ea03550fd35f3a52470cc983398e806706e742ec266f680f4",
+      "size_bytes": 3805,
+      "split": "validation",
+      "subject_id": "sub-07",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-09/beh/sub-09_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "acf84b7f57966aef53ce63b0ecc4e73c1262ccfc8890b68e9a0aa13738bd0063",
+      "size_bytes": 2424,
+      "split": "validation",
+      "subject_id": "sub-09",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-09_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "2ddca695d3f62bfd3b5300ed6325cfed933e1f3e576c182ec2e0380674dd0cdf",
+      "size_bytes": 3815,
+      "split": "validation",
+      "subject_id": "sub-09",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-11/beh/sub-11_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "bacf5477ca93c08575d56dd03fde685212ba5dc1a83efd917751a98bf47203ff",
+      "size_bytes": 2564,
+      "split": "validation",
+      "subject_id": "sub-11",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-11_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "72fc62e21605a13f1cb4a800fb7f5575811cad5a7e08183dca98987166e45692",
+      "size_bytes": 3957,
+      "split": "validation",
+      "subject_id": "sub-11",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-17/beh/sub-17_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "a25f1c93a92841c8eecf5942667ab52e2b32a15bd77e543655558a3554b7a53c",
+      "size_bytes": 2269,
+      "split": "validation",
+      "subject_id": "sub-17",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-17_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "8fe40f962dc78e2733d619e1000d54e194afc076164a51404fea0880de32882e",
+      "size_bytes": 3583,
+      "split": "validation",
+      "subject_id": "sub-17",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-21/beh/sub-21_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "157e7e13ac78fd9bee40acf1eabf66881dfaf2d8fcb5ca298585c284f9e99c8a",
+      "size_bytes": 2595,
+      "split": "validation",
+      "subject_id": "sub-21",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-21_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "2aa34049b2357612280949486301ea0127d995439be0f64437c683d435e62cb1",
+      "size_bytes": 3929,
+      "split": "validation",
+      "subject_id": "sub-21",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-25/beh/sub-25_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "ac72e5be65c4aa5716d695a34847ca7dc9a38c587e124fff8ef1373adc563228",
+      "size_bytes": 2865,
+      "split": "validation",
+      "subject_id": "sub-25",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-25_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "14f98c4b56fdc2eca0e40d007d772f9b66428c23dc8623dc85de8af21d6864a9",
+      "size_bytes": 4192,
+      "split": "validation",
+      "subject_id": "sub-25",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-28/beh/sub-28_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "94160dd70d42dc77ed384cfe7069f87d1de646c8ce28876bb7e7c5b82e42717c",
+      "size_bytes": 2500,
+      "split": "validation",
+      "subject_id": "sub-28",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-28_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "4508e5e04ba0645d194e9d7507f73014953828a40587382c7901f4e9c4729864",
+      "size_bytes": 3757,
+      "split": "validation",
+      "subject_id": "sub-28",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-37/beh/sub-37_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "62236e50f655dbf20a785c37c27f83bd563b6b36897b72589e10dcf30e36cd76",
+      "size_bytes": 2675,
+      "split": "validation",
+      "subject_id": "sub-37",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-37_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "06bcd95736148684b18478022df7a8c0daf6d9f24f2d3b92a075df7c84d804ab",
+      "size_bytes": 4009,
+      "split": "validation",
+      "subject_id": "sub-37",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-39/beh/sub-39_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "ea11fbb058bc11daf97da8df500677abdaf58a61cf6e650f428bc9722c51bf4c",
+      "size_bytes": 2725,
+      "split": "validation",
+      "subject_id": "sub-39",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-39_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "75c7e303268a064bd16e1c9f50587ff58d159eb2404fbadb59a53763be375a75",
+      "size_bytes": 4067,
+      "split": "validation",
+      "subject_id": "sub-39",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-51/beh/sub-51_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "778cd9cff61e0c966c19ff7e0b685cea974972b5a122bbc900c3dbd029eb18db",
+      "size_bytes": 2716,
+      "split": "validation",
+      "subject_id": "sub-51",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-51_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "0062a172be75751a49e3eab6a8f85ebf0e800df27ffec44452c018a98cefe6cb",
+      "size_bytes": 4076,
+      "split": "validation",
+      "subject_id": "sub-51",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-53/beh/sub-53_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "55ffaf44ed7a87dc10e288e788321023a2a5b6153188af35cb627b22b7e296bd",
+      "size_bytes": 2849,
+      "split": "validation",
+      "subject_id": "sub-53",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-53_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "7c275e2f9d4b7abb86b0a6887e4f2f31137cd889644e2ca6d4d15711e90dd710",
+      "size_bytes": 4180,
+      "split": "validation",
+      "subject_id": "sub-53",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-57/beh/sub-57_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "83a26461cdd9d70d349b7af64fd9cce1260a6abbf7a1ab93f0c741ecd44826f5",
+      "size_bytes": 2679,
+      "split": "validation",
+      "subject_id": "sub-57",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-57_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "2bf70e0347e412e1dffc3d9ac7680ae5ed288a233bf273bba20cc1b164b9d598",
+      "size_bytes": 3970,
+      "split": "validation",
+      "subject_id": "sub-57",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-03/beh/sub-03_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "e70e3bf3f2c5aaf9e70b004d86ea68630a6776bcd4c94f546b6631f98e2a89f4",
+      "size_bytes": 2638,
+      "split": "confirmation",
+      "subject_id": "sub-03",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-03_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "7e531194d77f8c5a1d2332c28424500f55af499152d82d7d08fc6d79dff22b80",
+      "size_bytes": 3994,
+      "split": "confirmation",
+      "subject_id": "sub-03",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-13/beh/sub-13_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "06f7e9a116d72329cf3cf52a68f873a4fa16a8e4a92658803ca9f38fce011d34",
+      "size_bytes": 2378,
+      "split": "confirmation",
+      "subject_id": "sub-13",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-13_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "ee05769bf4abb7f8a86892b5be90df56391ade8cd2ddfe2e5c57cfe85eb526c6",
+      "size_bytes": 3719,
+      "split": "confirmation",
+      "subject_id": "sub-13",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-19/beh/sub-19_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "99086ba2052dcb04eba4803c945ed028baafb0addf68c4baff2738b7f4e84be4",
+      "size_bytes": 2547,
+      "split": "confirmation",
+      "subject_id": "sub-19",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-19_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "176acb3e5d9e25fb27c0b9eb10d889ed7621febd9814165b82228555bfee60c5",
+      "size_bytes": 3880,
+      "split": "confirmation",
+      "subject_id": "sub-19",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-23/beh/sub-23_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "626bdf67e86a5fbb56d77415dce8c468805379801ee98c626437cefd769a8079",
+      "size_bytes": 2815,
+      "split": "confirmation",
+      "subject_id": "sub-23",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-23_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "4d9a24407f76e3335f8f5191e04187a821e3f7a193f736f9cd802107c291d582",
+      "size_bytes": 4158,
+      "split": "confirmation",
+      "subject_id": "sub-23",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-27/beh/sub-27_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "e969ac632577d47e7d759829f00c96d35f6b14dbf626e542a304240c736dd78d",
+      "size_bytes": 2807,
+      "split": "confirmation",
+      "subject_id": "sub-27",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-27_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "54b9ab29086315f3a6382a0482e7fb831c12ea1b3c9e3b95ee8c1cc3e0d097b3",
+      "size_bytes": 4180,
+      "split": "confirmation",
+      "subject_id": "sub-27",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-31/beh/sub-31_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "fe7ba9c73bc56fb2a4b3aa18bd48f2cbc55a8d16eef8c107e52eeb814406af86",
+      "size_bytes": 2892,
+      "split": "confirmation",
+      "subject_id": "sub-31",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-31_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "6847437df2c342b6a769ca097099e6c2970db8f4961e4804dca902f739d52228",
+      "size_bytes": 4208,
+      "split": "confirmation",
+      "subject_id": "sub-31",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-35/beh/sub-35_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "3e0e6e2ba2c2d6d6a6dfaa1ac1399ac38e6f144b1a12ce72f95ab3ebafdaf582",
+      "size_bytes": 2804,
+      "split": "confirmation",
+      "subject_id": "sub-35",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-35_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "06827bd7c7f6e58df026f4a0bcd180cdb194236d7e96980fbaa8c43390f34bab",
+      "size_bytes": 4141,
+      "split": "confirmation",
+      "subject_id": "sub-35",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-46/beh/sub-46_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "494b24c8ecb86964cdfd93f188dacc0322a1b8b6ec282d225c40c4197962926d",
+      "size_bytes": 2371,
+      "split": "confirmation",
+      "subject_id": "sub-46",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-46_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "7b7cdadc1c3c64f893ad4eb082e697f389a4b0deaef2c21b3815e8298a865c0e",
+      "size_bytes": 3720,
+      "split": "confirmation",
+      "subject_id": "sub-46",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-47/beh/sub-47_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "d9f0fb94baf9033283a03c87fb14496328ca6e94f586c0adb9a3bf9c706e20ad",
+      "size_bytes": 2452,
+      "split": "confirmation",
+      "subject_id": "sub-47",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-47_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "debe9c8054bcba35b383be30c53727fc4e3501cce69971afa681aa0145389541",
+      "size_bytes": 3746,
+      "split": "confirmation",
+      "subject_id": "sub-47",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-48/beh/sub-48_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "f42795a81fc38466953cd6c5ea624805393a0b9dce5137a135bbd37f1723faa1",
+      "size_bytes": 2767,
+      "split": "confirmation",
+      "subject_id": "sub-48",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-48_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "9f56c480737119cc459fa3725d46f317cc951173cc2c22ed6d3dab05a98fb29b",
+      "size_bytes": 4046,
+      "split": "confirmation",
+      "subject_id": "sub-48",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-49/beh/sub-49_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "5f620e88d9463de109b0ac422a36f5f1583c7948069ebb1f9cf27531758d56cd",
+      "size_bytes": 2760,
+      "split": "confirmation",
+      "subject_id": "sub-49",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-49_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "e5261e643e36cb3593f6a80e9a7be522dd5daf71af2354eac3d9a1b4590a1c50",
+      "size_bytes": 4134,
+      "split": "confirmation",
+      "subject_id": "sub-49",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/sub-59/beh/sub-59_task-emotion_beh.tsv",
+      "role": "raw_behavior_tsv",
+      "sha256": "f9886121a495e7bc79b61b037e93c949b1f4aca921ee1d1eb6d7520b42a0bdbd",
+      "size_bytes": 2899,
+      "split": "confirmation",
+      "subject_id": "sub-59",
+      "values_parsed_in_semantic_report_execution_design": false
+    },
+    {
+      "path": "<DATASET_ROOT>/derivatives/metadata/sub-59_trials_with_context.csv",
+      "role": "safe_metadata_schedule",
+      "sha256": "418428add6a946f51ef8c3a536e0da0ac584c48d2050fc4f056671b503d6f2be",
+      "size_bytes": 4221,
+      "split": "confirmation",
+      "subject_id": "sub-59",
+      "values_parsed_in_semantic_report_execution_design": false
+    }
+  ],
+  "split_execution_and_lockbox": {
+    "Confirmation_opening_rule": "Confirmation semantic targets may open only after all Validation semantic outputs are final-fixed and a separate validation_confirmation_semantic_design Confirmation opening/analysis specification passes; opening is not contingent on p-value direction because the entire program is already prespecified",
+    "Discovery_results_do_not_select_Validation_tests": true,
+    "Validation_results_do_not_select_Confirmation_tests": true,
+    "all_prespecified_tests_run_in_each_split": true,
+    "replication_language": "internal held-out replication within this dataset only; never external replication"
+  },
+  "status": "semantic_report_execution_program_prespecified_before_target_opening",
+  "structural_predictor_rules": {
+    "continuous_signatures": {
+      "B2_rows": "intersection of finite experience and transition continuous signatures plus complete target/nuisance rows; participant_eligible discrete flag is not required",
+      "coordinate_order": [
+        "standardized__time_frequency_channel_median_iqr__rms_displacement",
+        "standardized__time_frequency_channel_median_iqr__cosine_similarity",
+        "standardized__morphology_channel_median_iqr__rms_displacement",
+        "standardized__morphology_channel_median_iqr__cosine_similarity",
+        "standardized__plv_channel_median_iqr__rms_displacement",
+        "standardized__plv_channel_median_iqr__cosine_similarity",
+        "standardized__waveform_dct_channel_median_iqr__rms_displacement",
+        "standardized__waveform_dct_channel_median_iqr__cosine_similarity",
+        "standardized__covariance_summary__rms_displacement",
+        "standardized__covariance_summary__cosine_similarity",
+        "standardized__plv_global__rms_displacement",
+        "standardized__plv_global__cosine_similarity",
+        "standardized__global__rms_displacement",
+        "standardized__global__cosine_similarity"
+      ],
+      "experience": "exact 14 standardized__ coordinates from prespecified experience signature files",
+      "report_transition": "exact 14 standardized__ coordinates from prespecified transition signature files"
+    },
+    "experience_discrete": {
+      "K": [
+        2,
+        3,
+        4
+      ],
+      "family_ids": "immutable 1-based IDs from fixed discovery_stimulus_experience_multiresolution_fit/validation_stimulus_experience_multiresolution_transfer/confirmation_stimulus_experience_multiresolution_transfer assignment files",
+      "heldout_rows": "participant_eligible=True only for discrete held-out family tests"
+    },
+    "transition_discrete": {
+      "K": [
+        2,
+        3
+      ],
+      "family_ids": "immutable 1-based IDs from fixed discovery_report_transition_multiresolution_fit/validation_report_transition_multiresolution_transfer/confirmation_report_transition_multiresolution_transfer assignment files",
+      "heldout_rows": "participant_eligible=True only for B3 discrete held-out family tests"
+    }
+  },
+  "structural_prerequisites": {
+    "B1_crosssplit_low_overlap_already_fixed": true,
+    "experience_K": [
+      2,
+      3,
+      4
+    ],
+    "report_transition_K": [
+      2,
+      3
+    ]
+  },
+  "target_columns": {
+    "nominal_categories_full_names": [
+      "sadness",
+      "disgust",
+      "fear",
+      "neutral",
+      "joy",
+      "tenderness",
+      "inspiration"
+    ],
+    "ordered_reports": [
+      "joy",
+      "inspiration",
+      "tenderness",
+      "sadness",
+      "fear",
+      "disgust",
+      "arousal",
+      "valence",
+      "familiarity",
+      "liking"
+    ],
+    "readme_prefix_to_full_category": {
+      "dis": "disgust",
+      "fear": "fear",
+      "ins": "inspiration",
+      "joy": "joy",
+      "neu": "neutral",
+      "sad": "sadness",
+      "ten": "tenderness"
+    }
+  }
+}

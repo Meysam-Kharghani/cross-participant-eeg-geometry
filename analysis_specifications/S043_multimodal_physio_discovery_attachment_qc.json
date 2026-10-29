@@ -1,0 +1,22 @@
+{
+  "phase": "multimodal_physio_design",
+  "generated_at": "2026-08-07T13:41:31+03:30",
+  "allowed_reads": [
+    "fixed Discovery EEG assignments",
+    "canonical key/context/trial_index columns",
+    "Discovery rows of prespecified corrected physiology source and the 40 biological features"
+  ],
+  "forbidden_reads": [
+    "Validation physiology values",
+    "Confirmation physiology values",
+    "behavioral outcomes/reports for model selection"
+  ],
+  "required_outputs": [
+    "one-to-one EEG-canonical-physiology join audit",
+    "Discovery multimodal manifest",
+    "participant coverage",
+    "feature missingness profile",
+    "prespecified eligible roster for discovery_multimodal_inference"
+  ],
+  "inference_forbidden": true
+}

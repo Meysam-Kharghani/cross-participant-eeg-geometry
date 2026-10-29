@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-08-01T15:08:33+03:30",
+  "phase": "raw_eeg_epoch_folds",
+  "permitted_epoch_branches": {
+    "rating_early": true,
+    "stimulus_early": true,
+    "stimulus_late": true
+  },
+  "fixed_signal_policy": {
+    "continuous_filter": "fourth-order Butterworth SOS, 0.5-45 Hz, zero-phase",
+    "resampling": "polyphase resampling to 200 Hz after source-window extraction",
+    "primary_reference": "robust average reference over channels passing prespecified recording/epoch QC; no ICA component removal in primary",
+    "no_automatic_ica_removal": true,
+    "epoch_windows": {
+      "stimulus_early": {
+        "duration_sec": 10.0,
+        "overall_gate": 0.995,
+        "context_gate": 0.99,
+        "output_sampling_rate_hz": 200
+      },
+      "stimulus_late": {
+        "duration_sec": 20.0,
+        "overall_gate": 0.95,
+        "context_gate": 0.9,
+        "output_sampling_rate_hz": 200
+      },
+      "rating_early": {
+        "duration_sec": 20.0,
+        "overall_gate": 0.9,
+        "context_gate": 0.85,
+        "output_sampling_rate_hz": 200
+      }
+    },
+    "fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_trial_fold_manifest.csv",
+    "participant_fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_participant_fold_manifest.csv"
+  },
+  "forbidden": [
+    "changing an epoch window after amplitude inspection",
+    "using released filtered trial attachment",
+    "using validation or confirmation participants",
+    "using outcomes to define QC or folds",
+    "automatic ICA component rejection without an independently prespecified classifier"
+  ]
+}

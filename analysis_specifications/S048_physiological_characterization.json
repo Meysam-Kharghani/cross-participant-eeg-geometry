@@ -1,0 +1,115 @@
+{
+  "structural_replication_analysis_reopened": false,
+  "K_reselection_permitted": false,
+  "behavioral_outcome_values_permitted": false,
+  "emotion_category_values_permitted": false,
+  "experience_K": [
+    2,
+    3,
+    4
+  ],
+  "external_replication_claim_permitted": false,
+  "family_contrast_orientation": "higher_numeric_family_id minus lower_numeric_family_id; IDs remain Discovery-anchored",
+  "family_relabeling_permitted": false,
+  "heldout_fingerprint_metrics": {
+    "binary_gate_scope": "descriptive characterization only; failure cannot invalidate structural_replication structural replication and success cannot establish a biological mechanism",
+    "bootstrap": "2000 participant-level bootstrap resamples per held-out split; deterministic seed namespace 540/signal_space_characterization",
+    "contrast_cosine": "cosine between fixed Discovery contrast vector and held-out participant-balanced contrast vector",
+    "coordinate_sign_concordance": "fraction of all 14 coordinates with same sign as Discovery reference",
+    "fingerprint_direction_replication_gate": "for both Validation and Confirmation: bootstrap 95% lower CI of contrast cosine > 0 AND sign concordance >= 10/14",
+    "global_pair": "reported separately; never counted as a seventh independent source block",
+    "non_global_block_contribution": "sum of squared contrast coordinates for each RMS/cosine block pair divided by sum across coordinates 0..11",
+    "replicated_prominent_block_rule": "block contribution > 1/6 in Discovery, Validation, and Confirmation AND at least one member coordinate satisfies the stable-coordinate rule",
+    "stable_coordinate_rule": "same contrast sign in Discovery/Validation/Confirmation AND both held-out participant-bootstrap 95% CIs exclude zero in that same direction"
+  },
+  "interpretation_boundaries": [
+    "RMS displacement is a magnitude-of-change descriptor, not activation strength or emotional intensity.",
+    "Cosine similarity is profile/directional preservation, not psychological similarity.",
+    "PLV-derived coordinates describe phase-locking/synchrony summaries and do not localize a generator.",
+    "Covariance-summary coordinates describe covariance structure and do not by themselves establish anatomical topology.",
+    "DCT coordinates describe temporal waveform structure and are not source-localized oscillatory generators.",
+    "Global coordinates are overlapping aggregate descriptors, not independent physiological systems.",
+    "Stable fingerprints may characterize signal geometry of replicated families; they do not make families true emotion kinds.",
+    "Low experience/report-transition overlap does not establish independent biological mechanisms.",
+    "topographic extension analysis conclusion remains binding; signal_space_characterization cannot rescue it with a renamed topographic analysis."
+  ],
+  "new_family_fit_permitted": false,
+  "peripheral_physio_analysis_reopened": false,
+  "phase": "physiological_characterization",
+  "primary_estimation": {
+    "Discovery_eligibility": "all participants/trials in the prespecified discovery_stimulus_experience_multiresolution_fit/discovery_report_transition_multiresolution_fit assignment tables",
+    "family_centroid": "participant-balanced: within-participant family mean, then equal-weight mean across eligible participants",
+    "heldout_all_assigned_sensitivity": true,
+    "heldout_primary_eligibility": "participant_eligible == True in prespecified transfer assignment tables",
+    "pairwise_contrasts": "all canonical pairwise family contrasts at every replicated K"
+  },
+  "primary_representation": {
+    "coordinate_pairs": "RMS displacement + cosine similarity for six non-global blocks, plus a two-coordinate global aggregate",
+    "coordinates": "all 14 standardized signature coordinates; no coordinate subset selection",
+    "dimension": 14,
+    "global_pair_is_independent_source": false
+  },
+  "program_name": "replicated_family_physiological_characterization",
+  "program_stages": {
+    "physiological_characterization": "analysis specification only; byte/hash verification, no structural values parsed",
+    "discovery_physiological_reference_atlas": "Discovery 14D reference atlas; all K and all pairwise contrasts, no selection",
+    "heldout_physiological_transfer": "Validation + Confirmation transfer of fixed 14D physiological fingerprints with prespecified metrics/gates",
+    "signal_space_feature_decomposition": "169-feature source decomposition only for pre-prespecified replicated-prominent blocks; no scalp/topographic rescue",
+    "physiological_synthesis": "cross-split physiological synthesis and claims ledger; no new tests or semantics"
+  },
+  "report_transition_K": [
+    2,
+    3
+  ],
+  "scientific_role": "outcome-free neurophysiological/feature-space characterization of already-replicated structural_replication families",
+  "semantic_rescue_permitted": false,
+  "source_decomposition_169": {
+    "allowed_blocks": "only blocks satisfying the pre-prespecified replicated-prominent-block rule; all features within each allowed block are emitted",
+    "cosine_decomposition": "per-feature contribution to the normalized dot product using the same zero-norm convention as discovery_stimulus_experience_multiresolution_fit",
+    "feature_blocks": [
+      {
+        "n_features": 60,
+        "name": "time_frequency",
+        "start_0based_inclusive": 0,
+        "stop_0based_exclusive": 60
+      },
+      {
+        "n_features": 12,
+        "name": "morphology",
+        "start_0based_inclusive": 60,
+        "stop_0based_exclusive": 72
+      },
+      {
+        "n_features": 12,
+        "name": "plv_channel",
+        "start_0based_inclusive": 72,
+        "stop_0based_exclusive": 84
+      },
+      {
+        "n_features": 40,
+        "name": "waveform_dct",
+        "start_0based_inclusive": 84,
+        "stop_0based_exclusive": 124
+      },
+      {
+        "n_features": 21,
+        "name": "covariance",
+        "start_0based_inclusive": 124,
+        "stop_0based_exclusive": 145
+      },
+      {
+        "n_features": 24,
+        "name": "plv_global",
+        "start_0based_inclusive": 145,
+        "stop_0based_exclusive": 169
+      }
+    ],
+    "preprocessing_identity": "must reproduce discovery_stimulus_experience_multiresolution_fit stage_standardize/raw_signatures conventions; no new normalization tuned to signal_space_characterization results",
+    "rms_decomposition": "per-feature squared standardized stage difference, normalized within its prespecified block; signed stage difference retained separately",
+    "stable_subfeature_rule": "within an allowed block, contribution above the uniform 1/block_size reference in all three splits plus same-direction family contrast across all three; descriptive only",
+    "stage": "signal_space_feature_decomposition only, after heldout_physiological_transfer cross-split fingerprint results",
+    "topographic_inference_permitted": false
+  },
+  "subjective_report_values_permitted": false,
+  "topographic_hypothesis_screen_reopened": false
+}

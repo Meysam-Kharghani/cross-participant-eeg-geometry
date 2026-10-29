@@ -1,0 +1,47 @@
+{
+  "analysis_name": "posthoc_trajectory_geometry_sensitivity",
+  "status": "post_hoc_sensitivity_not_primary_confirmation",
+  "date": "2026-10-17",
+  "purpose": "Assess representation robustness, discreteness, continuous-axis stability, and context-preserving temporal-destruction null behavior of the fixed trajectory geometry.",
+  "primary_analysis_unchanged": true,
+  "required_inputs": [
+    "latent_state_fit_continuous_trajectories.csv",
+    "cross_person_alignment_fit_trajectory_family_assignments.csv",
+    "cross_person_alignment_fit_trajectory_family_candidate_metrics.csv",
+    "cross_person_alignment_fit_trajectory_family_lopo_diagnostics.csv",
+    "cross_person_alignment_fit_trajectory_family_stability_replicates.csv",
+    "mapping_design_trial_mapping_manifest.csv"
+  ],
+  "trajectory_features_6d": [
+    "early_to_late_norm",
+    "late_to_rating_norm",
+    "early_to_rating_direct_norm",
+    "total_path_length",
+    "directness_ratio",
+    "segment_cosine"
+  ],
+  "primitive_features_3d": [
+    "early_to_late_norm",
+    "late_to_rating_norm",
+    "segment_cosine"
+  ],
+  "preprocessing": {
+    "first_four": "log1p",
+    "directness_ratio": "logit after clipping to [1e-6, 1-1e-6]",
+    "segment_cosine": "atanh after clipping to [-1+1e-6, 1-1e-6]",
+    "within_participant_scaling": "median/IQR",
+    "winsorization": "[-6, 6]"
+  },
+  "posthoc_families": [
+    "raw geometry redundancy audit",
+    "primitive 3D reparameterization",
+    "leave-one-feature-out sensitivity",
+    "scaling sensitivity",
+    "alternative clustering diagnostic",
+    "covariance-matched unimodal Gaussian null",
+    "separation-axis mixture diagnostic",
+    "participant-by-context temporal-destruction null",
+    "continuous separation-axis LOPO stability"
+  ],
+  "interpretive_boundary": "K=2 is treated as a stable parsimonious coarse-graining of reproducible geometry, not evidence for two privileged discrete biological or psychological states."
+}

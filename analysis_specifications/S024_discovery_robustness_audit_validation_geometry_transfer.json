@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-05T13:47:59+03:30",
+  "phase": "discovery_robustness_audit",
+  "required_boundary": [
+    "verify every discovery_robustness_audit and source hash",
+    "do not read any Validation file while creating validation_geometry_transfer_design specification",
+    "specification preprocessing, centroids, distance rule, coverage metrics, exclusions, failure rules, and output schema",
+    "do not test H1-H6 in Validation",
+    "do not transfer a discrete local-state taxonomy",
+    "do not rename Family 1 or Family 2",
+    "Confirmation remains closed"
+  ],
+  "permitted_scope": "outcome_free_trajectory_geometry_transfer_only",
+  "validation_opened": false,
+  "confirmation_opened": false
+}

@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-04T13:04:58+03:30",
+  "phase": "latent_state_fit",
+  "required_inputs": {
+    "latent_state_fit_contract": "<PROJECT_ROOT>/config/latent_state_fit_latent_state_fit_contract.json",
+    "primary_lock": "<PROJECT_ROOT>/outputs/qc/latent_state_fit_primary_lock_hashes.json",
+    "participant_state_selection": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_participant_state_selection.csv",
+    "state_centroids_common_axes": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_state_centroids_common_axes.csv",
+    "state_centroids_pca": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_state_centroids_pca.csv",
+    "continuous_trajectories": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_continuous_trajectories.csv",
+    "state_assignments": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_state_assignments.csv",
+    "prespecified_latent_state_design_latent_policy": "<PROJECT_ROOT>/analysis_specifications/S037_latent_state.json"
+  },
+  "required_design_boundary": [
+    "cross-person alignment remains outcome-free",
+    "no valence, liking, arousal, emotion report, context, or report-derived factor may be read",
+    "stable discrete centroids and continuous-only participant trajectories must both be represented without forcing missing states",
+    "alignment choices must be prespecified before report/context mapping"
+  ],
+  "forbidden": [
+    "reading valence, liking, arousal, emotion reports, labels, or report-derived factors during latent_state_design or latent_state_fit",
+    "choosing K, PCA dimensionality, features, participant inclusion, or state labels from report/context association",
+    "using secondary_models outer-test performance to select an epoch family",
+    "including QC cells in the primary state representation",
+    "global outcome-informed or context-informed alignment",
+    "opening validation or confirmation participants"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

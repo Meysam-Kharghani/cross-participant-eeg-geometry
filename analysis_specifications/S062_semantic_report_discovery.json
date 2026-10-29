@@ -1,0 +1,68 @@
+{
+  "Confirmation_behavior_opening_permitted": false,
+  "Discovery_behavior_opening_permitted": true,
+  "Validation_behavior_opening_permitted": false,
+  "behavior_cannot_change": [
+    "K",
+    "family IDs",
+    "EEG signatures",
+    "centroids",
+    "support thresholds",
+    "test definitions",
+    "multiplicity families",
+    "held-out opening order"
+  ],
+  "generated_at": "2026-08-20T02:00:51+03:30",
+  "new_EEG_signal_opening_permitted": false,
+  "next_after_discovery_semantic_report_execution": "validation_semantic_report_execution regardless of Discovery p-values, after discovery_semantic_report_execution final lock verification",
+  "phase": "semantic_report_execution_design",
+  "program_policy_canonical_sha256": "11664d32372f598a16652f4e88065234ec731745e78ef6847f6d316e2db68095",
+  "required_Discovery_sources": {
+    "authoritative_context_and_category": {
+      "path": "outputs/tables/derivative_closure_corrected_discovery_master_v1.csv",
+      "sha256": "79aac098573fada34c2dd1247e7ce91e82633130f43cfdea82e2f59b41445039"
+    },
+    "reports_and_acquisition_fraction": {
+      "path": "outputs/tables/outcome_model_integrity_discovery_trial_outcome_manifest.csv",
+      "sha256": "a3cf2292d31749b96a0e3729bb5860d69bb642219ce6e478f4f794fb48c832ec"
+    }
+  },
+  "required_structural_sources": [
+    {
+      "path": "outputs/interpretability/discovery_stimulus_experience_multiresolution_fit_discovery_stimulus_experience_multiresolution_fit/tables/discovery_stimulus_experience_multiresolution_fit_family_assignments_all_k.csv",
+      "role": "experience_assignments",
+      "sha256": "91a95a7c891bb53beec1b3c893c8018ed85a77875938efd4817d9c35ae5b21a5",
+      "split": "Discovery"
+    },
+    {
+      "path": "outputs/interpretability/discovery_stimulus_experience_multiresolution_fit_discovery_stimulus_experience_multiresolution_fit/tables/discovery_stimulus_experience_multiresolution_fit_experience_signatures.csv",
+      "role": "experience_signature",
+      "sha256": "f9128f5225eaa8fd4fc701426a1da5f8385cec0f92d4783b743ae2bf52841326",
+      "split": "Discovery"
+    },
+    {
+      "path": "outputs/interpretability/discovery_report_transition_multiresolution_fit_discovery_report_transition_multiresolution_fit/tables/discovery_report_transition_multiresolution_fit_family_assignments_all_k.csv",
+      "role": "transition_assignments",
+      "sha256": "8703e1f998a0ffb1c4d0b4ff89fa60b22ade8af2e05a248f35d0ae2f4d6aa75a",
+      "split": "Discovery"
+    },
+    {
+      "path": "outputs/interpretability/discovery_report_transition_multiresolution_fit_discovery_report_transition_multiresolution_fit/tables/discovery_report_transition_multiresolution_fit_report_transition_signatures.csv",
+      "role": "transition_signature",
+      "sha256": "6da778106a3d1ae8649d1aa6757f3ad77e6f0b2e95d57d7421e65e2436252c83",
+      "split": "Discovery"
+    }
+  ],
+  "role": "Discovery-only execution of the already-prespecified A1/A2/B2/B3 semantic/report tests",
+  "tests": [
+    "A1_K2",
+    "A1_K3",
+    "A1_K4",
+    "A2_K2",
+    "A2_K3",
+    "A2_K4",
+    "B2",
+    "B3_K2",
+    "B3_K3"
+  ]
+}

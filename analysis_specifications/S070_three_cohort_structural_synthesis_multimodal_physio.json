@@ -1,0 +1,10 @@
+{
+  "phase": "three_cohort_structural_synthesis",
+  "generated_at": "2026-08-07T13:15:10+03:30",
+  "required_boundary": [
+    "three_cohort_structural_synthesis final structural interpretation remains immutable.",
+    "EEG Family 1/2 labels and assignments may not be renamed or retuned.",
+    "No physiology result may be used to retroactively select EEG families or thresholds.",
+    "Any semantic or multimodal hypotheses must be prespecified before inferential testing."
+  ]
+}

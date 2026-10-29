@@ -1,0 +1,155 @@
+{
+  "phase": "multimodal_physio_design",
+  "generated_at": "2026-08-07T13:41:31+03:30",
+  "role": "outcome-free multimodal/peripheral-physiology integration analysis specification",
+  "EEG_boundary": {
+    "three_cohort_structural_synthesis_final_lock_sha256": "3c0b3b2f0998672a3f6521f7b32489d301b3f06561a7e1855b9fbf8f27b5e216",
+    "family_labels": [
+      "Family 1",
+      "Family 2"
+    ],
+    "family_assignments_immutable": true,
+    "semantic_labels_forbidden": true
+  },
+  "physiology_source": {
+    "p02_contract_sha256": "1791ed36e26eaa4a9def67ed4876e0ea866b0d9e031c5af5a770a68dda17e4c7",
+    "contract_origin": "project_output",
+    "corrected_table": "<PHYSIOLOGY_FEATURE_TABLE>",
+    "corrected_table_sha256": "87dfdab02491ace2838b94f7e68eb81203254fb953c75be596a32a4a776b236e",
+    "canonical_table": "<CANONICAL_BEHAVIORAL_TABLE>",
+    "canonical_table_sha256": "70eff894db94ed51d65d103392004162c839bfd3f2850dd3fc15ff3685fd28a6",
+    "merge_key": [
+      "subject_id",
+      "context",
+      "trial_index"
+    ],
+    "biological_features": [
+      "gsr_scr_mean",
+      "gsr_scr_sd",
+      "gsr_scr_median",
+      "gsr_scr_min",
+      "gsr_scr_max",
+      "gsr_scr_sum",
+      "gsr_scr_iqr",
+      "gsr_scr_early_mean",
+      "gsr_scr_late_mean",
+      "gsr_scr_late_minus_early",
+      "gsr_scr_slope",
+      "gsr_scr_auc",
+      "gsr_scl_mean",
+      "gsr_scl_sd",
+      "gsr_scl_median",
+      "gsr_scl_min",
+      "gsr_scl_max",
+      "gsr_scl_sum",
+      "gsr_scl_iqr",
+      "gsr_scl_early_mean",
+      "gsr_scl_late_mean",
+      "gsr_scl_late_minus_early",
+      "gsr_scl_slope",
+      "gsr_scl_auc",
+      "gsr_iscr_mean",
+      "gsr_iscr_sd",
+      "gsr_iscr_median",
+      "gsr_iscr_min",
+      "gsr_iscr_max",
+      "gsr_iscr_sum",
+      "gsr_iscr_iqr",
+      "gsr_iscr_early_mean",
+      "gsr_iscr_late_mean",
+      "gsr_iscr_late_minus_early",
+      "gsr_iscr_slope",
+      "gsr_iscr_auc",
+      "hr_hr_median",
+      "hr_hr_iqr",
+      "hr_hr_skew",
+      "hr_hr_kurt"
+    ],
+    "excluded_columns": [
+      "gsr_source_trial_label",
+      "gsr_n_windows",
+      "gsr_expected_10_windows",
+      "hr_segment",
+      "hr_n_rows_for_segment"
+    ],
+    "raw_dynamic_timeseries_model_allowed": false
+  },
+  "bridge": {
+    "EEG_assignment_key": [
+      "subject_id",
+      "trial_number"
+    ],
+    "canonical_join": [
+      "subject_id",
+      "trial_number_global"
+    ],
+    "canonical_carry": [
+      "context",
+      "context_trial_index as trial_index"
+    ],
+    "physiology_join": [
+      "subject_id",
+      "context",
+      "trial_index"
+    ],
+    "subject_normalization": "sub-XX",
+    "context_aliases": {
+      "ima": "imagery",
+      "ses-ima": "imagery",
+      "vid": "video",
+      "ses-vid": "video"
+    },
+    "metadata_global_trial_as_behavioral_key_forbidden": true
+  },
+  "split_policy": {
+    "Discovery": "development/inference permitted after discovery_multimodal_attachment_qc attachment QC",
+    "Validation": "values remain unopened until prespecified Discovery support+robustness gate",
+    "Confirmation": "values remain unopened until one-shot Validation transfer passes"
+  },
+  "eligibility": {
+    "multimodal_trials_min_per_participant": 16,
+    "family_tests_min_trials_per_family": 4,
+    "family_tests_require_both_families": true,
+    "missing_feature_handling": "training/analysis-set median imputation only; never drop based on family association"
+  },
+  "preprocessing": {
+    "feature_selection": "none",
+    "center_scale": "median/IQR",
+    "zero_iqr_fallback": "pooled training/analysis-set IQR then 1.0",
+    "winsorize": [
+      -6.0,
+      6.0
+    ],
+    "M1_M3_nuisance": [
+      "context",
+      "normalized_trial_order"
+    ],
+    "M2_baseline": [
+      "context",
+      "normalized_trial_order"
+    ]
+  },
+  "primary_tests": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "primary_alpha": 0.05,
+  "primary_multiplicity": "Holm M1-M3",
+  "robustness_prespecified": [
+    "unadjusted counterpart of M1 and M3",
+    "leave-one-participant-out influence diagnostics",
+    "GSR-only and HR-only gated block follow-ups",
+    "family-label numerical swap invariance",
+    "complete-case sensitivity where feasible"
+  ],
+  "forbidden": [
+    "Valence/Liking/report-driven feature selection",
+    "EEG family relabeling",
+    "EEG centroid refit",
+    "EEG threshold tuning",
+    "Validation/Confirmation physiology peeking before gate",
+    "raw dynamic physiology inference",
+    "using source QC/leakage columns as biological predictors"
+  ]
+}

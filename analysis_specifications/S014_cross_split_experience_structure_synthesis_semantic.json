@@ -1,0 +1,34 @@
+{
+  "semantic_report_dissociation_design_data_opening": {
+    "behavioral_values": false,
+    "new_signal_values": false,
+    "rating_early_EEG": false
+  },
+  "semantic_report_dissociation_design_role": "specification, before behavioral or rating_early access in the structural_replication branch, the tests of (A) mismatch between human emotion labels/reports and the replicated stimulus-only neural partitions and (B) neural transformation from stimulus_late to rating_early",
+  "forbidden_in_semantic_report_dissociation_design": [
+    "opening behavioral values",
+    "opening rating_early EEG",
+    "choosing a preferred K post hoc",
+    "renaming families",
+    "semantic interpretation before tests are prespecified"
+  ],
+  "generated_at": "2026-08-19T23:40:06+03:30",
+  "not_established": [
+    "that the brain has exactly 2, 3, or 4 discrete biological states",
+    "that K=2, K=3, and K=4 are mutually independent mechanisms",
+    "that the resolutions form a simple nested hierarchy",
+    "emotion, valence, liking, arousal, context, stimulus, or cognitive semantics",
+    "external-dataset replication"
+  ],
+  "phase": "cross_split_experience_structure_synthesis",
+  "required_separation": [
+    "experience semantic-label mapping branch",
+    "report-transition branch"
+  ],
+  "scientific_status": "K=2,3,4 are reproducible stimulus-only structural partitions across Discovery, Validation, and Confirmation splits of this dataset",
+  "structurally_replicated_resolutions": [
+    2,
+    3,
+    4
+  ]
+}

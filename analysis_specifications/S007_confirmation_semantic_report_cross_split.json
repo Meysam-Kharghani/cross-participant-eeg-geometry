@@ -1,0 +1,92 @@
+{
+  "discovery_semantic_report_execution_numeric_implementation_specification_sha256": "f7747503f9e03b80560d20481e76be7301a9b1f703a986f9d244d7f308bd9d57",
+  "discovery_semantic_report_execution_numeric_source_sha256": "caa62ecc3d5dfe825cd166d8e68078fd1fe5c185c81eb1caef8701f1cacbf29e",
+  "validation_confirmation_semantic_design_final_lock_sha256": "abdebbdab3d462c98d70c1771f93908262a0bac9c27799bc5f2db94f549379b6",
+  "validation_confirmation_semantic_design_policy_sha256": "eead4d797ae255ee3e2937bae050dc2db6b885f08af50f938a05556fd2233211",
+  "Confirmation_results_for_audit_only_not_posthoc_test_selection": [
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 1.0,
+      "reject_adjusted_0p05": false,
+      "test_id": "A1_K2"
+    },
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 0.9483051694830517,
+      "reject_adjusted_0p05": false,
+      "test_id": "A1_K3"
+    },
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 1.0,
+      "reject_adjusted_0p05": false,
+      "test_id": "A1_K4"
+    },
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 0.8261738261738262,
+      "reject_adjusted_0p05": false,
+      "test_id": "A2_K2"
+    },
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 0.46353646353646355,
+      "reject_adjusted_0p05": false,
+      "test_id": "A2_K3"
+    },
+    {
+      "family": "A",
+      "p_adjusted": 1.0,
+      "p_raw": 0.6883116883116883,
+      "reject_adjusted_0p05": false,
+      "test_id": "A2_K4"
+    },
+    {
+      "family": "B2",
+      "p_adjusted": 0.24375624375624375,
+      "p_raw": 0.24375624375624375,
+      "reject_adjusted_0p05": false,
+      "test_id": "B2"
+    },
+    {
+      "family": "B3",
+      "p_adjusted": 0.951048951048951,
+      "p_raw": 0.951048951048951,
+      "reject_adjusted_0p05": false,
+      "test_id": "B3_K2"
+    },
+    {
+      "family": "B3",
+      "p_adjusted": 0.4515484515484515,
+      "p_raw": 0.22577422577422576,
+      "reject_adjusted_0p05": false,
+      "test_id": "B3_K3"
+    }
+  ],
+  "Discovery_Validation_results_selected_Confirmation_tests": false,
+  "K_reselection_permitted": false,
+  "all_prespecified_tests_executed_in_Confirmation": [
+    "A1_K2",
+    "A1_K3",
+    "A1_K4",
+    "A2_K2",
+    "A2_K3",
+    "A2_K4",
+    "B2",
+    "B3_K2",
+    "B3_K3"
+  ],
+  "canonical_context_stimulus_category_permitted": false,
+  "distortion_interpretation_permitted": false,
+  "generated_at": "2026-08-25T00:20:11+03:30",
+  "new_EEG_signal_opening_permitted": false,
+  "new_behavioral_target_opening_permitted_in_cross_split_semantic_report_synthesis": false,
+  "phase": "confirmation_semantic_report_execution",
+  "role": "final cross-split semantic/report synthesis; no new target or EEG opening",
+  "semantic_relabeling_permitted": false
+}

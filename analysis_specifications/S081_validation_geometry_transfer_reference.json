@@ -1,0 +1,52 @@
+{
+  "phase": "validation_geometry_transfer_design",
+  "feature_order": [
+    "early_to_late_norm",
+    "late_to_rating_norm",
+    "early_to_rating_direct_norm",
+    "total_path_length",
+    "directness_ratio",
+    "segment_cosine"
+  ],
+  "pooled_fallback_iqr": {
+    "early_to_late_norm": 0.4754957722315247,
+    "late_to_rating_norm": 0.43253425451665484,
+    "early_to_rating_direct_norm": 0.4071658093620769,
+    "total_path_length": 0.41793243255608914,
+    "directness_ratio": 1.0449506338050496,
+    "segment_cosine": 0.6616508651779611
+  },
+  "fixed_centroids": {
+    "1": [
+      -0.35414370231882775,
+      -0.3054190864870062,
+      0.0023303355418339416,
+      -0.3729072257696148,
+      0.36312713605666835,
+      0.3454466033852239
+    ],
+    "2": [
+      0.6825998665814916,
+      0.5559751984416603,
+      0.19227691522592993,
+      0.7145652013742286,
+      -0.5821176422158368,
+      -0.6172840398179816
+    ]
+  },
+  "support_thresholds": {
+    "in_support_squared_distance_max": 12.825359640315092,
+    "low_margin_threshold": 0.1061596662041992,
+    "reference_rule_distance": "99.5th percentile of cross_person_alignment_fit LOPO-agreeing assigned squared distance",
+    "reference_rule_margin": "1st percentile of cross_person_alignment_fit LOPO-agreeing assignment margin"
+  },
+  "discovery_reference_counts": {
+    "participants": 31,
+    "trajectories": 1237,
+    "family1": 749,
+    "family2": 488,
+    "lopo_agreeing_rows": 1230
+  },
+  "transfer_policy_canonical_sha256": "bd3e7a5f4bd0cba00cfa66a0cd09208c07e0b1a9edab4b2a9493060200e1b37e",
+  "prespecified_transfer_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b"
+}

@@ -1,0 +1,31 @@
+{
+  "cross_split_report_transition_structure_synthesis_behavioral_opening_permitted": false,
+  "cross_split_report_transition_structure_synthesis_new_signal_opening_permitted": false,
+  "cross_split_report_transition_structure_synthesis_semantic_test_execution_permitted": false,
+  "any_K_replicated_in_confirmation": true,
+  "forbidden": [
+    "new EEG signal access in cross_split_report_transition_structure_synthesis",
+    "behavioral report access in cross_split_report_transition_structure_synthesis",
+    "emotion category target mapping in cross_split_report_transition_structure_synthesis",
+    "context target mapping in cross_split_report_transition_structure_synthesis",
+    "stimulus identity target mapping in cross_split_report_transition_structure_synthesis",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family relabeling",
+    "semantic naming",
+    "claims of distortion/dishonesty/suppression/exaggeration/conscious editing"
+  ],
+  "generated_at": "2026-08-20T01:42:41+03:30",
+  "if_no_K_pass": "record Confirmation failure of the discrete transition-family branch; retain the prespecified continuous 14-cell report-transition signature and prohibit rescue or retuning",
+  "if_one_or_more_K_pass": "record all passing K as internally cross-split structurally replicated; do not rank them or assign semantics",
+  "passing_K_confirmation": [
+    2,
+    3
+  ],
+  "phase": "confirmation_report_transition_multiresolution_transfer",
+  "tested_K": [
+    2,
+    3
+  ]
+}

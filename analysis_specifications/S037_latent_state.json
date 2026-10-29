@@ -1,0 +1,134 @@
+{
+  "phase": "latent_state_design",
+  "seed": 540,
+  "scientific_role": "specification outcome-free within-person state discovery and three-epoch trajectory analysis before any latent-state fit",
+  "discovery_only": true,
+  "validation_opened": false,
+  "confirmation_opened": false,
+  "observation_unit": {
+    "state_observation": "one epoch observation within one participant and one trial",
+    "trajectory_unit": "one common trial with stimulus_early, stimulus_late, and rating_early",
+    "epoch_order": [
+      "stimulus_early",
+      "stimulus_late",
+      "rating_early"
+    ],
+    "participant_modeling": "one independent latent-state model per eligible discovery participant"
+  },
+  "cohort": {
+    "source_analysis_set": "all_three_epoch_families",
+    "minimum_common_trials": 30,
+    "must_be_previously_within_person_eligible": true,
+    "must_have_exactly_one_row_per_trial_per_epoch_family": true,
+    "outcome_columns_read_by_latent_state_design_or_latent_state_fit": []
+  },
+  "primary_representation": {
+    "source": "secondary_models outcome-free compact epoch representation",
+    "cells_per_epoch": 169,
+    "qc_cells_in_primary_state_fit": false,
+    "feature_inclusion": "finite fraction >= 0.90 separately in every epoch family for that participant",
+    "minimum_retained_features": 30,
+    "preprocessing_order": [
+      "within participant and epoch family, median-impute retained features",
+      "within participant and epoch family, subtract feature median",
+      "divide by epoch-family IQR; if an epoch-family IQR is <= floor, use participant-pooled IQR for that feature",
+      "drop a feature if pooled IQR is also <= floor",
+      "winsorize standardized values to [-6, 6]",
+      "fit PCA within participant after stacking all three epoch families"
+    ],
+    "iqr_floor": 1e-08,
+    "winsor_limit": 6.0,
+    "pca": {
+      "solver": "full",
+      "whiten": true,
+      "fixed_components": 8,
+      "actual_components": "minimum of fixed_components, retained_features, and observations_minus_one",
+      "minimum_components_required": 2
+    },
+    "rationale": "epoch-family-specific robust centering prevents trivial stage location/scale differences from defining states while retaining within-stage trial variation and cross-stage trajectories"
+  },
+  "state_model": {
+    "model": "GaussianMixture",
+    "covariance_type": "diag",
+    "reg_covar": 0.0001,
+    "n_init": 20,
+    "max_iter": 1000,
+    "candidate_state_counts": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "state_count_never_selected_from_reports_or_context": true,
+    "canonical_label_rule": "sort full-fit state centroids lexicographically by PCA coordinate 1, then 2, etc.; never by report association"
+  },
+  "state_count_and_stability": {
+    "resampling_unit": "trial; all three epoch observations remain coupled in every resample",
+    "repeats": 30,
+    "trial_fraction_without_replacement": 0.8,
+    "comparison": "adjusted Rand index between full-fit labels and resample-fit labels on retained observations",
+    "collapse_definition": "any state has fewer than 8 observations or fewer than 4 unique trials",
+    "eligible_k_requirements": {
+      "full_fit_converged": true,
+      "full_fit_min_state_observations": 8,
+      "full_fit_min_state_unique_trials": 4,
+      "median_ari_at_least": 0.6,
+      "ari_10th_percentile_at_least": 0.3,
+      "collapse_rate_at_most": 0.1
+    },
+    "selection_rule": "among eligible K, choose the smallest K with BIC <= minimum eligible BIC + 10",
+    "no_eligible_k_rule": "declare no stable discrete-state solution for that participant; retain continuous PCA trajectories and do not force clusters"
+  },
+  "trajectory_outputs": {
+    "discrete_when_available": [
+      "state at stimulus_early, stimulus_late, and rating_early",
+      "stimulus_early_to_late transition",
+      "stimulus_late_to_rating transition",
+      "three-state path identifier",
+      "per-epoch occupancy, transition matrices, persistence, switching, and path entropy"
+    ],
+    "continuous_for_every_eligible_participant": [
+      "PCA score vectors at each epoch",
+      "late-minus-early displacement",
+      "rating-minus-late displacement",
+      "rating-minus-early displacement",
+      "segment norms, total path length, direct displacement, directness ratio, and segment cosine when defined"
+    ],
+    "null": {
+      "repeats": 1000,
+      "scheme": "within participant, independently permute trial linkage for stimulus_late and rating_early while preserving each epoch occupancy and keeping stimulus_early fixed",
+      "statistics": [
+        "early_to_late_persistence",
+        "late_to_rating_persistence",
+        "all_three_same_state_rate",
+        "transition_mutual_information"
+      ],
+      "p_value": "one-sided add-one randomization p-value for excess structured persistence/information"
+    }
+  },
+  "diagnostic_only_after_state_lock": {
+    "qc_association": "summarize QC by prespecified state after assignments are written; QC never enters primary state fit or K selection",
+    "epoch_association": "summarize residual epoch-family association after stage-centering; never revise states",
+    "context_and_reports": "forbidden in latent_state_fit; deferred to a separate post-hoc mapping phase after state assignments and trajectories are hashed"
+  },
+  "cross_person_alignment": {
+    "performed_in_latent_state_fit": false,
+    "deferred_role": "later outcome-free layer using prespecified participant state centroids in the common 169-cell compact feature axes",
+    "global_preprocessing_before_within_person_discovery": false
+  },
+  "claim_guardrails": [
+    "a latent state is a reproducible partition of this representation, not ground truth for subjective experience",
+    "failure to obtain stable discrete states does not imply absent neurophysiological structure",
+    "context or participant separability is not emotion decoding",
+    "no best epoch is selected from prior outer-test results",
+    "state discovery and post-hoc report mapping remain separate phases"
+  ],
+  "forbidden": [
+    "reading valence, liking, arousal, emotion reports, labels, or report-derived factors during latent_state_design or latent_state_fit",
+    "choosing K, PCA dimensionality, features, participant inclusion, or state labels from report/context association",
+    "using secondary_models outer-test performance to select an epoch family",
+    "including QC cells in the primary state representation",
+    "global outcome-informed or context-informed alignment",
+    "opening validation or confirmation participants"
+  ]
+}

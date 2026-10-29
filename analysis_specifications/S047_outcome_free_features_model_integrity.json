@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-02T13:43:44+03:30",
+  "phase": "outcome_free_features",
+  "feature_contract": "<PROJECT_ROOT>/config/outcome_free_features_outcome_free_feature_contract.json",
+  "feature_inventory": "<PROJECT_ROOT>/outputs/tables/outcome_free_features_feature_store_inventory.csv",
+  "feature_qc": "<PROJECT_ROOT>/outputs/qc/outcome_free_features_feature_extraction_qc.csv",
+  "common_trial_masks": "<PROJECT_ROOT>/outputs/tables/large_store_integrity_common_trial_mask_manifest.csv",
+  "trial_folds": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_trial_fold_manifest.csv",
+  "participant_folds": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_participant_fold_manifest.csv",
+  "required_modeling_principles": [
+    "use only outcome_free_features feature rows",
+    "branch models use their branch-specific masks",
+    "cross-epoch comparisons use the prespecified same-row masks",
+    "all imputation, scaling, dimensionality reduction, covariance reference, tangent mapping, and alignment are fitted inside outer-training folds only",
+    "compare models on identical evaluation rows",
+    "stimulus and rating branches remain separately reported",
+    "within-person decoding precedes person-specific implementation claims",
+    "no universal biosignal or biological ground-truth claim",
+    "validation and confirmation remain closed"
+  ]
+}

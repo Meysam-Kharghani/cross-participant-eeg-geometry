@@ -1,0 +1,21 @@
+{
+  "phase": "discovery_synthesis",
+  "fixed_before_any_validation_access": true,
+  "validation_currently_open": false,
+  "confirmation_currently_open": false,
+  "conditional_future_scope": "outcome-free transfer of the fixed two-family trajectory geometry only",
+  "required_preconditions": [
+    "discovery_robustness_audit_R1_pass",
+    "discovery_robustness_audit_R7_pass",
+    "discovery_robustness_audit_R8_pass",
+    "new_validation_geometry_transfer_design_specification_hashed_before_validation_read"
+  ],
+  "prohibited_scopes": [
+    "confirmatory H1-H6 mapping validation",
+    "shared discrete state taxonomy transfer",
+    "family renaming",
+    "confirmation access"
+  ],
+  "validation_gate_manifest_sha256": "b545dc5f25a0c2d4a7fd82cbd0651efc2b44a5440270ff1eb0826a6f535c5298",
+  "robustness_policy_canonical_sha256": "424061bad979c7bcbf549d655cd27a479ea933572da975ae8c4aded68a4e9a91"
+}

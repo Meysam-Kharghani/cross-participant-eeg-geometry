@@ -1,0 +1,10 @@
+{
+  "analysis_name": "existing_qc_exclusion_sensitivity",
+  "status": "post_hoc_sensitivity",
+  "purpose": "Test whether held-out trajectory and multiresolution transfer summaries persist after stricter exclusions based on historical EEG quality-control metrics.",
+  "discovery_quantiles": [0.95, 0.975, 0.99],
+  "upper_tail_metrics": ["maximum_abs_uv", "maximum_peak_to_peak_uv", "median_robust_scale_uv"],
+  "lower_tail_metric": "final_good_channels",
+  "heldout_application": "Discovery-derived thresholds applied unchanged to Validation and Confirmation.",
+  "interpretive_boundary": "Exclusion sensitivity only; not a new preprocessing pipeline and not evidence that ocular or muscular contamination is absent."
+}

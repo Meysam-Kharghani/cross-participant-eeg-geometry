@@ -1,0 +1,13 @@
+{
+  "analysis_name": "multiresolution_continuous_null_sensitivity",
+  "status": "post_hoc_sensitivity",
+  "purpose": "Evaluate Discovery compactness and held-out support specificity relative to a covariance-matched single-Gaussian reference in the analyzed standardized signature space.",
+  "resolutions": {
+    "experience": [2, 3, 4],
+    "report_transition": [2, 3]
+  },
+  "null_replicates": 500,
+  "kmeans_n_init": 20,
+  "random_seed": 540,
+  "interpretive_boundary": "Does not redefine the historical structural-transfer criteria, establish a unique natural K, or prove discrete latent states."
+}

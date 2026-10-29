@@ -1,0 +1,221 @@
+{
+  "confirmation_report_transition_transfer_design_data_boundary": {
+    "Confirmation_behavioral_values_read": false,
+    "Confirmation_compact_values_read": false,
+    "Confirmation_context_target_values_read": false,
+    "Confirmation_emotion_category_values_read": false,
+    "Confirmation_manifest_parsed": false,
+    "Confirmation_stimulus_identity_values_read": false,
+    "distortion_interpretation_permitted": false,
+    "semantic_relabeling_permitted": false
+  },
+  "advance_K": [
+    2,
+    3
+  ],
+  "all_advance_K_tested_independently": true,
+  "confirmation_store": {
+    "authoritative_confirmation_trials": 494,
+    "compact": "outputs/large/confirmation_feature_trajectory_confirmation_compact_features_v1/global/epoch_compact_float32.npy",
+    "compact_sha256": "734fa3d2581d95adc172ea854d4f1fccc2432eaeb167960fdf1e76da0c1509d3",
+    "expected_confirmation_subjects": 12,
+    "historical_confirmation_feature_trajectory_final_lock_sha256": "0aae3cc2f447f8383c9ec5656c9a5ba9b4299316f3a19248f34b43850b8246df",
+    "historical_confirmation_feature_trajectory_inventory_sha256": "a60eae0ca4cd586bcb08de32e53674c72960103e3441c4e991c1e89c5bdc156d",
+    "historical_confirmation_feature_trajectory_summary_sha256": "fa04f35c292881357e3adaa7f01c292e57e70c40de6b26df7e983f091f463408",
+    "manifest": "outputs/large/confirmation_feature_trajectory_confirmation_compact_features_v1/global/epoch_manifest.csv",
+    "manifest_sha256": "ccd83881685da351d79c8de5d199b650d17ed0f6e899c332a7c6d731f7becbd2",
+    "root": "outputs/large/confirmation_feature_trajectory_confirmation_compact_features_v1"
+  },
+  "forbidden": [
+    "Confirmation behavioral reports",
+    "emotion category as target",
+    "context as target",
+    "stimulus identity as target",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family merging/splitting/renaming",
+    "ranking K=2/3 by Validation or Confirmation performance",
+    "semantic naming",
+    "claims of distortion/dishonesty/suppression/exaggeration/conscious editing"
+  ],
+  "generated_at": "2026-08-20T01:36:51+03:30",
+  "fixed_assignment": {
+    "2": {
+      "centroids": [
+        [
+          -0.2002955159200782,
+          0.2747698827964071,
+          -0.2191962535395981,
+          0.1972657310315654,
+          -0.2437915074062629,
+          0.2798620186289776,
+          -0.0276678027424309,
+          0.1760419866854639,
+          -0.1540604921369895,
+          0.2001487356128861,
+          -0.266600097428593,
+          0.274103798877674,
+          -0.2576986461923139,
+          0.3504860295366322
+        ],
+        [
+          0.775683394223682,
+          -0.3486895628759451,
+          0.6549534910446001,
+          -0.3385425968835828,
+          0.607525875016082,
+          -0.4343071730995745,
+          0.4509534436928188,
+          -0.1353445018593084,
+          0.572057711120295,
+          -0.3147141886502093,
+          0.6846293646008459,
+          -0.4420435119425352,
+          0.7526006228498985,
+          -0.5276306367322839
+        ]
+      ],
+      "distance": "squared Euclidean in the prespecified 14-cell standardized report-transition signature",
+      "refit": false,
+      "rename": false,
+      "support": {
+        "distance_reference_rule": "99.5th percentile of LOPO-agreeing held-out assigned squared distance",
+        "in_support_squared_distance_max": 40.2113973845982,
+        "low_margin_threshold": 0.2191926245813193,
+        "margin_reference_rule": "1st percentile of LOPO-agreeing held-out assignment margin"
+      },
+      "tie_rule": "lowest numeric family"
+    },
+    "3": {
+      "centroids": [
+        [
+          -0.1887581232807494,
+          0.3713502479305727,
+          -0.2192496624410079,
+          0.2498021706665348,
+          -0.3719028760878357,
+          0.4469038022794954,
+          0.0197736112256945,
+          0.2021092379582388,
+          -0.1763431720818598,
+          0.2881399370587767,
+          -0.3858066969671574,
+          0.4413739180225476,
+          -0.2578041450228478,
+          0.5050492526646342
+        ],
+        [
+          0.0584618942947403,
+          -0.2754645768909965,
+          0.0246855908503675,
+          -0.2598788450953594,
+          0.465206125379498,
+          -0.5248359068060715,
+          0.0617542862545185,
+          -0.0533964256695287,
+          0.1611705415646686,
+          -0.2950095261937981,
+          0.4875675633541893,
+          -0.5274497451035124,
+          0.1090063605671357,
+          -0.4945594094920441
+        ],
+        [
+          1.556851386610017,
+          -0.2871173004554629,
+          1.358471857846745,
+          -0.2292744392482253,
+          0.6082748221539276,
+          -0.1379406244560911,
+          0.7928777879577533,
+          -0.1406923006094315,
+          0.9676525174581116,
+          -0.1961100179840183,
+          0.6995391663137568,
+          -0.1563596041244604,
+          1.373008915457684,
+          -0.3377079657727884
+        ]
+      ],
+      "distance": "squared Euclidean in the prespecified 14-cell standardized report-transition signature",
+      "refit": false,
+      "rename": false,
+      "support": {
+        "distance_reference_rule": "99.5th percentile of LOPO-agreeing held-out assigned squared distance",
+        "in_support_squared_distance_max": 35.1590790032344,
+        "low_margin_threshold": 0.14589975079643672,
+        "margin_reference_rule": "1st percentile of LOPO-agreeing held-out assignment margin"
+      },
+      "tie_rule": "lowest numeric family"
+    }
+  },
+  "fixed_before_confirmation_signal_access_in_this_branch": true,
+  "no_resolution_promoted_or_ranked": true,
+  "participant_eligibility": {
+    "minimum_paired_stimulus_late_rating_early_trials": 16,
+    "no_behavior_based_exclusion": true,
+    "nonfinite_signature_rule": "exclude trial before assignment and record reason",
+    "participant_below_minimum_rule": "exclude participant from transfer gate but retain audit"
+  },
+  "phase": "confirmation_report_transition_transfer_design",
+  "post_confirmation_rule": {
+    "confirmation_report_transition_multiresolution_transfer_role": "one-shot structural transfer only; open the prespecified Confirmation compact store and manifest, build stimulus_late->rating_early signatures, and apply K=2/3 unchanged",
+    "semantic_tests_after_confirmation_report_transition_multiresolution_transfer": "remain closed until the Confirmation structural result is fixed and a separate target-opening execution phase is authorized"
+  },
+  "representation": {
+    "coordinate_order": [
+      "time_frequency_channel_median_iqr__rms_displacement",
+      "time_frequency_channel_median_iqr__cosine_similarity",
+      "morphology_channel_median_iqr__rms_displacement",
+      "morphology_channel_median_iqr__cosine_similarity",
+      "plv_channel_median_iqr__rms_displacement",
+      "plv_channel_median_iqr__cosine_similarity",
+      "waveform_dct_channel_median_iqr__rms_displacement",
+      "waveform_dct_channel_median_iqr__cosine_similarity",
+      "covariance_summary__rms_displacement",
+      "covariance_summary__cosine_similarity",
+      "plv_global__rms_displacement",
+      "plv_global__cosine_similarity",
+      "global__rms_displacement",
+      "global__cosine_similarity"
+    ],
+    "prespecified_discovery_fallback_iqr": {
+      "covariance_summary__cosine_similarity": 0.8399057386656554,
+      "covariance_summary__rms_displacement": 0.3158759958596148,
+      "global__cosine_similarity": 0.2840335425697825,
+      "global__rms_displacement": 0.18707186962909084,
+      "morphology_channel_median_iqr__cosine_similarity": 0.8445768006845836,
+      "morphology_channel_median_iqr__rms_displacement": 0.2990388136689899,
+      "plv_channel_median_iqr__cosine_similarity": 0.5383607599412215,
+      "plv_channel_median_iqr__rms_displacement": 0.1969481432895711,
+      "plv_global__cosine_similarity": 0.6271831326042234,
+      "plv_global__rms_displacement": 0.20618951917546724,
+      "time_frequency_channel_median_iqr__cosine_similarity": 0.3627755134649232,
+      "time_frequency_channel_median_iqr__rms_displacement": 0.16640330683017868,
+      "waveform_dct_channel_median_iqr__cosine_similarity": 0.3870267983577452,
+      "waveform_dct_channel_median_iqr__rms_displacement": 0.30799857014816334
+    },
+    "preprocessing": "exact discovery_report_transition_multiresolution_fit/discovery_stimulus_experience_multiresolution_fit participant-stage preprocessing and transformed-signature within-participant robust scaling; use prespecified Discovery participant-balanced pooled transformed-signature IQR only if a Validation participant local signature IQR <= 1e-8",
+    "signature_cells": 14,
+    "source_cells_per_epoch": 169,
+    "stages": [
+      "stimulus_late",
+      "rating_early"
+    ]
+  },
+  "scientific_role": "specification one-shot Confirmation transfer of Validation-replicated stimulus_late->rating_early report-transition families before Confirmation compact EEG values are opened by this branch",
+  "structural_transfer_gate": {
+    "K_replication_rule": "all gates for that K must pass",
+    "all_source_hash_gates_must_pass": true,
+    "evaluated_separately_for_each_K": true,
+    "failure_rule": "failed K is not retuned, renamed, merged, split, rescued, or reselected",
+    "minimum_distinct_participants_per_family": 5,
+    "minimum_eligible_participants": 9,
+    "minimum_paired_report_transition_fraction_of_authoritative_confirmation_trials": 0.75,
+    "minimum_participant_balanced_in_support_fraction": 0.8,
+    "minimum_participant_balanced_occupancy_per_family": 0.05,
+    "minimum_trials_per_family": 30,
+    "no_behavior_category_context_stimulus_target_mapping": true
+  }
+}

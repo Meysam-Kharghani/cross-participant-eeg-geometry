@@ -1,0 +1,34 @@
+{
+  "Confirmation_signal_opening_in_validation_report_transition_synthesis": false,
+  "Confirmation_signal_opening_in_confirmation_report_transition_transfer_design": false,
+  "Confirmation_signal_opening_requires_separate_post_confirmation_report_transition_transfer_design_execution_phase": true,
+  "advance_K": [
+    2,
+    3
+  ],
+  "advance_rule": "all and only Validation-replicated report-transition K advance unchanged; no ranking, winner selection, K reselection, centroid refit, threshold tuning, family relabeling, or semantic interpretation",
+  "forbidden": [
+    "ranking K=2/3 by Validation performance",
+    "selecting a preferred transition K after seeing Validation",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family merging/splitting/renaming",
+    "semantic naming",
+    "Validation behavioral/category/context/stimulus target access",
+    "Confirmation EEG access in validation_report_transition_synthesis",
+    "Confirmation behavioral/category/context/stimulus target access",
+    "claims of distortion/dishonesty/suppression/exaggeration/conscious editing"
+  ],
+  "prespecified_boundaries": {
+    "Confirmation_behavioral_values_read": false,
+    "Confirmation_signal_values_read": false,
+    "distortion_interpretation_permitted": false,
+    "new_behavioral_values_opened": false,
+    "new_signal_values_opened": false,
+    "semantic_relabeling_permitted": false
+  },
+  "generated_at": "2026-08-20T01:30:14+03:30",
+  "phase": "validation_report_transition_synthesis",
+  "semantic_tests_opening_in_validation_report_transition_synthesis": false
+}

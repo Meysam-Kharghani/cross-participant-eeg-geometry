@@ -1,0 +1,159 @@
+{
+  "phase": "mapping_design",
+  "seed": 540,
+  "scientific_role": "strictly post-hoc Discovery-only mapping of immutable cross_person_alignment_fit trajectory families/geometry and continuous aligned local-state embeddings to subjective reports, context, and stimulus variables",
+  "discovery_only": true,
+  "validation_opened": false,
+  "confirmation_opened": false,
+  "immutable_source_boundary": {
+    "source_phase": "cross_person_alignment_fit",
+    "alignment_refit_forbidden": true,
+    "family_count_revision_forbidden": true,
+    "family_relabeling_from_reports_forbidden": true,
+    "trajectory_family_labels_remain_geometric_labels_1_and_2": true,
+    "state_branch_rule": "cross_person_alignment_fit selected no stable shared discrete state family; use only the fixed continuous aligned-state embedding and never fabricate state families",
+    "continuous_only_participants_retained": true
+  },
+  "mapping_population": {
+    "trial_level": "all 1,237 fixed cross_person_alignment_fit trajectories from all 31 eligible Discovery participants",
+    "state_level": "all local states from the 19 participants with stable latent_state_fit within-person states; report values are attached to epoch observations only after policy lock",
+    "trial_to_state_weight": "each of the three epoch observations in a trial receives weight 1/3 so every trial contributes total weight one"
+  },
+  "subjective_report_vector": {
+    "ordered_columns": [
+      "joy",
+      "inspiration",
+      "tenderness",
+      "sadness",
+      "fear",
+      "disgust",
+      "arousal",
+      "valence",
+      "familiarity",
+      "liking"
+    ],
+    "core_reports": [
+      "valence",
+      "liking"
+    ],
+    "component_reports": [
+      "joy",
+      "inspiration",
+      "tenderness",
+      "sadness",
+      "fear",
+      "disgust",
+      "arousal",
+      "familiarity"
+    ],
+    "interpretation": "dimensions overlap but are not interchangeable; no single valence label substitutes for the full profile"
+  },
+  "nuisance_adjustment": {
+    "primary_report_residualization": "fit report ~ participant fixed effect + context + acquisition_fraction + acquisition_fraction_squared without any family/geometry/state predictor; use fold-contained fits for cross-validation and full-Discovery fits only for within-participant family contrasts",
+    "raw_descriptives": "also report unadjusted family means and participant-level contrasts, explicitly labeled descriptive",
+    "emotion_category_not_a_nuisance_covariate": "emotion_category is a mapping target and is never used to residualize reports"
+  },
+  "global_hypothesis_family": {
+    "H1_trajectory_family_report_profile": {
+      "predictor": "fixed two-family trajectory assignment",
+      "outcome": "10-dimensional nuisance-adjusted report vector",
+      "statistic": "shrinkage Hotelling-style quadratic statistic on the 31 participant-specific family-2 minus family-1 contrast vectors",
+      "null": "10000 joint participant sign flips; the full 10-dimensional vector is flipped together",
+      "effect_reporting": "participant-bootstrap confidence intervals for the global norm and every report contrast"
+    },
+    "H2_continuous_geometry_incremental_report_mapping": {
+      "predictor": [
+        "standardized_early_to_late_norm",
+        "standardized_late_to_rating_norm",
+        "standardized_early_to_rating_direct_norm",
+        "standardized_total_path_length",
+        "standardized_directness_ratio",
+        "standardized_segment_cosine"
+      ],
+      "baseline": "context + acquisition_fraction + acquisition_fraction_squared",
+      "full_model": "baseline plus all six fixed standardized trajectory-geometry coordinates",
+      "estimator": "multivariate ridge; alpha selected only inside training participants from the prespecified ridge grid",
+      "outer_validation": "fixed cross_person_fold, with no test-participant report calibration",
+      "global_metric": "multivariate out-of-fold SSE improvement and variance-weighted Delta-R2 versus baseline",
+      "null": "1000 within-participant permutations of the entire 10-dimensional report row vector, preserving report covariance",
+      "bootstrap": "5000 participant bootstrap replicates"
+    },
+    "H3_continuous_state_embedding_report_mapping": {
+      "predictor": [
+        "aligned_state_pc1",
+        "aligned_state_pc2",
+        "aligned_state_pc3",
+        "aligned_state_pc4",
+        "aligned_state_pc5",
+        "aligned_state_pc6",
+        "aligned_state_pc7",
+        "aligned_state_pc8"
+      ],
+      "state_profile_construction": "aggregate nuisance-adjusted trial report vectors to each local state with epoch weight 1/3, then occupancy-weight center state profiles within participant",
+      "estimator": "leave-one-participant-out multivariate ridge from the fixed aligned-state PCs to the 10-dimensional state report profile",
+      "baseline": "zero after within-participant weighted centering",
+      "global_metric": "held-out multivariate SSE improvement and variance-weighted Delta-R2",
+      "null": "10000 within-participant permutations of complete state-profile vectors across that participant local states",
+      "no_discrete_state_claim": true
+    },
+    "H4_trajectory_family_context": {
+      "predictor": "fixed trajectory family",
+      "target": "context",
+      "statistic": "participant-balanced normalized mutual information and Cramers V",
+      "null": "10000 within-participant family-label permutations preserving each participant family counts"
+    },
+    "H5_trajectory_family_emotion_category": {
+      "analysis_set": "all fixed trajectories with prespecified nonmissing emotion_category; no imputation and no exclusion from other hypotheses",
+      "predictor": "fixed trajectory family",
+      "target": "emotion_category",
+      "statistic": "participant-balanced normalized mutual information and Cramers V",
+      "null": "10000 within-participant family-label permutations"
+    },
+    "H6_trajectory_family_stimulus_identity": {
+      "analysis_set": "all fixed trajectories with prespecified nonmissing stimulus_id; no imputation and no exclusion from other hypotheses",
+      "predictor": "fixed trajectory family",
+      "target": "stimulus_id",
+      "statistic": "participant-balanced normalized mutual information",
+      "null": "10000 within-participant family-label permutations"
+    }
+  },
+  "multiplicity_and_followups": {
+    "global_control": "Holm family-wise correction across H1-H6",
+    "report_followups": "for H1, H2, or H3, report all 10 dimension-specific results; claim dimension-specific support only when the parent global hypothesis passes Holm and the 10 child p-values pass Holm within that parent",
+    "core_reports": "valence and liking remain explicitly identified but are not exempt from multiplicity control",
+    "categorical_followups": "cell residuals and category-specific proportions are descriptive only; no post-hoc category p-value fishing",
+    "threshold": 0.05
+  },
+  "effect_size_and_uncertainty": {
+    "participant_balance": "every participant has equal total weight in all trial-level statistics",
+    "bootstrap_unit": "participant",
+    "bootstrap_repeats": 5000,
+    "interval": "percentile 95 percent",
+    "family_contrast_direction": "family 2 minus family 1; labels are not renamed after mapping",
+    "report_scale": "original rating scale plus standardized effect size based on participant-level contrast SD"
+  },
+  "execution_order": [
+    "verify cross_person_alignment_fit contract, authorization, branch decisions, and every final output hash",
+    "write and SHA-256 lock this complete mapping policy before opening reports/context/stimulus values",
+    "verify the prespecified primary_analysis_reference outcome-manifest hash and derivative_closure corrected layered-master hash",
+    "attach values one-to-one to fixed cross_person_alignment_fit trial IDs and latent_state_fit local-state epoch assignments",
+    "write immutable mapping manifests and source/missingness audits without calculating any association",
+    "mapping_inference may execute only the prespecified H1-H6 analyses and may not revise alignment or mapping design"
+  ],
+  "forbidden": [
+    "opening Validation or Confirmation participants",
+    "refitting cross_person_alignment_fit alignment after any report/context/stimulus value is opened",
+    "choosing family count, state count, embedding dimension, report subset, covariates, or test from observed mapping strength",
+    "renaming family 1/2 as positive, negative, pleasant, unpleasant, engaged, disengaged, or emotion categories before inference",
+    "dropping continuous-only participants or low-margin trials to improve association",
+    "globally dropping trials that lack prespecified stimulus identity; those rows remain in report/context hypotheses and are excluded only from the predeclared stimulus-target test",
+    "using report variables to alter any EEG preprocessing, PCA, GMM, state assignment, trajectory geometry, or family assignment"
+  ],
+  "claim_guardrails": [
+    "trajectory families are geometrical trajectory regimes, not emotion classes",
+    "a significant report association is post-hoc Discovery evidence and not independent validation",
+    "a null state-embedding mapping does not erase stable within-person states",
+    "context or stimulus association may explain part of report association and must be reported alongside it",
+    "Validation and Confirmation remain required for any generalization claim"
+  ]
+}

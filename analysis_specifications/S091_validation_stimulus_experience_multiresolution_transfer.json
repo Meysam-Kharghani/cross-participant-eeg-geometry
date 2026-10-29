@@ -1,0 +1,32 @@
+{
+  "any_K_replicated": true,
+  "confirmation_design_specification_permitted": true,
+  "confirmation_signal_opening_in_validation_experience_transfer_synthesis": false,
+  "forbidden": [
+    "Validation behavioral reports",
+    "emotion category target mapping",
+    "context target mapping",
+    "stimulus identity target mapping",
+    "rating_early EEG",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family relabeling",
+    "semantic naming",
+    "Confirmation signal access in validation_experience_transfer_synthesis"
+  ],
+  "generated_at": "2026-08-19T23:16:37+03:30",
+  "if_no_K_pass": "close the discrete stimulus-experience transfer branch and move to the separately preplanned report-transition/continuous route; no K rescue or retuning",
+  "if_one_or_more_K_pass": "only passing K may be considered for a separately prespecified Confirmation transfer; validation_experience_transfer_synthesis itself must not open Confirmation signal values",
+  "passing_K": [
+    2,
+    3,
+    4
+  ],
+  "phase": "validation_stimulus_experience_multiresolution_transfer",
+  "tested_K": [
+    2,
+    3,
+    4
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "phase": "discovery_multimodal_synthesis",
+  "generated_at": "2026-08-08T21:56:44+03:30",
+  "required_inputs": [
+    "fixed subjective-architecture evidence",
+    "three_cohort_structural_synthesis final three-split EEG structural synthesis",
+    "discovery_multimodal_synthesis multimodal analysis conclusion"
+  ],
+  "required_boundary": [
+    "Family 1/2 remain geometric labels only.",
+    "Validation and Confirmation physiology remain unopened for unsupported M1-M3.",
+    "No post-hoc feature selection or semantic relabeling is permitted.",
+    "Any future new physiology analysis, especially raw dynamic physiology, requires a new prospective analysis specification and must not be presented as confirmation of M1-M3."
+  ]
+}

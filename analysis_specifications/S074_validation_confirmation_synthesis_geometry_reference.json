@@ -1,0 +1,19 @@
+{
+  "phase": "validation_confirmation_synthesis",
+  "confirmation_transfer_policy_canonical_sha256": "73df540947a247e541f20766de290b3c7cf6878ec2e1cc3bb17684f642c286c9",
+  "attachment_policy_canonical_sha256": "a8b705d974af41d073f2e3e58f702fbb3e70efd5c8c0dbdbf1d2798e7f135278",
+  "prespecified_transfer_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "validation_lineage_reference_sha256": "c088554da2135e5f397edc4301913f2fc2b6f15932ffbbc9384471719d669bf7",
+  "discovery_reference_preprocessing_sha256": "22602f5e382099c61284a68f67db9c218a3f42d5e913420817a2c2130d5c2518",
+  "discovery_reference_centroids_sha256": "adfd4e6c8c83234fd5a4e9d525a99d19fa221ac16b7ef96d4a82aad6b4ebd34e",
+  "confirmation_roster_sha256": "7dca92433e0259d14ed5b391c8207e06b67ed932eef4a6a25ed31fb724fe1ab8",
+  "prespecified_gate_manifest_sha256": "fe5272de3481de1ff548a6a15821b263228d5d4d858c1fcfeb4ab49e1104947b",
+  "prespecified_output_schema_sha256": "e49592986be8e3e68ec1471193ba6579d8974a734b893557d8d30ffd3fdac1ae",
+  "family_labels": [
+    "Family 1",
+    "Family 2"
+  ],
+  "renaming_permitted": false,
+  "centroid_refit_permitted": false,
+  "threshold_tuning_permitted": false
+}

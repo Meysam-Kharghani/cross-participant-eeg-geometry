@@ -1,0 +1,27 @@
+{
+  "phase": "validation_confirmation_synthesis",
+  "fixed_before_confirmation_access": true,
+  "source_resolution": "validation_source_epoch_lineage_validated_attachment_rule_EVENT_GRAMMAR_FINAL_GENERALIZED_BY_prespecified_ROSTER_SIZE",
+  "validation_reference_executor_sha256": "c088554da2135e5f397edc4301913f2fc2b6f15932ffbbc9384471719d669bf7",
+  "validation_attachment_resolution_sha256": "db78b6578d8ea81ac40ebc6f6abd310a45ed1749d80d258dce0905213914a6d7",
+  "rules": [
+    {
+      "condition": "authoritative n_trials == 42",
+      "method": "exact README TypeIDs -> global primary non-overlapping event grammar -> fixed capacity 21 imagery plus 21 video -> chronological behavior mapping"
+    },
+    {
+      "condition": "authoritative n_trials < 42",
+      "method": "exact retained behavioral trial ID -> exact metadata rating anchor -> unique exact source stimulus between adjacent raw rating events; preserve original retained trial IDs"
+    }
+  ],
+  "rating_anchor_join_key": "metadata.trial_number, never metadata.global_trial",
+  "context_source": "exact selected EEG trigger; metadata context is diagnostic only",
+  "within_subject_block_fold": "five contiguous folds using the exact raw_eeg_epoch_folds rule",
+  "forbidden": [
+    "Confirmation outcomes/reports",
+    "canonical context as selection target",
+    "metadata global_trial as behavioral join key",
+    "adjacent-rating heuristic for complete 42-trial subjects",
+    "alternate window selection after seeing Confirmation coverage"
+  ]
+}

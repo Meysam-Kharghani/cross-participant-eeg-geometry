@@ -1,0 +1,26 @@
+{
+  "phase": "three_cohort_structural_synthesis",
+  "generated_at": "2026-08-07T13:15:10+03:30",
+  "supported_claims": [
+    "A two-family outcome-free EEG trajectory-geometry partition was discovered in the Discovery split under prespecified unsupervised procedures.",
+    "The fixed two-family geometry transferred without centroid refitting, threshold tuning, feature selection, or family renaming to the Validation split.",
+    "The same fixed geometry transferred again to the Confirmation split among participants meeting the pre-prespecified minimum trajectory criterion.",
+    "The structural result therefore replicated across three pre-specified non-overlapping splits of this dataset.",
+    "Discovery post-hoc H1-H6 semantic mappings were all unsupported after the prespecified multiplicity gate."
+  ],
+  "not_supported_claims": [
+    "Family 1 or Family 2 is a pleasure, pain, valence, liking, emotion, context, category, stimulus, or causal state.",
+    "The two families are a universal cross-person biomarker.",
+    "The result is an independent external-study replication; all three cohorts come from one dataset split.",
+    "The absence of supported Discovery semantic mappings proves that no semantic relation exists.",
+    "Validation or Confirmation semantically validate H1-H6; those mappings were intentionally not tested there.",
+    "A stable shared discrete taxonomy of local within-person states was found; that branch did not pass its prespecified no-force criteria."
+  ],
+  "family_labels_fixed": [
+    "Family 1",
+    "Family 2"
+  ],
+  "family_labels_are_geometric_only": true,
+  "semantic_mapping_closed_for_validation_and_confirmation": true,
+  "posthoc_relabeling_forbidden": true
+}

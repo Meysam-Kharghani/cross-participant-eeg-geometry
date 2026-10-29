@@ -1,0 +1,19 @@
+{
+  "fallback_if_exact_sync_not_recovered": "Keep raw event-aligned amplitude branch closed, but separately audit author-provided within-trial 3-s GSR derivatives as a stimulus-only dynamic physiology representation.",
+  "forbidden": [
+    "using Valence/Liking/reports/emotion labels/family assignments to choose offsets",
+    "using EEG/GSR/PPG amplitude to choose an offset in exact_physio_eeg_sync_recovery",
+    "moving epoch windows",
+    "opening Validation or Confirmation raw physiology",
+    "treating coarse README-minute overlap as exact event synchronization"
+  ],
+  "generated_at": "2026-08-10T15:06:11+03:30",
+  "phase": "raw_dynamic_physio_sync_correction",
+  "required_order": [
+    "audit dataset-provided exact timing/acquisition metadata and code",
+    "audit timing-column discontinuities and run-boundary consistency without signal amplitude",
+    "audit author-released physiology segmentation metadata as an independent calibration source if available",
+    "only after an exact-sync solution is prespecified may a later phase open Discovery raw amplitudes"
+  ],
+  "role": "Outcome-blind exact synchronization recovery/audit. Establish per-run EEG↔physiology offset to <=1 s before any raw amplitude access."
+}

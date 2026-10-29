@@ -1,0 +1,147 @@
+{
+  "Discovery_behavior_reference_not_opened": {
+    "canonical_master": {
+      "path": "outputs/tables/derivative_closure_corrected_discovery_master_v1.csv",
+      "sha256": "79aac098573fada34c2dd1247e7ce91e82633130f43cfdea82e2f59b41445039"
+    },
+    "join_key": "raw_behavior_row_id with subject_id/trial_number integrity checks",
+    "nominal_emotion_categories": [
+      "sad",
+      "dis",
+      "fear",
+      "neu",
+      "joy",
+      "ten",
+      "ins"
+    ],
+    "ordered_reports": [
+      "joy",
+      "inspiration",
+      "tenderness",
+      "sadness",
+      "fear",
+      "disgust",
+      "arousal",
+      "valence",
+      "familiarity",
+      "liking"
+    ],
+    "trial_outcome_manifest": {
+      "path": "outputs/tables/outcome_model_integrity_discovery_trial_outcome_manifest.csv",
+      "sha256": "a3cf2292d31749b96a0e3729bb5860d69bb642219ce6e478f4f794fb48c832ec"
+    }
+  },
+  "activation_rule": "No semantic/report test may execute until the report-transition structural branch has been fixed under the semantic_report_dissociation_design/discovery_report_transition_multiresolution_fit lineage and any held-out structural-transfer decisions required by that branch have been prespecified.",
+  "experience_reference_files": {
+    "Confirmation_assignments": {
+      "path": "outputs/interpretability/confirmation_stimulus_experience_multiresolution_transfer_confirmation_stimulus_experience_multiresolution_transfer/tables/confirmation_stimulus_experience_multiresolution_transfer_confirmation_family_assignments_all_k.csv",
+      "sha256": "2159d0e73b3cc4333a733b1eed28634a80269420d7397f73b38ebd868f0736ed"
+    },
+    "Confirmation_continuous_signature": {
+      "path": "outputs/interpretability/confirmation_stimulus_experience_multiresolution_transfer_confirmation_stimulus_experience_multiresolution_transfer/tables/confirmation_stimulus_experience_multiresolution_transfer_confirmation_experience_signatures.csv",
+      "sha256": "99f9a171c75fdd6680e96cf08c91e73ca9abba4ee2c9b71a09fac1837d962c5d"
+    },
+    "Discovery_assignments": {
+      "path": "outputs/interpretability/discovery_stimulus_experience_multiresolution_fit_discovery_stimulus_experience_multiresolution_fit/tables/discovery_stimulus_experience_multiresolution_fit_family_assignments_all_k.csv",
+      "sha256": "91a95a7c891bb53beec1b3c893c8018ed85a77875938efd4817d9c35ae5b21a5"
+    },
+    "Discovery_continuous_signature": {
+      "path": "outputs/interpretability/discovery_stimulus_experience_multiresolution_fit_discovery_stimulus_experience_multiresolution_fit/tables/discovery_stimulus_experience_multiresolution_fit_experience_signatures.csv",
+      "sha256": "f9128f5225eaa8fd4fc701426a1da5f8385cec0f92d4783b743ae2bf52841326"
+    },
+    "Validation_assignments": {
+      "path": "outputs/interpretability/validation_stimulus_experience_multiresolution_transfer_validation_stimulus_experience_multiresolution_transfer/tables/validation_stimulus_experience_multiresolution_transfer_validation_family_assignments_all_k.csv",
+      "sha256": "c83ad33c6e1485de814b6653087c5f7b929674f46c0edff8247b540fa0813fe1"
+    },
+    "Validation_continuous_signature": {
+      "path": "outputs/interpretability/validation_stimulus_experience_multiresolution_transfer_validation_stimulus_experience_multiresolution_transfer/tables/validation_stimulus_experience_multiresolution_transfer_validation_experience_signatures.csv",
+      "sha256": "212539287c54395ea8474f3a24a6d4c99d6edc99423b27afa836c60a698ca298"
+    }
+  },
+  "generated_at": "2026-08-19T23:51:24+03:30",
+  "global_boundaries": [
+    "No emotion/report value may influence any EEG preprocessing, K choice, centroid, support threshold, or structural gate.",
+    "No family may be renamed from Discovery behavior and then treated as having that meaning in held-out splits.",
+    "The dataset contains joy/inspiration/tenderness/sadness/fear/disgust/neutral categories; it does not contain anger as a nominal category.",
+    "The report-transition hypothesis concerns neural transformation around evaluation/report generation, not truthfulness of the participant.",
+    "Physiology remains outside the primary structural_replication semantic program unless a separately prespecified synchronized representation becomes available."
+  ],
+  "heldout_behavior_rule": "Before Validation or Confirmation behavior is opened, a separate lineage/specification must materialize authoritative held-out behavioral/category/context rows from the same prespecified split and corrected event/stimulus lineage. Discovery-selected report subsets, thresholds, family names, or semantic labels are forbidden.",
+  "hypothesis_A_label_mismatch": {
+    "A1_nominal_category_family_mapping": {
+      "cross_split_requirement": "the same prespecified family IDs and same metrics are reported separately in Discovery, Validation, and Confirmation; no split-specific relabeling or category regrouping",
+      "interpretation": "weak/many-to-many mapping is evidence of poor alignment between the human category taxonomy and the neural partition, but non-significance alone is not proof that a label is wrong",
+      "mixing_outputs": [
+        "participant-balanced P(family | emotion_category)",
+        "participant-balanced P(emotion_category | family)",
+        "conditional entropy H(family | emotion_category)",
+        "conditional entropy H(emotion_category | family)",
+        "per-category maximum-family concentration",
+        "per-family maximum-category concentration"
+      ],
+      "null": "10000 within-participant permutations of family labels preserving each participant's family counts",
+      "primary_metrics": [
+        "participant-balanced normalized mutual information between emotion_category and family",
+        "participant-balanced Cramer's V between emotion_category and family"
+      ],
+      "tested_K": [
+        2,
+        3,
+        4
+      ]
+    },
+    "A2_full_report_profile_family_mapping": {
+      "baseline": "participant-safe nuisance terms only: context + acquisition_fraction + acquisition_fraction_squared",
+      "dimension_followups": "individual report effects are secondary and only interpreted after the parent 10D test; Holm within the 10 reports",
+      "model": "LOPO multinomial logistic regression with fixed L2 regularization grid selected inside training participants only",
+      "null": "1000 within-participant permutations of the complete 10-report row vector preserving report covariance",
+      "predictor": "all 10 reports jointly; no post-hoc subset selection",
+      "primary_statistic": "participant-balanced held-out balanced-accuracy improvement over baseline",
+      "tested_K": [
+        2,
+        3,
+        4
+      ]
+    },
+    "multiplicity": "Holm across the six parent tests A1/A2 x K=2,3,4 within each split; held-out replication is evaluated with the exact same parent definitions",
+    "question": "Do human nominal emotion labels and 10-dimensional subjective reports map cleanly to the replicated stimulus-only neural partitions, or are the relations many-to-many?",
+    "semantic_naming_rule": "even a significant association does not rename a family automatically; a family may only receive a semantic label if the mapping is strong, specific, directionally stable across held-out splits, and a later naming rule has been separately prespecified"
+  },
+  "hypothesis_B_report_transition": {
+    "B0_outcome_free_structure_first": "report-transition structure must be discovered/fixed without behavior under the RT policy above",
+    "B1_experience_transition_structural_coupling": {
+      "behavior_used": false,
+      "metrics": [
+        "ARI/NMI between experience and report-transition discrete resolutions when available",
+        "participant-balanced contingency and conditional occupancy matrices",
+        "continuous canonical correlation is forbidden unless separately prespecified"
+      ]
+    },
+    "B2_incremental_report_mapping_primary": {
+      "M0": "context + acquisition_fraction + acquisition_fraction_squared",
+      "M1": "M0 + prespecified 14-cell continuous experience signature",
+      "M2": "M1 + prespecified 14-cell continuous report-transition signature",
+      "estimator": "multivariate ridge; alpha grid [1e-4,1e-3,1e-2,1e-1,1,10,100,1000,10000] selected inside training participants only",
+      "interpretation": "positive support means rating/report-stage neural transformation contains information about the eventual report beyond the stimulus-only representation. It does NOT establish distortion, dishonesty, conscious editing, suppression, or exaggeration.",
+      "null": "1000 within-participant permutations of the complete 10-report row vector, preserving covariance among reports",
+      "outer_validation": "leave-one-participant-out",
+      "primary_statistic": "participant-balanced held-out multivariate SSE reduction / R2 improvement of M2 over M1",
+      "secondary": "dimension-specific Delta-R2 for the 10 reports, gated by the parent global test and Holm-corrected across reports",
+      "target": "joint 10-dimensional report vector",
+      "training_only_target_preprocessing": "for each report dimension, standardize using training participants only; no test-participant outcome centering/calibration"
+    },
+    "B3_discrete_transition_family_report_mapping": {
+      "activation": "only if one or more report-transition K are structurally replicated",
+      "method": "apply the same 10D family-report mapping framework to each replicated transition K; no K is chosen based on report strength",
+      "status": "secondary/gated"
+    },
+    "question": "Does stimulus_late -> rating_early neural transformation carry report-related information beyond the already replicated stimulus-only experience representation?"
+  },
+  "immutable_experience_resolutions": [
+    2,
+    3,
+    4
+  ],
+  "phase": "semantic_report_dissociation_design",
+  "status": "future_semantic_tests_prespecified_but_targets_unopened"
+}

@@ -1,0 +1,81 @@
+{
+  "signal_space_feature_decomposition_authorization": "only blocks satisfying replicated_prominent_block_rule in heldout_physiological_transfer may enter 169-feature decomposition",
+  "topographic_extension_analysis_reopened": false,
+  "structural_replication_semantic_analysis_reopened": false,
+  "K_reselection_permitted": false,
+  "all_assigned_sensitivity": "repeat point-estimate characterization using all assigned held-out trials/participants; sensitivity cannot satisfy or overturn primary gate",
+  "authorization": "heldout_physiological_transfer may open only prespecified Validation/Confirmation structural signature and assignment values after verifying physiological_characterization and discovery_physiological_reference_atlas locks",
+  "behavioral_or_semantic_values_permitted": false,
+  "bootstrap": {
+    "ci": "2.5th and 97.5th percentiles using NumPy quantile linear method over finite replicates",
+    "domain_offset": {
+      "experience": 0,
+      "report_transition": 10000
+    },
+    "finite_replicate_requirement": 1900,
+    "n_resamples": 2000,
+    "sampling": "sample eligible participant IDs with replacement within each split; a duplicated participant contributes again; for each family average available sampled participant-family means",
+    "seed_formula": "540100000 + domain_offset + split_offset + 100*k + 10*family_low + family_high",
+    "split_offset": {
+      "Confirmation": 2000,
+      "Validation": 1000
+    },
+    "unit": "participant"
+  },
+  "contrast_cosine": {
+    "definition": "cosine between fixed Discovery 14D contrast vector and heldout 14D contrast vector",
+    "epsilon": 1e-12,
+    "zero_norm_convention": 0.0
+  },
+  "discovery_coordinate_contrasts": {
+    "path": "outputs/interpretability/discovery_physiological_reference_atlas_discovery_physiological_reference_atlas/tables/discovery_physiological_reference_atlas_discovery_coordinate_contrasts.csv",
+    "sha256": "afc347f0e991adf077a33d4b3e78fe66178596f32053fb0dac2921a68cd4fb27"
+  },
+  "discovery_non_global_block_contributions": {
+    "path": "outputs/interpretability/discovery_physiological_reference_atlas_discovery_physiological_reference_atlas/tables/discovery_physiological_reference_atlas_discovery_non_global_block_contributions.csv",
+    "sha256": "2da42f6a811282001e752555595d3e1a5fda07562931b1ccc02f90e6be59dced"
+  },
+  "discovery_reference_vectors": {
+    "all_14_coordinates_required": true,
+    "orientation": "family_high_minus_family_low",
+    "path": "outputs/interpretability/discovery_physiological_reference_atlas_discovery_physiological_reference_atlas/tables/discovery_physiological_reference_atlas_discovery_reference_contrast_vectors_14d.csv",
+    "sha256": "3154196fdf57086d5870011376b8cc65f33967aad8a7d722d7a67d405eea30fe"
+  },
+  "domains": {
+    "experience": {
+      "K": [
+        2,
+        3,
+        4
+      ]
+    },
+    "report_transition": {
+      "K": [
+        2,
+        3
+      ]
+    }
+  },
+  "family_centroid": "within-participant family mean of all 14 standardized coordinates, then equal-weight mean across participants represented in that family",
+  "family_relabeling_permitted": false,
+  "fingerprint_direction_replication_gate": "for BOTH Validation and Confirmation: bootstrap 95% lower CI of contrast cosine > 0 AND point-estimate sign concordance >= 10/14",
+  "global_pair": "coordinates 12-13 reported separately; never counted as a seventh source block",
+  "heldout_splits": [
+    "Validation",
+    "Confirmation"
+  ],
+  "interpretation": "replicated fingerprint means reproducible feature-space geometry only; no emotion semantics, generator localization, causal mechanism, or topographic rescue",
+  "new_family_fit_permitted": false,
+  "no_crosssplit_selection": true,
+  "no_inferential_p_values": true,
+  "non_global_block_contribution": "sum of squared heldout contrast coordinates within each prespecified RMS/cosine pair divided by sum over coordinates 0..11",
+  "phase": "discovery_physiological_reference_atlas",
+  "primary_eligibility": "participant_eligible == True in each prespecified transfer assignment table",
+  "replicated_prominent_block_rule": "non-global block contribution > 1/6 in Discovery, Validation, Confirmation AND at least one member coordinate satisfies stable-coordinate rule",
+  "sign_concordance": {
+    "definition": "exact sign agreement across all 14 coordinates relative to Discovery",
+    "denominator": 14,
+    "sign_epsilon": 1e-12
+  },
+  "stable_coordinate_rule": "same point-estimate contrast sign in Discovery, Validation, Confirmation AND both heldout participant-bootstrap 95% CIs exclude zero in that direction"
+}

@@ -1,0 +1,20 @@
+{
+  "heldout_physiological_transfer_signal_space_feature_decomposition_policy_sha256": "873ee51cde201986041780a89726b2a45245e304369b1e9088c6c7a49e2cfe25",
+  "heldout_physiological_transfer_authorization_registry_sha256": "873d08f61663d15f79829f1921f43e1c21dc04ed70bc98f50e4130d8a4d800ba",
+  "heldout_physiological_transfer_corrected_final_lock_sha256": "190b9226fc272d901b30ae52cde8666c035262bf5adc653ef562614fecc3b1df",
+  "physiological_synthesis_must_preserve_assignment_conditioned_limitation": true,
+  "physiological_synthesis_must_report_all_authorized_blocks": true,
+  "topographic_extension_or_structural_replication_reopening_permitted": false,
+  "all_authorized_features_emitted": true,
+  "authorization": "physiological_synthesis synthesis/claims ledger only; no new data opening or inferential testing",
+  "behavioral_or_semantic_values_permitted": false,
+  "family_semantic_naming_permitted": false,
+  "generated_at": "2026-08-25T03:07:16+03:30",
+  "interpretation_boundary": "stable subfeatures describe reproducible contributions within the prespecified compact EEG representation conditional on transferred family geometry; they do not establish causal generators, source localization, or true emotion kinds",
+  "new_feature_or_block_selection_permitted": false,
+  "new_inferential_tests_permitted": false,
+  "phase": "signal_space_feature_decomposition",
+  "signed_delta_and_cosine_decomposition": "reported for every authorized feature as descriptive decompositions; not used to redefine the stable-subfeature gate",
+  "stable_subfeature_rule": "within a heldout_physiological_transfer-authorized contrast-block pair: RMS-share family contrast has the same nonzero direction in Discovery/Validation/Confirmation and the dominant family RMS share is > 1/block_size in all three splits",
+  "topographic_or_source_localization_inference_permitted": false
+}

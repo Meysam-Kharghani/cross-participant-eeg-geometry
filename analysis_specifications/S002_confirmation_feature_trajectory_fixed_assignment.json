@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-08-07T02:46:29+03:30",
+  "phase": "confirmation_feature_trajectory",
+  "required_inputs": {
+    "large_rehash": "5bd0de321fcfb825445967fe666c7df1e86af123725a37ae74093d1073486df2",
+    "source_inventory": "ab09516114d5b367a0ad9cf0a8af8d96632182624961071cf00b4ea0f631156f",
+    "feature_qc": "bed75db24ca1720ebac03d31a2557e0fff796f3932238385b0221cbb3796a07f",
+    "participant_feature_audit": "272c1104bb167f596a67af1955d8949303c91f17dd8743027ee2980971631b17",
+    "feature_schema": "ebbd3b32c394e0ebcfc6137027a2736bee113a975df11168504e6a1242999471",
+    "epoch_manifest": "ccd83881685da351d79c8de5d199b650d17ed0f6e899c332a7c6d731f7becbd2",
+    "pca_scores": "1f7001de715a78f1c4bcf5205c1b37c8591726aa4cf7c7d167fd2f7dd88ea499",
+    "pca_loadings": "9fc75862ac92592b84cb789fcf6a38348475442c8153822778fce5c7c1f3c75a",
+    "preprocessing": "06c9f296415d9a05bc9f1846adcbfd607416476449fe53fda3f3b7c1752ad1f4",
+    "trajectories": "80a2c0ddf4ffd39441e33d93912f80c1b0d6cf01a77bfa8c92b98edce8e8d087",
+    "participant_qc": "f4c65375ed60acee52b5952b54533cdf37839c20e2ee1db25e5aa0702677ca05",
+    "gate": "c971c79f71a25d1b292f752e1e1637601b6fdc9bf273eabec520465b81a3f1e4",
+    "global_store_inventory": "a60eae0ca4cd586bcb08de32e53674c72960103e3441c4e991c1e89c5bdc156d"
+  },
+  "required_validation_confirmation_synthesis_transfer_policy_canonical_sha256": "73df540947a247e541f20766de290b3c7cf6878ec2e1cc3bb17684f642c286c9",
+  "required_validation_confirmation_synthesis_prespecified_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "expected_counts": {
+    "confirmation_subjects": 12,
+    "authoritative_trials": 494,
+    "eligible_epochs": 1413,
+    "complete_three_epoch_trajectories": 459,
+    "finite_geometry_trajectories": 459
+  },
+  "forbidden": [
+    "centroid refit",
+    "threshold tuning",
+    "family renaming",
+    "H1-H6 mapping",
+    "reports/outcomes/context targets",
+    "Validation targets"
+  ],
+  "confirmation_opened_for_feature_extraction_only": true,
+  "confirmation_opened_for_fixed_assignment_only": false,
+  "confirmation_reports_outcomes_read": false,
+  "validation_targets_read": false
+}

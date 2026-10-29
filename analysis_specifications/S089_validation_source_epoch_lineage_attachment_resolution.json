@@ -1,0 +1,133 @@
+{
+  "boundaries": {
+    "Confirmation_opened": false,
+    "EEG_amplitude_read": false,
+    "canonical_context_read": false,
+    "family_assignment_computed": false,
+    "metadata_global_trial_used_as_join_key": false,
+    "reports_outcomes_read": false,
+    "stimulus_identity_read": false
+  },
+  "diagnostic_provenance": {
+    "anchor_window_diagnostics_sha256": "f0e194723e3c9b9e67fb506441a2cb271db705de48693370a984cea8efa31972",
+    "facts": {
+      "adjacent_rating_windows_without_exact_stimulus": 51,
+      "prespecified_roster_trials": 494,
+      "interpretation": "adjacent-rating attachment is invalid; metadata-derived 42-trial context capacities are invalid because the historical builder assigned context from behavioral row order",
+      "primary_full_target_under_diagnostic_metadata_counts": 11
+    },
+    "subject_summary_sha256": "b241acc8d3a62b8d7aaa4839f6d28d874464fcc5e493237098475441ccaba64f",
+    "summary_sha256": "d52a384cf73420d2593d72b3ab7ea6ba258773033493c9aad80edd5a8b2bffc3"
+  },
+  "event_grammar": {
+    "Discovery_timing_priors": {
+      "imagery": {
+        "median_delay_sec": 76.68793333228997,
+        "median_log_delay": 4.339744373079974,
+        "n": 472,
+        "robust_scale_log_delay": 0.2181073407641778
+      },
+      "video": {
+        "median_delay_sec": 100.59833333333329,
+        "median_log_delay": 4.611135690265312,
+        "n": 471,
+        "robust_scale_log_delay": 0.21874635865798572
+      }
+    },
+    "minimum_delay_sec": 30.0,
+    "selection_variant": "primary",
+    "tight_and_wide_role": "stability diagnostics only; cannot replace primary",
+    "variants": {
+      "primary": {
+        "intervening_rating_penalty": 0.6,
+        "intervening_stimulus_penalty": 0.4,
+        "maximum_delay_sec": 650.0,
+        "ratings_per_stimulus": 6
+      },
+      "tight": {
+        "intervening_rating_penalty": 0.8,
+        "intervening_stimulus_penalty": 0.5,
+        "maximum_delay_sec": 500.0,
+        "ratings_per_stimulus": 5
+      },
+      "wide": {
+        "intervening_rating_penalty": 0.5,
+        "intervening_stimulus_penalty": 0.3,
+        "maximum_delay_sec": 700.0,
+        "ratings_per_stimulus": 8
+      }
+    }
+  },
+  "final_attachment_rule": {
+    "sub-57": {
+      "pair_selection": "unique exact metadata rating anchor plus the unique exact imagery/video source trigger between the immediately preceding raw rating and the retained anchor",
+      "reason": "roster omits ten raw trials; chronological compression of all raw event pairs would misassign retained behavioral IDs",
+      "retained_trial_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "target_context_capacity": {
+        "imagery": 18,
+        "video": 14
+      }
+    },
+    "subjects_with_42_retained_trials": {
+      "behavior_mapping": "chronological selected-pair order to canonical retained behavioral trial_number_global order 1..42",
+      "capacity_source": "original outcome-free event-grammar contract for every complete 42-row behavioral roster",
+      "metadata_context_role": "diagnostic only",
+      "metadata_rating_time_role": "diagnostic only",
+      "pair_selection": "primary global non-overlapping event grammar using exact README TypeIDs and prespecified Discovery timing priors",
+      "subjects": [
+        "sub-07",
+        "sub-09",
+        "sub-11",
+        "sub-17",
+        "sub-21",
+        "sub-25",
+        "sub-28",
+        "sub-37",
+        "sub-39",
+        "sub-51",
+        "sub-53"
+      ],
+      "target_context_capacity": {
+        "imagery": 21,
+        "video": 21
+      }
+    }
+  },
+  "prespecified_before_final_source_epoch_specification": true,
+  "phase": "validation_source_epoch_lineage",
+  "resolution_id": "validation_source_epoch_lineage_validated_attachment_rule_EVENT_GRAMMAR_FINAL",
+  "scientific_role": "resolve Validation source-event attachment after outcome-free diagnostic; no EEG amplitude, report, outcome, stimulus identity, or Confirmation access"
+}

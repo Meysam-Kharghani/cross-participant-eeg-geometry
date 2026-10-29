@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-05T13:20:10+03:30",
+  "phase": "mapping_inference",
+  "required_boundary": [
+    "verify every mapping_inference hash",
+    "do not rename geometric families",
+    "do not refit alignment or mapping models to improve interpretation",
+    "Validation and Confirmation remain closed until a new explicit specification"
+  ],
+  "mapping_policy_sha256": "9e277b8127e38268480b56ee1e89e8e7907076aea7b479e28aa203e714ed97fe",
+  "validation_opened": false,
+  "confirmation_opened": false
+}

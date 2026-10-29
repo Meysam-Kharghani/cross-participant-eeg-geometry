@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-08-07T00:54:14+03:30",
+  "phase": "validation_confirmation_synthesis",
+  "required_confirmation_transfer_policy_canonical_sha256": "73df540947a247e541f20766de290b3c7cf6878ec2e1cc3bb17684f642c286c9",
+  "required_attachment_policy_canonical_sha256": "a8b705d974af41d073f2e3e58f702fbb3e70efd5c8c0dbdbf1d2798e7f135278",
+  "required_prespecified_transfer_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "required_validation_lineage_reference_sha256": "c088554da2135e5f397edc4301913f2fc2b6f15932ffbbc9384471719d669bf7",
+  "required_boundary": [
+    "verify every validation_confirmation_synthesis hash",
+    "use exactly the 12 prespecified Confirmation participants and 494 authoritative trials",
+    "apply the prespecified two-branch event attachment policy",
+    "read no EEG sample amplitude in confirmation_source_epoch_lineage",
+    "read no reports/outcomes/stimulus identity",
+    "do not alter epoch windows, preprocessing, features, centroids, support thresholds, structural gates, or output schema"
+  ],
+  "later_prespecified_sequence": [
+    "confirmation_preprocessing_qc",
+    "confirmation_feature_trajectory",
+    "confirmation_fixed_assignment",
+    "three_cohort_structural_synthesis"
+  ],
+  "confirmation_opened_for_source_lineage_only": false
+}

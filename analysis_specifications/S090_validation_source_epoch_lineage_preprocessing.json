@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-06T23:47:15+03:30",
+  "phase": "validation_source_epoch_lineage",
+  "required_inputs": {
+    "headers": "bca1a6738f877dc6859a96fd39472a5e07d73b19b3c1bf156e107b5838cf9a30",
+    "trials": "08a5f19fefb0b7371592f7d9ab796774168a05b64295bfa8019a8cdf1338d145",
+    "epochs": "e65e637fc39ea0a86fb83436048e05749bf89d7c031b7af8eb4ccb150516c4ca",
+    "coverage": "1a64afd6720160c43fc3e5e4248070ef8190fc5a519f83f3abc6aea65d6b16c6",
+    "subject_qc": "be2e9891d676312af6b8b489b379c47f6a48a498e7ba95cded5dc3cdb69d5479",
+    "grammar_qc": "22edba18ff63dfef87e3f4b6fb79412606ad509eebf74aa67d1204b13cd277fe"
+  },
+  "required_source_code_sha256": "bd6a50669f0a6ba17965a4497433f1d4583d4a98f840dff29a73866d801e2ecb",
+  "required_boundary": [
+    "verify every validation_source_epoch_lineage hash",
+    "use only epoch_available rows",
+    "do not alter windows or preprocessing/QC",
+    "do not read reports/outcomes/stimulus identity",
+    "Confirmation remains closed"
+  ],
+  "validation_opened_for_preprocessing_only": false,
+  "confirmation_opened": false
+}

@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-08-02T12:55:16+03:30",
+  "phase": "large_store_integrity",
+  "large_store_integrity_contract": "<PROJECT_ROOT>/config/large_store_integrity_large_store_integrity_contract.json",
+  "large_array_inventory": "<PROJECT_ROOT>/outputs/tables/raw_eeg_preprocessing_qc_large_array_inventory.csv",
+  "epoch_qc_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_preprocessing_qc_epoch_amplitude_qc.csv",
+  "common_trial_mask_manifest": "<PROJECT_ROOT>/outputs/tables/large_store_integrity_common_trial_mask_manifest.csv",
+  "trial_fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_trial_fold_manifest.csv",
+  "participant_fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_participant_fold_manifest.csv",
+  "feature_policy": {
+    "sampling_rate_hz": 200,
+    "frequency_bands_hz": {
+      "delta": [
+        1.0,
+        4.0
+      ],
+      "theta": [
+        4.0,
+        8.0
+      ],
+      "alpha": [
+        8.0,
+        13.0
+      ],
+      "low_beta": [
+        13.0,
+        20.0
+      ],
+      "high_beta": [
+        20.0,
+        30.0
+      ],
+      "low_gamma": [
+        30.0,
+        45.0
+      ]
+    },
+    "time_frequency": {
+      "estimator": "scipy_signal_welch_hann",
+      "window_sec": 2.0,
+      "overlap_fraction": 0.5,
+      "aggregation": "log10_integrated_bandpower",
+      "temporal_bins": [
+        "whole_epoch",
+        "quarter_1",
+        "quarter_2",
+        "quarter_3",
+        "quarter_4"
+      ],
+      "channel_layout": 64,
+      "bad_channel_cells": "NaN"
+    },
+    "temporal_morphology": {
+      "per_channel": [
+        "robust_rms",
+        "line_length",
+        "hjorth_mobility",
+        "hjorth_complexity",
+        "lag1_autocorrelation",
+        "spectral_entropy"
+      ],
+      "bad_channel_cells": "NaN"
+    },
+    "spatial_covariance": {
+      "matrix_shape": [
+        64,
+        64
+      ],
+      "estimator": "fixed_diagonal_shrinkage_0.10",
+      "bad_channel_rows_columns": "NaN",
+      "outcome_free_summaries": [
+        "top_16_normalized_eigenvalues",
+        "effective_rank",
+        "participation_ratio",
+        "log_determinant_good_submatrix",
+        "global_field_power_median",
+        "global_field_power_iqr"
+      ],
+      "tangent_reference": "not fitted during extraction; fitted inside each prespecified outer fold"
+    },
+    "phase_synchrony": {
+      "estimator": "zero_phase_bandpass_hilbert_plv",
+      "bands": "same six prespecified frequency bands",
+      "stored_features": [
+        "channel_mean_plv",
+        "global_mean_plv",
+        "global_sd_plv",
+        "global_q25_plv",
+        "global_q75_plv"
+      ],
+      "bad_channel_cells": "NaN"
+    },
+    "waveform_shape": {
+      "fixed_resampling_hz": 50,
+      "method": "polyphase",
+      "transform": "orthonormal_dct_type_2",
+      "coefficients_per_channel": 20,
+      "bad_channel_cells": "NaN"
+    },
+    "forbidden_global_transforms": [
+      "imputation",
+      "standardization",
+      "PCA",
+      "supervised feature selection",
+      "covariance reference",
+      "tangent-space map",
+      "CORAL or Procrustes alignment",
+      "outcome-based channel or feature selection"
+    ],
+    "later_modeling_requirement": "all transforms above are fitted on outer-training rows only"
+  },
+  "representation_role": "outcome-free full-signal feature extraction only",
+  "later_modeling_constraints": [
+    "branch-specific models may use only their prespecified branch mask",
+    "cross-epoch comparisons must use the corresponding common-row mask",
+    "all imputation/scaling/dimensionality reduction/tangent maps are outer-fold-contained",
+    "stimulus and rating representations remain separately reported",
+    "no validation or confirmation participants",
+    "no biological ground-truth language"
+  ]
+}

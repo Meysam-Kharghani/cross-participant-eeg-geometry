@@ -1,0 +1,174 @@
+{
+  "phase": "cross_person_alignment_design",
+  "seed": 540,
+  "scientific_role": "specification outcome-free cross-person alignment of local state centroids and continuous three-epoch trajectory geometry before any report/context mapping",
+  "discovery_only": true,
+  "validation_opened": false,
+  "confirmation_opened": false,
+  "input_boundary": {
+    "fixed_source_phase": "latent_state_fit",
+    "reports_outcomes_context_read": [],
+    "qc_values_read": [],
+    "allowed_primary_inputs": [
+      "participant_state_selection",
+      "state_centroids_common_axes",
+      "state_centroids_pca for integrity/schema audit only",
+      "state_assignments for lineage/count audit only",
+      "continuous_trajectories restricted to identifiers and six invariant geometry columns"
+    ],
+    "epoch_family_is_not_an_alignment_feature": true,
+    "prior_decoder_performance_is_not_an_alignment_feature": true
+  },
+  "two_branch_design": {
+    "stable_discrete_state_branch": {
+      "population": "participants with a latent_state_fit-stable discrete solution only",
+      "object": "one fixed local-state centroid",
+      "common_axes": 169,
+      "missing_state_rule": "participants without stable discrete states contribute no pseudo-state and are never forced into this branch",
+      "participant_balance": "state sample weights equal prespecified within-participant state proportions; weights sum to one within every participant",
+      "preprocessing": [
+        "require finite fixed common-axis centroid values for every retained cell",
+        "compute participant-balanced weighted median and weighted IQR separately for each common-axis cell",
+        "drop a cell only if weighted IQR <= 1e-08",
+        "winsorize robust standardized values to [-6, 6]",
+        "fit participant-weighted PCA with at most 8 components",
+        "orient every component deterministically so its largest-absolute loading is positive"
+      ],
+      "alignment_model": {
+        "model": "participant-balanced constrained k-means",
+        "candidate_shared_state_family_counts": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "distance": "squared Euclidean distance in prespecified aligned-state PCA space",
+        "within_participant_constraint": "injective Hungarian assignment: two local states from the same participant cannot map to the same shared family",
+        "initializations": 100,
+        "maximum_iterations": 500,
+        "tolerance": 1e-07,
+        "canonical_family_label_rule": "sort final prototypes lexicographically by deterministically oriented aligned-state PC1, then PC2, etc."
+      },
+      "stability": {
+        "resampling_unit": "participant",
+        "repeats": 200,
+        "participant_fraction_without_replacement": 0.8,
+        "entire_chain_refit": "weighted robust scaling, weighted PCA, and constrained alignment are all refit inside every resample",
+        "comparison": "adjusted Rand index on retained local-state objects against full-fit assignments",
+        "collapse_definition": {
+          "minimum_distinct_participants_per_family": 3,
+          "minimum_participant-balanced_weighted_occupancy": 0.08
+        },
+        "eligible_family_count_requirements": {
+          "full_fit_converged": true,
+          "median_ari_at_least": 0.6,
+          "ari_10th_percentile_at_least": 0.3,
+          "collapse_rate_at_most": 0.1
+        },
+        "selection_rule": "among eligible family counts, choose the smallest count with participant-weighted silhouette >= maximum eligible silhouette - 0.05",
+        "no_eligible_count_rule": "do not force shared discrete state families; retain the continuous aligned-state embedding and pairwise distances only"
+      },
+      "leave_one_participant_out_diagnostic": "refit on all other stable participants, assign held-out local states injectively, and report assignment margins/agreement; never revise family-count selection"
+    },
+    "continuous_trajectory_geometry_branch": {
+      "population": "all latent_state_fit-eligible participants, including continuous-only participants",
+      "object": "one fixed three-epoch trial trajectory",
+      "features": [
+        "early_to_late_norm",
+        "late_to_rating_norm",
+        "early_to_rating_direct_norm",
+        "total_path_length",
+        "directness_ratio",
+        "segment_cosine"
+      ],
+      "rotation_sign_invariance": true,
+      "transformations_before_within_participant_scaling": {
+        "early_to_late_norm": "log1p",
+        "late_to_rating_norm": "log1p",
+        "early_to_rating_direct_norm": "log1p",
+        "total_path_length": "log1p",
+        "directness_ratio": "logit after clipping to [1e-6, 1-1e-6]",
+        "segment_cosine": "atanh after clipping to [-1+1e-6, 1-1e-6]"
+      },
+      "participant_balance": "each trial has weight 1 divided by that participant trial count; weights sum to one within every participant",
+      "preprocessing": [
+        "apply prespecified monotone transformations",
+        "within each participant, median-center and divide by IQR for each geometry feature",
+        "if within-participant IQR <= 1e-08, use pooled participant-balanced IQR for that feature",
+        "winsorize standardized values to [-6, 6]"
+      ],
+      "alignment_model": {
+        "model": "participant-balanced weighted k-means",
+        "candidate_shared_trajectory_family_counts": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "distance": "squared Euclidean distance in the six prespecified standardized geometry coordinates",
+        "initializations": 100,
+        "maximum_iterations": 500,
+        "tolerance": 1e-07,
+        "canonical_family_label_rule": "sort final centroids lexicographically in the prespecified geometry-feature order"
+      },
+      "stability": {
+        "resampling_unit": "two-level participant then trial resampling",
+        "repeats": 200,
+        "participant_fraction_without_replacement": 0.8,
+        "trial_fraction_without_replacement_within_retained_participant": 0.8,
+        "entire_chain_refit": "transform fallback statistics, within-person scaling, and weighted k-means are all refit inside every resample",
+        "comparison": "adjusted Rand index on retained trajectories against full-fit assignments",
+        "collapse_definition": {
+          "minimum_distinct_participants_per_family": 5,
+          "minimum_trial_count_per_family": 30,
+          "minimum_participant-balanced_weighted_occupancy": 0.05
+        },
+        "eligible_family_count_requirements": {
+          "full_fit_converged": true,
+          "median_ari_at_least": 0.6,
+          "ari_10th_percentile_at_least": 0.3,
+          "collapse_rate_at_most": 0.1
+        },
+        "selection_rule": "among eligible family counts, choose the smallest count with participant-weighted silhouette >= maximum eligible silhouette - 0.05",
+        "no_eligible_count_rule": "do not force trajectory families; retain the six-dimensional continuous geometry representation"
+      },
+      "leave_one_participant_out_diagnostic": "fit on all other participants, assign held-out trajectories to prespecified training centroids, and report confidence/occupancy; never revise family-count selection"
+    }
+  },
+  "outcome_free_linkage_after_both_branches_are_fixed": {
+    "eligible_rows": "discrete trajectories belonging to participants with stable local states",
+    "global_path": "replace each local state by its prespecified shared state-family assignment when available",
+    "cross_branch_summary": "cross-tabulate shared state-family paths against shared continuous-trajectory families",
+    "null_repeats": 1000,
+    "null_scheme": "within participant, permute continuous-trajectory family labels across trials while preserving local/global path frequencies",
+    "statistics": [
+      "mutual_information",
+      "normalized_mutual_information",
+      "path_by_geometry_family_cramers_v"
+    ],
+    "failure_rule": "if either branch has no stable discrete family solution, omit discrete cross-branch linkage and retain both continuous outputs"
+  },
+  "execution_order_and_locks": [
+    "verify every latent_state_fit primary hash before reading alignment inputs",
+    "fit and write both outcome-free alignment branches",
+    "write selected family counts, embeddings, assignments, prototypes, stability, and leave-one-participant-out diagnostics",
+    "SHA-256 lock all alignment outputs before any context/report table may be opened",
+    "perform only the prespecified outcome-free cross-branch linkage after both branch locks"
+  ],
+  "claim_guardrails": [
+    "a shared family is a reproducible alignment of this representation, not a universal emotion or valence category",
+    "absence of stable shared families does not imply absence of individual neurophysiological structure",
+    "participant identity, epoch association, or context separability is not emotion decoding",
+    "continuous-only participants remain represented through invariant trajectory geometry without fabricated states",
+    "report/context mapping is strictly post-hoc and begins only after cross_person_alignment_fit outputs are hashed"
+  ],
+  "forbidden": [
+    "reading valence, liking, arousal, emotion reports, labels, context, or report-derived factors during cross_person_alignment_design or cross_person_alignment_fit",
+    "using QC values, epoch family, stimulus identity, participant identity targets, or prior decoding performance as alignment features",
+    "changing latent_state_fit local K, local assignments, centroids, trajectories, or participant inclusion",
+    "creating pseudo-states for continuous-only participants",
+    "selecting shared-family counts from later report/context association",
+    "opening validation or confirmation participants"
+  ]
+}

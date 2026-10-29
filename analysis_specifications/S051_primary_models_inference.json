@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-02T15:37:00+03:30",
+  "phase": "primary_models",
+  "prediction_manifest": "<PROJECT_ROOT>/outputs/tables/primary_models_primary_outer_predictions.csv",
+  "selected_hyperparameters": "<PROJECT_ROOT>/outputs/tables/primary_models_selected_hyperparameters.csv",
+  "inner_candidate_scores": "<PROJECT_ROOT>/outputs/tables/primary_models_inner_candidate_scores.csv",
+  "cache_inventory": "<PROJECT_ROOT>/outputs/tables/primary_models_cache_inventory.csv",
+  "cache_root": "<PROJECT_ROOT>/outputs/large/primary_models_primary_nested_cache_v1",
+  "required_inference": {
+    "participant_bootstrap_replicates": 5000,
+    "bootstrap_seed": 540,
+    "circular_shift_permutations": 1000,
+    "permutation_seed": 540,
+    "permutation_recipe": "within participant and context circular shift by nonzero offset at least 3 rows",
+    "permutation_fitting": "complete inner PCA/ridge retuning using prespecified outcome-free matrices",
+    "multiplicity": "Holm across valence and liking",
+    "support_gate": [
+      "lower 95% participant-bootstrap CI P1-B0 R2 > 0",
+      "lower 95% participant-bootstrap CI P1-B1 R2 > 0",
+      "Holm-adjusted permutation p < 0.05"
+    ]
+  },
+  "secondary_model_commitment": "all prespecified secondary and diagnostic families remain mandatory regardless of primary_models outer results",
+  "validation_opened": false,
+  "confirmation_opened": false
+}

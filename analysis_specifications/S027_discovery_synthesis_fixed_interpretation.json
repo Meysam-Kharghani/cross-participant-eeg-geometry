@@ -1,0 +1,18 @@
+{
+  "phase": "discovery_synthesis",
+  "fixed_before_robustness_execution": true,
+  "family_labels": [
+    "Family 1",
+    "Family 2"
+  ],
+  "renaming_permitted": false,
+  "global_mapping_support": [],
+  "disgust_child_status": "ungated_nonconfirmatory_observation",
+  "discrete_shared_state_taxonomy_supported": false,
+  "continuous_state_embedding_retained": true,
+  "trajectory_geometry_supported_as_structure_only": true,
+  "validation_opened": false,
+  "confirmation_opened": false,
+  "claims_file_sha256": "ee08cd0281d7b70c9f85a5c9b60b59aa8d299adf94f1a5470de03bb43c82d84c",
+  "evidence_matrix_sha256": "404ebd957970b867ed01cefca801ed2e8ca268bce8006880399fd36d2952df14"
+}

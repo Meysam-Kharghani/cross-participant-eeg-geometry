@@ -1,0 +1,127 @@
+{
+  "phase": "raw_dynamic_physio_alignment_design",
+  "generated_at": "2026-08-09T11:52:57+03:30",
+  "role": "raw time-resolved peripheral physiology alignment and analysis analysis specification",
+  "scientific_scope": {
+    "primary_question": "Can raw event-aligned GSR/PPG dynamics reveal reproducible autonomic temporal structure or brain-body coupling that was not captured by the prespecified 40-feature trial-level physiology representation?",
+    "this_phase_inference": false,
+    "this_phase_raw_signal_values_read": false,
+    "previous_trial_summary_result_immutable": "M1-M3 from discovery_multimodal_inference remain unsupported and are not reinterpreted by opening a distinct raw-dynamic representation."
+  },
+  "source_hashes": {
+    "integrated_synthesis_lock": "a9cf63319dcb6eb7b37922049f3cc4e658b21669597e151daa3147f3b136ce60",
+    "three_cohort_structural_synthesis_lock": "3c0b3b2f0998672a3f6521f7b32489d301b3f06561a7e1855b9fbf8f27b5e216",
+    "discovery_multimodal_synthesis_lock": "20ca647a42648ab638d77639703c131e8f9fd9b9f7604f21c279ca945322ffd2",
+    "p02_contract": "1791ed36e26eaa4a9def67ed4876e0ea866b0d9e031c5af5a770a68dda17e4c7",
+    "raw_inventory": "ae7055eed992fe8ec250833d18b83bfc8b392efecf10defa2211924f32bf2c6f",
+    "raw_eeg_epoch_folds_timing": "a7f9b7fbbe7729951db8da2128b98f9483c05540412b9470e826917216849f5e",
+    "raw_eeg_epoch_folds_epochs": "de909a412ba818e535d16dd99f2a77672f5b8248092f856a35f1f6351f619f47",
+    "split": "0f6156e2a0de5af59dd3a7cd15b2a4a914dc0a0540b9d941fa6676a697f8d453"
+  },
+  "split_lockbox": {
+    "Discovery": "timing audit and, only after later specifications, development/inference permitted",
+    "Validation": "raw physiology values and timing columns remain unopened until a prespecified Discovery dynamic support gate",
+    "Confirmation": "raw physiology values and timing columns remain unopened until one-shot Validation transfer passes"
+  },
+  "raw_sources": {
+    "GSR": "sub-XX/eeg/sub-XX_task-emotion_recording-GSR_physio.tsv.gz + JSON sidecar",
+    "PPG": "sub-XX/eeg/sub-XX_task-emotion_recording-PPG_physio.tsv.gz + JSON sidecar",
+    "historical_inventory": "raw_physio_inventory.csv",
+    "expected_sidecar_sampling_hz": {
+      "GSR": 40.0,
+      "PPG": 20.0
+    },
+    "amplitude_columns_forbidden_in_raw_dynamic_physio_timebase_audit": [
+      "GSR",
+      "PPG"
+    ],
+    "timing_columns_allowed_in_raw_dynamic_physio_timebase_audit": [
+      "csv_time_GSR",
+      "csv_time_PPG"
+    ]
+  },
+  "epoch_contract": {
+    "source": "raw_eeg_epoch_folds prespecified EEG epoch manifest; windows are copied, never reselected from physiology",
+    "families": [
+      {
+        "epoch_family": "stimulus_early",
+        "definition": "stimulus + 2 s to stimulus + 12 s",
+        "duration_sec": 10.0,
+        "source": "fixed raw_eeg_epoch_folds epoch manifest"
+      },
+      {
+        "epoch_family": "stimulus_late",
+        "definition": "source-supported endpoint - 25 s to endpoint - 5 s",
+        "duration_sec": 20.0,
+        "source": "fixed raw_eeg_epoch_folds epoch manifest"
+      },
+      {
+        "epoch_family": "rating_early",
+        "definition": "rating + 5 s to rating + 25 s",
+        "duration_sec": 20.0,
+        "source": "fixed raw_eeg_epoch_folds epoch manifest"
+      }
+    ],
+    "physiology_lag_window_reselection_forbidden": true,
+    "shorter_or_shifted_rescue_windows_forbidden": true
+  },
+  "raw_dynamic_physio_timebase_audit_timebase_audit": {
+    "signal_amplitude_read": false,
+    "candidate_clock_interpretations_in_fixed_order": [
+      "outcome_model_integrity: csv_time minus JSON StartTime, if finite/monotonic and scale matches sidecar sampling frequency",
+      "C2: csv_time minus first finite csv_time, if finite/monotonic and scale matches sidecar sampling frequency",
+      "C3: row-index divided by sidecar SamplingFrequency, timing-only fallback"
+    ],
+    "model_selection_uses_only": [
+      "monotonicity",
+      "finite timing coverage",
+      "median local dt vs 1/SamplingFrequency",
+      "epoch-window sample-density coverage",
+      "GSR-PPG clock agreement"
+    ],
+    "model_selection_must_not_use": [
+      "GSR amplitude",
+      "PPG amplitude",
+      "EEG amplitude",
+      "Family 1/2",
+      "Valence",
+      "Liking",
+      "any report",
+      "emotion category"
+    ],
+    "fixed_diagnostics": {
+      "median_dt_relative_error_max": 0.02,
+      "within_epoch_expected_sample_fraction_min": 0.95,
+      "cross_modality_epoch_boundary_disagreement_sec_max": 0.25,
+      "participant_min_complete_three_epoch_trials": 16
+    },
+    "primary_feasibility_gate": {
+      "minimum_participants_with_both_modalities_and_16_complete_trajectories": 18,
+      "minimum_fraction_of_candidate_raw_overlap_trials_with_all_three_epochs": 0.7,
+      "if_failed": "stop the joint raw-dynamic branch; do not auto-switch to a favourable single modality or alternate windows"
+    }
+  },
+  "future_sequence_if_raw_dynamic_physio_timebase_audit_passes": [
+    "raw_dynamic_physio_preprocessing_specification: specification amplitude preprocessing, artifact/QC, resampling and dynamic representation before amplitude access",
+    "raw_dynamic_physio_synthesis: execute Discovery raw GSR/PPG preprocessing and build event-aligned autonomic trajectories",
+    "raw_dynamic_physio_sync_correction: prespecified outcome-free autonomic structure and EEG-autonomic coupling inference in Discovery",
+    "exact_physio_eeg_sync_recovery+: only if the pre-specified Discovery support+robustness gate passes, one-shot Validation then Confirmation transfer"
+  ],
+  "future_analysis_boundaries": {
+    "EEG_Family_1_2_immutable": true,
+    "semantic_relabeling_forbidden": true,
+    "outcome_driven_feature_selection_forbidden": true,
+    "heldout_peeking_forbidden": true,
+    "dynamic_results_cannot_retroactively_change_discovery_multimodal_inference_trial_summary_result": true
+  },
+  "counts_at_specification": {
+    "discovery_raw_both_participants_inventory": 29,
+    "discovery_authoritative_EEG_trials": 1379,
+    "available_fixed_EEG_epochs": 4083,
+    "epoch_families": 3,
+    "raw_modalities": 2,
+    "raw_signal_values_read": false,
+    "validation_raw_physio_opened": false,
+    "confirmation_raw_physio_opened": false
+  }
+}

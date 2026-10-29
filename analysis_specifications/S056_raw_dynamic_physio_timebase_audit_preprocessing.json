@@ -1,0 +1,11 @@
+{
+  "forbidden": [
+    "Validation/Confirmation raw physiology",
+    "outcome-driven window changes",
+    "single-modality rescue after failed joint gate",
+    "semantic relabeling of EEG families"
+  ],
+  "generated_at": "2026-08-09T14:28:33+03:30",
+  "phase": "raw_dynamic_physio_timebase_audit",
+  "role": "STOP: joint raw-dynamic physiology alignment feasibility gate failed."
+}

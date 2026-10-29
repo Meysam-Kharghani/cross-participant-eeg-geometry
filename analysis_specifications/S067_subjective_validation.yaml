@@ -1,0 +1,67 @@
+schema_version: 1
+status: prespecified_before_validation
+prespecified_at: "2026-07-26T02:04:49+03:30"
+
+phase:
+  discovery_completed: true
+  sensitivity_completed: true
+  validation_opened: false
+  confirmation_opened: false
+
+subjective_geometry:
+  primary_representation: continuous_2d_primary_discrete_exploratory
+  dimensions: 2
+  normalization: within_person_z
+  features:
+    - joy
+    - inspiration
+    - tenderness
+    - sadness
+    - fear
+    - disgust
+    - arousal
+  dimensional_sensitivity_passed: true
+
+discrete_secondary:
+  repeated_cv_best_k: 5
+  repeated_cv_one_se_k: 5
+  continuous_null_p_value: 0.01639344
+  stability_ari_q05: 0.56412187
+  minimum_component_fraction: 0.15452689
+  posterior_ambiguity_fraction_below_0_8: 0.37440436
+  context_assignment_ari: 0.76518424
+  robust_discrete_support: false
+  interpretation_rule: >
+    Gaussian-mixture components are density summaries, not biological states.
+    A discrete claim requires all prespecified robustness criteria and independent
+    validation.
+
+hedonic_prediction:
+  selected_model: profile_raw8
+  outcomes:
+    - valence
+    - liking
+  participant_held_out: true
+  ridge_alpha_grid:
+    - 0.01
+    - 0.1
+    - 1.0
+    - 10.0
+    - 100.0
+  interpretation: subjective_report_mapping_not_mechanism
+
+person_calibration:
+  role: exploratory_only
+  primary_calibration_trials: 20
+  calibration_method: participant_intercept_offset
+  comparison_uses_same_remaining_trials: true
+
+validation_rules:
+  - apply_the_prespecified_two_dimensional_transform
+  - evaluate_the_prespecified_prediction_model
+  - evaluate_discrete_structure_only_as_secondary
+  - do_not_change_gmm_thresholds
+  - do_not_change_feature_sets
+  - do_not_change_alpha_grid
+  - do_not_use_confirmation_outcomes
+  - report_negative_and_ambiguous_results

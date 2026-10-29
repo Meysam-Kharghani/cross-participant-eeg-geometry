@@ -1,0 +1,28 @@
+{
+  "counts": {
+    "candidate_EEG_all3_trials": 1085,
+    "complete_fraction": 0.0,
+    "complete_joint_dynamic_trajectories": 0,
+    "participants_with_feasible_joint_clock_and_min16": 0,
+    "raw_both_inventory_participants": 29,
+    "raw_both_with_raw_eeg_epoch_folds_EEG_participants": 27
+  },
+  "decision": {
+    "raw_dynamic_physio_preprocessing_specification_preprocessing_permitted": false,
+    "Confirmation_raw_physio_may_be_opened": false,
+    "Validation_raw_physio_may_be_opened": false,
+    "raw_dynamic_GSR_PPG_amplitude_may_be_opened_under_current_branch": false,
+    "relative_start_or_manual_offset_rescue_permitted": false,
+    "single_modality_rescue_permitted": false,
+    "window_retuning_permitted": false
+  },
+  "generated_at": "2026-08-10T14:37:42+03:30",
+  "interpretation": {
+    "data_limitation": "Raw stream internal sampling can be reconstructed by row index, but cross-device absolute anchors do not overlap the fixed EEG event windows.",
+    "not_supported": "This is not evidence that dynamic autonomic physiology is absent or unrelated to EEG trajectory geometry.",
+    "supported": "The available timing metadata do not support a defensible joint event-aligned GSR+PPG analysis under the prespecified synchronization rules."
+  },
+  "phase": "raw_dynamic_physio_synthesis",
+  "status": "raw_dynamic_physio_analysis_concluded_after_timing_infeasibility",
+  "upstream_raw_dynamic_physio_timebase_audit_lock_sha256": "01b5fe88e2d1a7941937182ed75d671e47c5b4a09eabe0231de79d30e18c8c10"
+}

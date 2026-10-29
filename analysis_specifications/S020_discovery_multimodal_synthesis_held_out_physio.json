@@ -1,0 +1,18 @@
+{
+  "phase": "discovery_multimodal_synthesis",
+  "generated_at": "2026-08-08T21:56:44+03:30",
+  "Validation_physio_values_opened": false,
+  "Confirmation_physio_values_opened": false,
+  "Validation_physio_may_open_for_M1_M3": false,
+  "Confirmation_physio_may_open_for_M1_M3": false,
+  "reason": "No Discovery M1-M3 test passed both Holm p<0.05 and all applicable prespecified robustness rules.",
+  "supported_tests_for_validation": [],
+  "closure_is_successful_boundary_preservation": true,
+  "forbidden": [
+    "testing M1-M3 in held-out physiology",
+    "retuning physiology preprocessing",
+    "outcome-driven physiology feature selection",
+    "redefining EEG families using physiology",
+    "opening held-out physiology to seek a null replication"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-04T15:20:16+03:30",
+  "phase": "mapping_design",
+  "mapping_policy_sha256": "9e277b8127e38268480b56ee1e89e8e7907076aea7b479e28aa203e714ed97fe",
+  "required_inputs": {
+    "mapping_design_contract": "<PROJECT_ROOT>/config/mapping_design_mapping_design_contract.json",
+    "mapping_design_final_lock": "<PROJECT_ROOT>/outputs/qc/mapping_design_final_output_lock_hashes.json",
+    "mapping_policy": "<PROJECT_ROOT>/analysis_specifications/S041_mapping.json",
+    "trial_mapping_manifest": "<PROJECT_ROOT>/outputs/tables/mapping_design_trial_mapping_manifest.csv",
+    "state_mapping_manifest": "<PROJECT_ROOT>/outputs/tables/mapping_design_state_mapping_manifest.csv",
+    "variable_schema": "<PROJECT_ROOT>/outputs/tables/mapping_design_mapping_variable_schema.csv"
+  },
+  "required_boundary": [
+    "verify every mapping_design output hash before analysis",
+    "execute all six global hypotheses regardless of observed direction",
+    "apply Holm across H1-H6 and gated Holm across all ten report dimensions",
+    "retain geometric family labels 1 and 2 and all continuous-only participants",
+    "state branch remains continuous only because cross_person_alignment_fit selected no stable shared discrete state family",
+    "Discovery only; Validation and Confirmation remain closed"
+  ],
+  "forbidden": [
+    "opening Validation or Confirmation participants",
+    "refitting cross_person_alignment_fit alignment after any report/context/stimulus value is opened",
+    "choosing family count, state count, embedding dimension, report subset, covariates, or test from observed mapping strength",
+    "renaming family 1/2 as positive, negative, pleasant, unpleasant, engaged, disengaged, or emotion categories before inference",
+    "dropping continuous-only participants or low-margin trials to improve association",
+    "globally dropping trials that lack prespecified stimulus identity; those rows remain in report/context hypotheses and are excluded only from the predeclared stimulus-target test",
+    "using report variables to alter any EEG preprocessing, PCA, GMM, state assignment, trajectory geometry, or family assignment"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

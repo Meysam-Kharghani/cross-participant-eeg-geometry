@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-07T00:32:22+03:30",
+  "phase": "validation_feature_trajectory",
+  "required_inputs": {
+    "large_rehash": "c194540e98a42e7ce5e9ce3e273fbaca1389c7fe271f03c37c07ce8ce1be0de1",
+    "source_inventory": "9900559bb08d2a2a623dd8ce3ca18baa88e42330744d9062f1b7c53e9c9888eb",
+    "feature_qc": "6a1f4e8eff6f183f2f378f5f84a959dbede9dd4585639e43c4531ed5ffe85b73",
+    "participant_feature_audit": "72c23f8819b8f17932818f4dd1488db9fc30db48e0b386d7d84a32b3e88501d1",
+    "feature_schema": "ebbd3b32c394e0ebcfc6137027a2736bee113a975df11168504e6a1242999471",
+    "epoch_manifest": "24643e775d90d30011fbbba7d40defedcbdb699632603c2d838b420adb49c1a8",
+    "pca_scores": "ea85e67df05d3d96c657d320a64ba362424fce6ae21b9947ec55077e5412bbda",
+    "pca_loadings": "00f2a7ec2f746a72c6826fd44a5d402ba7c15b10d57a86d3232ce726fbbcf57a",
+    "preprocessing": "6f85a473b1eb92a60ee9688b547397e7a46da4d40744005b910d6d4d75adddb0",
+    "trajectories": "9ec5f029b104361047cffd9a12a2a1b56f6afb441d613aaf78bacc13dc381898",
+    "participant_qc": "0fd1421a604877e5d40fa832d9a32249369610d66589361de232a201ef87d257",
+    "gate": "47c395336f9e53336e6d04e2c120c43549484beb2b74b64b048b9d0a20e7062f",
+    "global_store_inventory": "e54b2a54a9f704ea8e429914bf36e7de4b213c9ac4db74c88c88be16e98e69da"
+  },
+  "required_validation_geometry_transfer_design_transfer_policy_canonical_sha256": "bd3e7a5f4bd0cba00cfa66a0cd09208c07e0b1a9edab4b2a9493060200e1b37e",
+  "required_validation_geometry_transfer_design_prespecified_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "expected_counts": {
+    "validation_subjects": 12,
+    "authoritative_trials": 494,
+    "eligible_epochs": 1424,
+    "complete_three_epoch_trajectories": 437,
+    "finite_geometry_trajectories": 437
+  },
+  "forbidden": [
+    "centroid refit",
+    "threshold tuning",
+    "family renaming",
+    "H1-H6 mapping",
+    "reports/outcomes/context targets",
+    "Confirmation access"
+  ],
+  "validation_opened_for_fixed_assignment_only": false,
+  "confirmation_opened": false
+}

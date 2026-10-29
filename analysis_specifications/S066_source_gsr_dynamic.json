@@ -1,0 +1,80 @@
+{
+  "author_derivative_interpretation": {
+    "primary_channels": [
+      "SCR",
+      "SCL"
+    ],
+    "primary_representation": "20D ordered dynamic profile = 10 SCR bins + 10 SCL bins; preserve bin order; no early/late relabeling.",
+    "rating_period_claim_permitted": false,
+    "seconds_per_segment": 3,
+    "segments_per_trial": 10,
+    "sensitivity_channel": [
+      "iSCR"
+    ],
+    "source_pattern": "derivatives/{subject_id}/{ses}/physio/{subject_id}_{ses}_task-emotion_GSRfeatures.csv"
+  },
+  "forbidden": [
+    "using Valence, Liking, other reports, emotion category, or stimulus semantics to choose features/windows/tests",
+    "claiming these author 10x3-s stimulus derivatives measure rating-period physiology",
+    "opening raw GSR/PPG amplitude after exact_physio_eeg_sync_recovery exact-sync failure",
+    "opening Validation or Confirmation derivative values during source_gsr_dynamic_design/I/J Discovery work",
+    "post-hoc selection of individual GSR bins because they correlate with an outcome"
+  ],
+  "generated_at": "2026-08-11T10:25:17+03:30",
+  "heldout_policy": {
+    "Confirmation_derivative_values_opened": false,
+    "Validation_derivative_values_opened": false,
+    "opening_condition": "No held-out GSR derivative values may be opened unless >=1 DG1-DG3 primary is Holm-supported and its prespecified robustness gate passes in Discovery."
+  },
+  "multiplicity": "Holm correction jointly across DG1, DG2, DG3.",
+  "nuisance_covariates": [
+    "context",
+    "acquisition_fraction"
+  ],
+  "phase": "source_gsr_dynamic_design",
+  "preprocessing_prespecified": {
+    "feature_selection": "none",
+    "iSCR_role": "prespecified sensitivity only; not added to primary 20D family",
+    "imputation": "training-fold median per bin/channel",
+    "numeric_coercion": "values opened only in discovery_source_gsr_materialization_qc after H source gate passes",
+    "primary_iSCR_use": false,
+    "scaling": "training-fold median/IQR; pooled fallback for zero IQR",
+    "winsorization": "after robust scaling, clip to [-6,6]"
+  },
+  "primary_tests": {
+    "DG1": {
+      "family_labels_opened_in_phase": "discovery_dynamic_gsr_inference, not source_gsr_dynamic_design/I",
+      "permutation": "10000 within-participant label permutations preserving participant trial counts",
+      "question": "Does the 20D stimulus-period GSR dynamic profile differ between fixed EEG trajectory families beyond context and acquisition order?",
+      "statistic": "participant-balanced within-person multivariate profile contrast after nuisance adjustment"
+    },
+    "DG2": {
+      "bootstrap": "5000 participant bootstraps",
+      "metric": "balanced accuracy gain full-minus-baseline",
+      "model": "nested leave-one-participant-out ridge logistic regression; baseline nuisance-only vs full nuisance+20D GSR",
+      "permutation": "1000 participant-stratified label permutations with model selection repeated",
+      "question": "Can dynamic GSR predict fixed trajectory family in an unseen person beyond context + acquisition_fraction?"
+    },
+    "DG3": {
+      "geometry_columns": [
+        "standardized_early_to_late_norm",
+        "standardized_late_to_rating_norm",
+        "standardized_early_to_rating_direct_norm",
+        "standardized_total_path_length",
+        "standardized_directness_ratio",
+        "standardized_segment_cosine"
+      ],
+      "permutation": "10000 within-participant permutations",
+      "question": "Does the 20D stimulus-period GSR dynamic profile couple to the fixed continuous 6D EEG trajectory geometry beyond nuisance?",
+      "statistic": "participant-balanced nuisance-adjusted multivariate RV/cross-covariance association"
+    }
+  },
+  "robustness_prespecified": [
+    "complete-case sensitivity where feasible",
+    "SCR-only and SCL-only follow-ups only if their parent primary test is supported",
+    "iSCR-augmented sensitivity only after primary results are fixed",
+    "leave-one-participant-out influence audit",
+    "family numerical-label swap invariance for DG1/DG2"
+  ],
+  "scope": "Discovery-only author-provided stimulus-period dynamic GSR derivatives; rating-period physiology remains untested."
+}

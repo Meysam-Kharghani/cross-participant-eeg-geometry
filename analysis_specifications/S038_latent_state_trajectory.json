@@ -1,0 +1,44 @@
+{
+  "phase": "latent_state_design",
+  "policy_sha256": "1383dd7fd2faf6035391899dca9adad580b20e7d86ecf322acf7eddf7e3866d7",
+  "epoch_order": [
+    "stimulus_early",
+    "stimulus_late",
+    "rating_early"
+  ],
+  "trajectory_outputs": {
+    "discrete_when_available": [
+      "state at stimulus_early, stimulus_late, and rating_early",
+      "stimulus_early_to_late transition",
+      "stimulus_late_to_rating transition",
+      "three-state path identifier",
+      "per-epoch occupancy, transition matrices, persistence, switching, and path entropy"
+    ],
+    "continuous_for_every_eligible_participant": [
+      "PCA score vectors at each epoch",
+      "late-minus-early displacement",
+      "rating-minus-late displacement",
+      "rating-minus-early displacement",
+      "segment norms, total path length, direct displacement, directness ratio, and segment cosine when defined"
+    ],
+    "null": {
+      "repeats": 1000,
+      "scheme": "within participant, independently permute trial linkage for stimulus_late and rating_early while preserving each epoch occupancy and keeping stimulus_early fixed",
+      "statistics": [
+        "early_to_late_persistence",
+        "late_to_rating_persistence",
+        "all_three_same_state_rate",
+        "transition_mutual_information"
+      ],
+      "p_value": "one-sided add-one randomization p-value for excess structured persistence/information"
+    }
+  },
+  "diagnostic_only_after_state_lock": {
+    "qc_association": "summarize QC by prespecified state after assignments are written; QC never enters primary state fit or K selection",
+    "epoch_association": "summarize residual epoch-family association after stage-centering; never revise states",
+    "context_and_reports": "forbidden in latent_state_fit; deferred to a separate post-hoc mapping phase after state assignments and trajectories are hashed"
+  },
+  "context_and_reports_forbidden_in_latent_state_fit": true,
+  "validation_opened": false,
+  "confirmation_opened": false
+}

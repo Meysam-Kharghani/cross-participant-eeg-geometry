@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-04T11:50:49+03:30",
+  "phase": "latent_state_design",
+  "required_inputs": {
+    "latent_state_design_contract": "<PROJECT_ROOT>/config/latent_state_design_latent_state_design_contract.json",
+    "prespecified_latent_state_policy": "<PROJECT_ROOT>/analysis_specifications/S037_latent_state.json",
+    "prespecified_trajectory_policy": "<PROJECT_ROOT>/analysis_specifications/S038_latent_state_trajectory.json",
+    "common_trial_manifest": "<PROJECT_ROOT>/outputs/tables/latent_state_design_common_trial_manifest.csv",
+    "subject_eligibility": "<PROJECT_ROOT>/outputs/qc/latent_state_design_subject_eligibility.csv",
+    "participant_feature_audit": "<PROJECT_ROOT>/outputs/tables/latent_state_design_participant_feature_audit.csv",
+    "compact_feature_schema": "<PROJECT_ROOT>/outputs/tables/latent_state_design_compact_feature_schema.csv",
+    "epoch_store": "<PROJECT_ROOT>/outputs/large/secondary_models_secondary_models_cache_v1/epoch_store"
+  },
+  "required_execution": [
+    "fit every eligible participant independently under all candidate K values",
+    "execute every prespecified stability resample and state-count rule",
+    "write continuous trajectories for every eligible participant",
+    "write discrete trajectories only for participants with a stable selected K",
+    "run prespecified outcome-free trajectory nulls",
+    "hash assignments and trajectories before any report/context mapping"
+  ],
+  "forbidden": [
+    "reading valence, liking, arousal, emotion reports, labels, or report-derived factors during latent_state_design or latent_state_fit",
+    "choosing K, PCA dimensionality, features, participant inclusion, or state labels from report/context association",
+    "using secondary_models outer-test performance to select an epoch family",
+    "including QC cells in the primary state representation",
+    "global outcome-informed or context-informed alignment",
+    "opening validation or confirmation participants"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

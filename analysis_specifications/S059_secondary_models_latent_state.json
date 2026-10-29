@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-03T15:30:35+03:30",
+  "phase": "secondary_models",
+  "required_inputs": {
+    "secondary_contract": "<PROJECT_ROOT>/config/secondary_models_secondary_models_contract.json",
+    "secondary_regression_predictions": "<PROJECT_ROOT>/outputs/tables/secondary_models_secondary_regression_outer_predictions.csv",
+    "diagnostic_classification_metrics": "<PROJECT_ROOT>/outputs/tables/secondary_models_diagnostic_classification_metrics.csv",
+    "epoch_store": "<PROJECT_ROOT>/outputs/large/secondary_models_secondary_models_cache_v1/epoch_store"
+  },
+  "required_design_elements": [
+    "discover latent states within person from neurophysiological features without valence, liking, emotion labels, or other reports",
+    "represent stimulus_early to stimulus_late to rating_early trajectories on prespecified common trials",
+    "separate state discovery from post-hoc report/context mapping",
+    "predeclare participant-level state-count and stability rules",
+    "predeclare cross-person alignment as a later layer rather than a global preprocessing step",
+    "retain validation and confirmation closure"
+  ],
+  "forbidden": [
+    "choosing state count from valence or liking association",
+    "using outer-test secondary_models results to select an epoch family",
+    "global outcome-informed alignment",
+    "opening validation or confirmation participants"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-05T14:46:34+03:30",
+  "phase": "validation_geometry_transfer_design",
+  "transfer_policy_canonical_sha256": "bd3e7a5f4bd0cba00cfa66a0cd09208c07e0b1a9edab4b2a9493060200e1b37e",
+  "prespecified_transfer_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "required_boundary": [
+    "verify every validation_geometry_transfer_design hash",
+    "use exactly the 12 prespecified Validation participants",
+    "read context only to apply prespecified epoch endpoint rules and never as a family target",
+    "do not read EEG amplitude in validation_source_epoch_lineage",
+    "do not read reports/outcomes/stimulus identity",
+    "do not alter epoch windows, preprocessing, feature schema, centroids, support thresholds, gates, or output schema",
+    "Confirmation remains closed"
+  ],
+  "later_prespecified_sequence": [
+    "validation_preprocessing_qc",
+    "validation_feature_trajectory",
+    "validation_fixed_assignment"
+  ],
+  "validation_opened_for_source_lineage_only": false,
+  "confirmation_opened": false
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "raw_dynamic_physio_alignment_design",
+  "generated_at": "2026-08-09T11:52:58+03:30",
+  "role": "Discovery-only timing-column/source alignment audit for raw GSR/PPG; no amplitude access and no inference",
+  "allowed_reads": [
+    "fixed Discovery raw_eeg_epoch_folds timing/epoch manifests",
+    "Discovery raw GSR/PPG JSON sidecars",
+    "Discovery raw GSR/PPG csv_time_* columns only"
+  ],
+  "forbidden_reads": [
+    "GSR amplitude",
+    "PPG amplitude",
+    "Validation raw physiology timing or amplitude",
+    "Confirmation raw physiology timing or amplitude",
+    "behavioral outcomes/reports for alignment selection"
+  ],
+  "required_outputs": [
+    "per-file time-column diagnostics",
+    "per-participant selected clock interpretation or no-solution",
+    "epoch coverage audit",
+    "GSR-PPG clock agreement",
+    "prespecified feasible Discovery dynamic roster"
+  ],
+  "inference_forbidden": true
+}

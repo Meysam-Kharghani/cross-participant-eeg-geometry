@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-04T14:58:20+03:30",
+  "phase": "cross_person_alignment_fit",
+  "required_inputs": {
+    "cross_person_alignment_fit_contract": "<PROJECT_ROOT>/config/cross_person_alignment_fit_cross_person_alignment_contract.json",
+    "cross_person_alignment_fit_final_lock": "<PROJECT_ROOT>/outputs/qc/cross_person_alignment_fit_final_output_lock_hashes.json",
+    "state_family_assignments": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_fit_state_family_assignments.csv",
+    "state_embedding": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_fit_state_alignment_embedding.csv",
+    "trajectory_family_assignments": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_fit_trajectory_family_assignments.csv",
+    "trajectory_standardized_geometry": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_fit_trajectory_standardized_geometry.csv",
+    "cross_branch_linkage": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_fit_outcome_free_cross_branch_linkage.csv"
+  },
+  "required_boundary": [
+    "all cross_person_alignment_fit family counts, preprocessing, embeddings, assignments, and locks are immutable",
+    "mapping_design specifications mapping hypotheses and multiplicity control before any subjective report/context association is calculated",
+    "absence of a stable discrete family in either branch must be respected; continuous representations remain analyzable",
+    "Discovery only; Validation and Confirmation remain closed"
+  ],
+  "forbidden": [
+    "refitting alignment after opening reports or context",
+    "selecting or relabeling families from valence, liking, arousal, emotion labels, context, or stimulus identity",
+    "dropping continuous-only participants to improve an association",
+    "opening validation or confirmation participants"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

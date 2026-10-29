@@ -1,0 +1,16 @@
+{
+  "Confirmation_GSR_derivative_values_may_open": false,
+  "Discovery_primary_support_any": false,
+  "Discovery_support_plus_robustness_any": false,
+  "Validation_GSR_derivative_values_may_open_after_dynamic_gsr_synthesis_specification": false,
+  "forbidden": [
+    "opening held-out GSR derivative values in discovery_dynamic_gsr_inference",
+    "retuning EEG trajectory families",
+    "testing rating-period physiology from author stimulus-only GSR derivatives",
+    "selecting individual 3-s bins post hoc"
+  ],
+  "generated_at": "2026-08-12T12:18:58+03:30",
+  "phase": "discovery_dynamic_gsr_inference",
+  "rating_period_physio_tested": false,
+  "supported_tests_for_possible_validation": []
+}

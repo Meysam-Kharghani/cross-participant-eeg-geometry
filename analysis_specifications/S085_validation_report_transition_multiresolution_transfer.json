@@ -1,0 +1,31 @@
+{
+  "Confirmation_design_specification_permitted": true,
+  "Confirmation_signal_opening_in_validation_report_transition_synthesis": false,
+  "any_K_replicated": true,
+  "forbidden": [
+    "Validation behavioral reports",
+    "emotion category target mapping",
+    "context target mapping",
+    "stimulus identity target mapping",
+    "centroid refit",
+    "threshold tuning",
+    "K reselection",
+    "family relabeling",
+    "semantic naming",
+    "claims of distortion/dishonesty/suppression/exaggeration",
+    "Confirmation signal access in validation_report_transition_synthesis"
+  ],
+  "generated_at": "2026-08-20T01:03:35+03:30",
+  "if_no_K_pass": "close the discrete report-transition transfer branch; retain the prespecified continuous 14-cell report-transition signature; no rescue or retuning",
+  "if_one_or_more_K_pass": "only passing K may be considered for a separately prespecified Confirmation structural transfer; validation_report_transition_synthesis itself must not open Confirmation signal values",
+  "passing_K": [
+    2,
+    3
+  ],
+  "phase": "validation_report_transition_multiresolution_transfer",
+  "semantic_tests_opening_in_validation_report_transition_synthesis": false,
+  "tested_K": [
+    2,
+    3
+  ]
+}

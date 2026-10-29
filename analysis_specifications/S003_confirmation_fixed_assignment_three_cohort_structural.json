@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-07T13:07:04+03:30",
+  "phase": "confirmation_fixed_assignment",
+  "structural_transfer_gate_passed": true,
+  "required_inputs": {
+    "source_rehash": "da61f550bbfdb332b24e3cf29d3d9dd19aaee795f71b5644bc2776c1ad704452",
+    "geometry_preprocessing": "a929ecc782b8d17b6e364754c218d45f71bcb1b144eeec06d6455e44836ec6ee",
+    "standardized_geometry": "fd1a1d4cb86ce7101259045ac6b56868710616463546a5a714c1946926c7cff7",
+    "assignments": "0cb63321efa243b2e95e6df15bfa71e21b75a5e8259dd997f46a59c7b8a1b167",
+    "participant_summary": "af11687bd4207011c4cfce3abd1db65378d99e91d96461620f99e75c25855b0c",
+    "gate": "178c3621ca818e4ece3d375b63376e82ba57d4d654baf5705a02fbb174eee582",
+    "diagnostics": "af8cf347150b39b54ff409d57aea4d1b64405a39f40606606a5b54b31b29fa30",
+    "summary": "e2c36814493ec8e197ee909b4e9a9efeccfced276f854208975487a174ca41e1"
+  },
+  "required_validation_confirmation_synthesis_transfer_policy_canonical_sha256": "73df540947a247e541f20766de290b3c7cf6878ec2e1cc3bb17684f642c286c9",
+  "required_validation_confirmation_synthesis_prespecified_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+  "forbidden": [
+    "family relabeling",
+    "centroid refit",
+    "threshold tuning",
+    "H1-H6 mapping",
+    "Confirmation reports/outcomes/context targets",
+    "Validation-target reuse"
+  ],
+  "confirmation_opened_for_fixed_geometry_assignment_only": true,
+  "confirmation_reports_outcomes_read": false
+}

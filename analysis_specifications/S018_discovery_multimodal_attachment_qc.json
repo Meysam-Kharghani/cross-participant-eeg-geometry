@@ -1,0 +1,21 @@
+{
+  "phase": "discovery_multimodal_attachment_qc",
+  "generated_at": "2026-08-08T18:58:23+03:30",
+  "input_manifest": "<PROJECT_ROOT>/outputs/tables/discovery_multimodal_attachment_qc_discovery_multimodal_manifest.csv",
+  "input_manifest_sha256": "687a2204778a5089f6579ceaee48e565559b02c1e9a62a813b847386fe112bb6",
+  "eligible_roster_sha256": "fecbcfe09843e869a36fc560d997b4b185db76b95789dec680093c7c933bb27b",
+  "bridge_addendum_sha256": "1ce1212c57f78ea3c6333a3da4b822914fef386696fcbbe0aacecc88cb3dbeb2",
+  "heldout_physio_values_opened": false,
+  "inference_performed_in_discovery_multimodal_attachment_qc": false,
+  "normalized_trial_order_formula": "within participant: (trial_number-min)/(max-min), 0 if denominator=0",
+  "M1_M2_eligibility": "joined>=16 AND Family1>=4 AND Family2>=4",
+  "M3_eligibility": "joined>=16",
+  "physiology_rows_with_missing_BIO": "retain; training/analysis-set median imputation only",
+  "forbidden": [
+    "opening Validation physiology values",
+    "opening Confirmation physiology values",
+    "changing EEG family assignments",
+    "family/outcome-driven feature selection",
+    "dropping trials solely for partial BIO missingness"
+  ]
+}

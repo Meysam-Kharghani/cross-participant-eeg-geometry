@@ -1,0 +1,218 @@
+{
+  "phase": "validation_confirmation_synthesis",
+  "seed": 540,
+  "scientific_role": "specification one final outcome-free transfer of the fixed Discovery two-family trajectory geometry to Confirmation after successful fixed Validation transfer",
+  "fixed_before_confirmation_access": true,
+  "confirmation_opened": false,
+  "scope": {
+    "permitted": "structural outcome-free trajectory geometry transfer only",
+    "prohibited": [
+      "H1-H6 report/context/category/stimulus mapping in Confirmation",
+      "shared discrete local-state taxonomy transfer",
+      "family renaming",
+      "centroid refitting",
+      "threshold tuning",
+      "new feature selection",
+      "Validation-informed threshold adaptation"
+    ]
+  },
+  "evidence_boundary": {
+    "discovery_structure_supported": true,
+    "validation_fixed_structure_replication_supported": true,
+    "hedonic_emotional_contextual_or_stimulus_interpretation_supported": false
+  },
+  "staged_execution": [
+    {
+      "phase": "confirmation_source_epoch_lineage",
+      "role": "specification Confirmation source/epoch lineage and coverage using split roster, raw headers, annotations, and event timing only",
+      "eeg_amplitude_read": false
+    },
+    {
+      "phase": "confirmation_preprocessing_qc",
+      "role": "apply exact prespecified raw_eeg_preprocessing_qc preprocessing/QC to Confirmation raw EEG",
+      "reports_outcomes_read": false
+    },
+    {
+      "phase": "confirmation_feature_trajectory",
+      "role": "extract exact prespecified outcome_free_features compact features and construct within-participant three-epoch trajectories",
+      "reports_outcomes_read": false
+    },
+    {
+      "phase": "confirmation_fixed_assignment",
+      "role": "apply prespecified transforms and fixed Discovery centroids without refit; evaluate unchanged structural transfer gates",
+      "reports_outcomes_context_targets_read": false
+    },
+    {
+      "phase": "three_cohort_structural_synthesis",
+      "role": "final structural synthesis; no post hoc semantic mapping",
+      "confirmation_reports_outcomes_read": false
+    }
+  ],
+  "source_code_lineage": {
+    "raw_eeg_epoch_folds_epoch_specification_script_sha256": "93ca3cc67f7fb72f008845941a16f8a802e4b0aee601d53fbeb5c84c8e25aa8b",
+    "raw_eeg_preprocessing_qc_preprocessing_script_sha256": "bd6a50669f0a6ba17965a4497433f1d4583d4a98f840dff29a73866d801e2ecb",
+    "outcome_free_features_feature_script_sha256": "d12ca5779f8c285d8194abe5609c0aa509278d58699b8f1e20d8586c4d01bcba",
+    "validation_feature_trajectory_executor_sha256": "444748f05f3c85eeacc183540df0180023ab5c4dba6c7c41b29c36a84d3c9f3c",
+    "prespecified_transfer_core_sha256": "15dde8b52c7d7938c8cd4b3db19b6ca03cf73ca13416fab0d8736c0b77e8ee5b",
+    "validation_lineage_reference_sha256": "c088554da2135e5f397edc4301913f2fc2b6f15932ffbbc9384471719d669bf7",
+    "attachment_policy_canonical_sha256": "a8b705d974af41d073f2e3e58f702fbb3e70efd5c8c0dbdbf1d2798e7f135278"
+  },
+  "confirmation_roster": {
+    "split_version": "v1",
+    "subjects": [
+      "sub-03",
+      "sub-13",
+      "sub-19",
+      "sub-23",
+      "sub-27",
+      "sub-31",
+      "sub-35",
+      "sub-46",
+      "sub-47",
+      "sub-48",
+      "sub-49",
+      "sub-59"
+    ],
+    "expected_subjects": 12,
+    "expected_authoritative_trials": 494,
+    "all_have_raw_eeg_in_participant_roster": true,
+    "partial_roster_subjects": [
+      "sub-59"
+    ]
+  },
+  "operationally_allowed_metadata": {
+    "subject_id": true,
+    "trial_number": true,
+    "raw_behavior_row_id": true,
+    "raw_run": true,
+    "epoch_family": true,
+    "context": "allowed only as exact EEG-trigger lineage and prespecified epoch endpoint metadata; never as family target"
+  },
+  "forbidden_confirmation_columns_or_targets": [
+    "valence",
+    "liking",
+    "arousal",
+    "joy",
+    "inspiration",
+    "tenderness",
+    "sadness",
+    "fear",
+    "disgust",
+    "familiarity",
+    "emotion_category",
+    "stimulus_id",
+    "subjective factors",
+    "report-derived factors"
+  ],
+  "trajectory_construction": {
+    "epoch_order": [
+      "stimulus_early",
+      "stimulus_late",
+      "rating_early"
+    ],
+    "within_person_feature_preprocessing": "exact latent_state_fit epoch-family robust standardization and whitened PCA, with no cohort pooling and no outcome access",
+    "geometry_features": [
+      "early_to_late_norm",
+      "late_to_rating_norm",
+      "early_to_rating_direct_norm",
+      "total_path_length",
+      "directness_ratio",
+      "segment_cosine"
+    ],
+    "geometry_transformations": {
+      "first_four": "log1p",
+      "directness_ratio": "logit clip [1e-6,1-1e-6]",
+      "segment_cosine": "atanh clip [-1+1e-6,1-1e-6]"
+    },
+    "within_validation_participant_scaling": "median center and IQR divide using all eligible trajectories for that participant; use prespecified Discovery pooled participant-balanced IQR only when local IQR <=1e-8; winsorize [-6,6]",
+    "pooled_fallback_iqr": {
+      "early_to_late_norm": 0.4754957722315247,
+      "late_to_rating_norm": 0.43253425451665484,
+      "early_to_rating_direct_norm": 0.4071658093620769,
+      "total_path_length": 0.41793243255608914,
+      "directness_ratio": 1.0449506338050496,
+      "segment_cosine": 0.6616508651779611
+    }
+  },
+  "fixed_assignment": {
+    "family_count": 2,
+    "centroids": {
+      "1": [
+        -0.35414370231882775,
+        -0.3054190864870062,
+        0.0023303355418339416,
+        -0.3729072257696148,
+        0.36312713605666835,
+        0.3454466033852239
+      ],
+      "2": [
+        0.6825998665814916,
+        0.5559751984416603,
+        0.19227691522592993,
+        0.7145652013742286,
+        -0.5821176422158368,
+        -0.6172840398179816
+      ]
+    },
+    "distance": "squared Euclidean in six standardized geometry coordinates",
+    "tie_rule": "stable lowest numeric family via mergesort",
+    "refit": false,
+    "rename": false,
+    "support_thresholds": {
+      "in_support_squared_distance_max": 12.825359640315092,
+      "low_margin_threshold": 0.1061596662041992,
+      "reference_rule_distance": "99.5th percentile of cross_person_alignment_fit LOPO-agreeing assigned squared distance",
+      "reference_rule_margin": "1st percentile of cross_person_alignment_fit LOPO-agreeing assignment margin"
+    }
+  },
+  "participant_eligibility": {
+    "minimum_complete_three_epoch_trajectories": 16,
+    "nonfinite_geometry_rule": "exclude trajectory before scaling and record reason",
+    "participant_below_minimum_rule": "exclude participant from transfer gate but retain source/QC audit"
+  },
+  "structural_transfer_gate": {
+    "minimum_eligible_participants": 9,
+    "minimum_complete_trajectory_fraction_of_participant_roster": 0.75,
+    "minimum_participant_balanced_in_support_fraction": 0.8,
+    "minimum_participants_with_both_families": 8,
+    "minimum_trials_per_family": 30,
+    "minimum_participant_balanced_occupancy_per_family": 0.1,
+    "all_source_preprocessing_feature_hash_gates_pass": true,
+    "no_report_outcome_mapping_executed": true,
+    "gate_failure_rule": "stop structural transfer claim; do not retune preprocessing, thresholds, feature set, family count, or centroids"
+  },
+  "output_schema": {
+    "required_assignment_columns": [
+      "subject_id",
+      "raw_behavior_row_id",
+      "trial_number",
+      "trajectory_family_1based",
+      "assigned_squared_distance",
+      "assignment_margin",
+      "distance_to_family1",
+      "distance_to_family2",
+      "in_discovery_support",
+      "low_margin"
+    ],
+    "required_participant_columns": [
+      "subject_id",
+      "authoritative_trials",
+      "complete_trajectories",
+      "eligible_for_transfer",
+      "family1_trials",
+      "family2_trials",
+      "in_support_fraction",
+      "low_margin_fraction",
+      "both_families_present"
+    ],
+    "required_gate_columns": [
+      "gate_id",
+      "metric",
+      "observed",
+      "threshold",
+      "comparison",
+      "pass"
+    ]
+  },
+  "decision_boundary": "A successful Confirmation transfer may support only a third-cohort replication of the fixed two-family outcome-free geometric partition. It cannot support hedonic, emotional, contextual, stimulus, or causal interpretation."
+}

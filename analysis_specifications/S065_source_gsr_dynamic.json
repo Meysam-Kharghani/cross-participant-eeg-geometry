@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-11T10:25:17+03:30",
+  "if_source_gate_fails": {
+    "role": "Close stimulus-only author-GSR fallback without opening derivative amplitudes."
+  },
+  "if_source_gate_passes": {
+    "role": "Discovery-only materialization/QC of prespecified 10x3-s author GSR dynamic values under exact source-row mapping; no family/geometry/outcome inference."
+  },
+  "phase": "source_gsr_dynamic_design",
+  "rating_period_physio_tested": false,
+  "raw_event_aligned_GSR_PPG_reopened": false
+}

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-01T16:02:47+03:30",
+  "phase": "raw_eeg_preprocessing_qc",
+  "permitted_epoch_branches": {
+    "rating_early": true,
+    "stimulus_early": true,
+    "stimulus_late": true
+  },
+  "epoch_qc_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_preprocessing_qc_epoch_amplitude_qc.csv",
+  "large_array_inventory": "<PROJECT_ROOT>/outputs/tables/raw_eeg_preprocessing_qc_large_array_inventory.csv",
+  "trial_fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_trial_fold_manifest.csv",
+  "participant_fold_manifest": "<PROJECT_ROOT>/outputs/tables/raw_eeg_epoch_folds_participant_fold_manifest.csv",
+  "signal_analysis_role": "full-signal discovery-only representation and within-person analysis; no universal decoding claim",
+  "required_principles": [
+    "all transforms fitted inside prespecified outer folds",
+    "same evaluation rows for compared models",
+    "stimulus and rating branches reported separately",
+    "no biological ground-truth language",
+    "no validation or confirmation access",
+    "no result-dependent QC threshold change"
+  ]
+}

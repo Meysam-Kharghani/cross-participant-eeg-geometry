@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-03T13:48:10+03:30",
+  "phase": "primary_inference",
+  "mandatory_models": [
+    "S1_seen_single_epoch_full_signal",
+    "S2_seen_pair_epoch_full_signal",
+    "P2_person_specific_compact_all3",
+    "U1_unseen_person_universal_all3",
+    "D1_subject_identity_probe_all3",
+    "D2_context_probe",
+    "E1_liking_given_valence"
+  ],
+  "primary_results_may_not_select_or_cancel_secondary_models": true,
+  "primary_permutation_distribution": "original uniform complete circular-shift proposal conditioned on defined participant target standardization in every prespecified split",
+  "claim_guardrails": [
+    "EEG is not ground truth for latent experience",
+    "primary support failure is not called EEG failure",
+    "stimulus and rating branches remain separately reported",
+    "identity is separability, not emotion decoding",
+    "unseen-person failure is nonseparability or misalignment, not absent physiology"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

@@ -1,0 +1,26 @@
+{
+  "phase": "discovery_multimodal_synthesis",
+  "generated_at": "2026-08-08T21:56:44+03:30",
+  "supported_claims": [
+    "The fixed outcome-free two-family EEG trajectory geometry replicated structurally across the Discovery, Validation, and Confirmation splits of this dataset.",
+    "In Discovery participants with joined trial-level P0.2 physiology, none of the three pre-prespecified multimodal tests M1-M3 passed Holm correction.",
+    "No M1-M3 test passed the pre-prespecified combined primary-plus-robustness gate required to open held-out physiology.",
+    "Therefore Validation and Confirmation physiology remain unopened for this branch, preserving the held-out boundary."
+  ],
+  "not_supported_claims": [
+    "Trial-level peripheral physiology has no relation to EEG trajectory geometry in general.",
+    "Raw time-resolved autonomic dynamics have been tested; only the prespecified P0.2 trial-level 40-feature representation was tested.",
+    "Family 1/2 are pleasure, suffering, valence, liking, emotion, context, stimulus, or causal states.",
+    "Specific GSR or HR features are negative or positive biomarkers; parent gates did not license feature-level follow-ups.",
+    "Held-out physiology replicated a null result; held-out physiology was intentionally not opened.",
+    "The absence of Discovery support proves biological independence between brain and body signals."
+  ],
+  "family_labels_fixed": [
+    "Family 1",
+    "Family 2"
+  ],
+  "family_labels_are_geometric_only": true,
+  "posthoc_physio_feature_selection_forbidden": true,
+  "heldout_physio_testing_for_unsupported_M1_M3_forbidden": true,
+  "raw_dynamic_physio_out_of_scope": true
+}

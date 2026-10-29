@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-08-07T00:12:14+03:30",
+  "phase": "validation_preprocessing_qc",
+  "required_raw_eeg_preprocessing_qc_source_code_sha256": "bd6a50669f0a6ba17965a4497433f1d4583d4a98f840dff29a73866d801e2ecb",
+  "required_outcome_free_features_source_code_sha256": "d12ca5779f8c285d8194abe5609c0aa509278d58699b8f1e20d8586c4d01bcba",
+  "required_inputs": {
+    "epoch_qc": "d4dbdaea34787cfbaaebd53b86fd8e06511371e57e3267202f433f7d4b440d3c",
+    "inventory": "747dbfc1106f570a4b3b878785e3c85016e964680987d7383066eb4c86e64d3f",
+    "trajectory_manifest": "b918b42aaa570e5b67a18733200c59f90f81cc2e9dbbbc790f9b9d45329669eb",
+    "subject_trajectory_qc": "412ce38fc8e0a0cbe75e2e100e0eefce977b1e3521c6944ece5ea6256d9e9e2d",
+    "transfer_gate": "aedf9c2b4901fac07b55ee1ba7131a9bf8ccb7a6ee3d92456ca90751368f8cc4"
+  },
+  "large_store_root": "<PROJECT_ROOT>/outputs/large/validation_preprocessing_qc_validation_raw_eeg_epochs_v1",
+  "required_boundary": [
+    "verify every validation_preprocessing_qc hash",
+    "use only modeling_eligible epoch rows",
+    "read arrays only through fixed inventory",
+    "apply exact prespecified outcome_free_features feature schema",
+    "do not read reports/outcomes/stimulus identity",
+    "context must not be used as a target",
+    "Confirmation remains closed"
+  ],
+  "validation_opened_for_feature_extraction_only": false,
+  "confirmation_opened": false
+}

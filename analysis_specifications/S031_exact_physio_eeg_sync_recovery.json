@@ -1,0 +1,19 @@
+{
+  "forbidden": [
+    "using Valence/Liking/reports/emotion labels/family assignments to choose synchronization",
+    "using EEG/GSR/PPG amplitude to choose synchronization",
+    "moving EEG epoch windows",
+    "opening Validation or Confirmation raw physiology",
+    "treating coarse README-minute overlap or physiology gaps alone as exact EEG anchors"
+  ],
+  "generated_at": "2026-08-10T17:26:23+03:30",
+  "if_exact_sync_gate_fails": {
+    "raw_amplitude_access_in_exact_physio_eeg_sync_recovery": false,
+    "role": "specification author-provided stimulus-only dynamic GSR derivative route; do not claim rating-period raw physiology was tested."
+  },
+  "if_exact_sync_gate_passes": {
+    "raw_amplitude_access_in_exact_physio_eeg_sync_recovery": false,
+    "role": "specification Discovery raw GSR/PPG amplitude preprocessing/QC and trajectory representation before first amplitude access."
+  },
+  "phase": "exact_physio_eeg_sync_recovery"
+}

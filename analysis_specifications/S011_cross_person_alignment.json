@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-04T13:51:27+03:30",
+  "phase": "cross_person_alignment_design",
+  "alignment_policy_sha256": "bfc10e1e646406359b989e03b36d50058c51e311c1df23cdb28c97f0712ee7e1",
+  "required_inputs": {
+    "cross_person_alignment_design_contract": "<PROJECT_ROOT>/config/cross_person_alignment_design_alignment_design_contract.json",
+    "prespecified_alignment_policy": "<PROJECT_ROOT>/analysis_specifications/S012_cross_person_alignment.json",
+    "stable_local_state_manifest": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_design_stable_local_state_manifest.csv",
+    "continuous_geometry_manifest": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_design_continuous_geometry_manifest.csv",
+    "alignment_feature_schema": "<PROJECT_ROOT>/outputs/tables/cross_person_alignment_design_alignment_feature_schema.csv",
+    "latent_state_fit_primary_lock": "<PROJECT_ROOT>/outputs/qc/latent_state_fit_primary_lock_hashes.json",
+    "latent_state_fit_state_centroids_common_axes": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_state_centroids_common_axes.csv",
+    "latent_state_fit_continuous_trajectories": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_continuous_trajectories.csv",
+    "latent_state_fit_state_assignments": "<PROJECT_ROOT>/outputs/tables/latent_state_fit_state_assignments.csv"
+  },
+  "required_execution": [
+    "fit every prespecified candidate shared state-family count with participant-balanced constrained alignment",
+    "fit every prespecified candidate shared trajectory-family count with participant-balanced geometry alignment",
+    "execute every prespecified participant-level and two-level stability resample",
+    "apply prespecified collapse, silhouette-parsimony, no-force, and canonical-label rules",
+    "execute leave-one-participant-out diagnostics without revising selections",
+    "write and SHA-256 lock both alignment branches before any report/context mapping",
+    "execute only the prespecified outcome-free cross-branch linkage after both branch locks"
+  ],
+  "forbidden": [
+    "reading valence, liking, arousal, emotion reports, labels, context, or report-derived factors during cross_person_alignment_design or cross_person_alignment_fit",
+    "using QC values, epoch family, stimulus identity, participant identity targets, or prior decoding performance as alignment features",
+    "changing latent_state_fit local K, local assignments, centroids, trajectories, or participant inclusion",
+    "creating pseudo-states for continuous-only participants",
+    "selecting shared-family counts from later report/context association",
+    "opening validation or confirmation participants"
+  ],
+  "validation_opened": false,
+  "confirmation_opened": false
+}

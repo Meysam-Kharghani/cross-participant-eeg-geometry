@@ -1,0 +1,17 @@
+{
+  "structural_replication_analysis_concluded": true,
+  "K_reselection_permitted": false,
+  "allowed_next_roles": [
+    "evidence_ledger_refresh",
+    "preplanned_physical_neurofeature_characterization_of_replicated_families_using_existing_fixed_structural_features",
+    "independent_external_replication_if_available"
+  ],
+  "crosssplit_p_value_combination_permitted": false,
+  "distortion_interpretation_permitted": false,
+  "external_replication_claim_permitted": false,
+  "generated_at": "2026-08-25T00:32:38+03:30",
+  "core_interpretation": "Internally replicated multiresolution EEG organization is present, while the prespecified nominal-category and subjective-report mappings do not identify stable semantic content for those families. Report-transition organization is also structurally replicated but is not robustly linked to final report content under the prespecified tests.",
+  "new_within_structural_replication_posthoc_semantic_tests_permitted": false,
+  "phase": "cross_split_semantic_report_synthesis",
+  "semantic_relabeling_permitted": false
+}

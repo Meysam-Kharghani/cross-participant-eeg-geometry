@@ -1,0 +1,109 @@
+{
+  "discovery_semantic_report_execution_numeric_specification": {
+    "path": "outputs/interpretability/discovery_semantic_report_execution_discovery_semantic_report_execution/qc/discovery_semantic_report_execution_numeric_implementation_specification.json",
+    "sha256": "f7747503f9e03b80560d20481e76be7301a9b1f703a986f9d244d7f308bd9d57"
+  },
+  "discovery_semantic_report_execution_numeric_source": {
+    "path": "src/analysis_pipeline/eeg/discovery_semantic_report_execution/discovery_semantic_report_execution.py",
+    "sha256": "caa62ecc3d5dfe825cd166d8e68078fd1fe5c185c81eb1caef8701f1cacbf29e"
+  },
+  "confirmation_semantic_report_execution_must_reuse_exact_discovery_semantic_report_execution_numeric_helpers": true,
+  "Confirmation_behavior_opening_permitted_in_confirmation_semantic_report_execution": true,
+  "Confirmation_behavioral_values_read_in_validation_confirmation_semantic_design": false,
+  "Confirmation_context_category_values_read_in_validation_confirmation_semantic_design": false,
+  "all_prespecified_tests_required": [
+    "A1_K2",
+    "A1_K3",
+    "A1_K4",
+    "A2_K2",
+    "A2_K3",
+    "A2_K4",
+    "B2",
+    "B3_K2",
+    "B3_K3"
+  ],
+  "authorization_chain": [
+    "semantic_report_execution_design->discovery_semantic_report_execution",
+    "discovery_semantic_report_execution->validation_semantic_report_execution",
+    "validation_semantic_report_execution->validation_confirmation_semantic_design",
+    "validation_confirmation_semantic_design->confirmation_semantic_report_execution"
+  ],
+  "followup_gate": "single-report/dimension followups only according to the already-prespecified semantic_report_execution_design parent gates and Holm rules",
+  "prespecified_boundaries": {
+    "K_reselection_permitted": false,
+    "behavior_may_change_structural_decisions": false,
+    "canonical_context_stimulus_category_permitted": false,
+    "distortion_dishonesty_suppression_exaggeration_interpretation_permitted": false,
+    "external_replication_claim_permitted": false,
+    "family_ID_changes_permitted": false,
+    "posthoc_report_subset_selection_permitted": false,
+    "semantic_relabeling_permitted": false,
+    "split_specific_family_relabeling_permitted": false
+  },
+  "prespecified_structural_inputs": {
+    "experience_K": [
+      2,
+      3,
+      4
+    ],
+    "experience_assignments": {
+      "path": "outputs/interpretability/confirmation_stimulus_experience_multiresolution_transfer_confirmation_stimulus_experience_multiresolution_transfer/tables/confirmation_stimulus_experience_multiresolution_transfer_confirmation_family_assignments_all_k.csv",
+      "sha256": "2159d0e73b3cc4333a733b1eed28634a80269420d7397f73b38ebd868f0736ed"
+    },
+    "experience_signatures": {
+      "path": "outputs/interpretability/confirmation_stimulus_experience_multiresolution_transfer_confirmation_stimulus_experience_multiresolution_transfer/tables/confirmation_stimulus_experience_multiresolution_transfer_confirmation_experience_signatures.csv",
+      "sha256": "99f9a171c75fdd6680e96cf08c91e73ca9abba4ee2c9b71a09fac1837d962c5d"
+    },
+    "transition_K": [
+      2,
+      3
+    ],
+    "transition_assignments": {
+      "path": "outputs/interpretability/confirmation_report_transition_multiresolution_transfer_confirmation_report_transition_multiresolution_transfer/tables/confirmation_report_transition_multiresolution_transfer_confirmation_transition_family_assignments_all_k.csv",
+      "sha256": "a21018d812c13912ddd7feeebf1902bed6f71e57ebf508158114c3f475feda0b"
+    },
+    "transition_signatures": {
+      "path": "outputs/interpretability/confirmation_report_transition_multiresolution_transfer_confirmation_report_transition_multiresolution_transfer/tables/confirmation_report_transition_multiresolution_transfer_confirmation_report_transition_signatures.csv",
+      "sha256": "52e7967d864bd2a3d21fb7a59a59fe83bde10fd9f5530da747bbf3faddfe1fb6"
+    }
+  },
+  "prespecified_target_lineage": {
+    "analysis_specification": {
+      "path": "config/analysis_specification.v1.json",
+      "sha256": "cfd175b2ef3de731355d7378650ffa1b5d31a06171f4600a379c504fe2a85dfa"
+    },
+    "category": {
+      "README_sequence_core_path": "src/analysis_pipeline/data_preparation/event_grammar_reconstruction.py",
+      "README_sequence_core_sha256": "39b690bdbd692cd5a8df6f370e7ad96ddff135ba9f96e6817c6e7e77c23474ac",
+      "ambiguous_or_missing_sequence_item_policy": "unavailable_no_fallback",
+      "canonical_stimulus_or_category_fallback_permitted": false,
+      "dataset_README_sha256": "379cfc97fce08b4c54d3dc26e95c35d504ca130666bbcf02eff59638f0ff7e3a",
+      "source": "authoritative context + complete safe metadata within-context index + exact README sequence parser"
+    },
+    "context": {
+      "lineage_lock_path": "outputs/qc/confirmation_source_epoch_lineage_final_output_lock_hashes.json",
+      "lineage_lock_sha256": "d502dbc7eb5557d33a6e8e23f54127271b136180100704de477b5951b5e91f82",
+      "must_agree_safe_metadata_schedule": true,
+      "path": "outputs/tables/confirmation_source_epoch_lineage_confirmation_authoritative_trial_timing_manifest.csv",
+      "sha256": "dcb34cdd525faffb9fc38d865589d598d436a8429f225554290ae5c731dd693f",
+      "source": "confirmation_source_epoch_lineage authoritative event-timing context"
+    },
+    "participant_split": {
+      "path": "config/participant_split_manifest.v1.csv",
+      "sha256": "0f6156e2a0de5af59dd3a7cd15b2a4a914dc0a0540b9d941fa6676a697f8d453"
+    },
+    "raw_source_inventory_specification": "outputs/interpretability/validation_confirmation_semantic_design_validation_synthesis_confirmation_design_specification/tables/validation_confirmation_semantic_design_confirmation_raw_source_inventory_prespecified.csv",
+    "reports": {
+      "must_source_audit_against_raw_behavior_tsv": true,
+      "path": "data/canonical_behavioral_table.csv",
+      "sha256": "e31f96f918e806d466fd2bccc85b94d5c9dc96002bf97a97a442e8059a0365ed",
+      "source": "canonical report columns only, keyed by subject_id + trial_number_global"
+    },
+    "source_reference_specification": "outputs/interpretability/validation_confirmation_semantic_design_validation_synthesis_confirmation_design_specification/tables/validation_confirmation_semantic_design_confirmation_source_reference_specification.csv"
+  },
+  "generated_at": "2026-08-24T19:53:25+03:30",
+  "new_EEG_signal_opening_permitted": false,
+  "phase": "validation_confirmation_semantic_design",
+  "prior_results_select_Confirmation_tests": false,
+  "role": "one-shot Confirmation target materialization + all prespecified semantic/report tests"
+}

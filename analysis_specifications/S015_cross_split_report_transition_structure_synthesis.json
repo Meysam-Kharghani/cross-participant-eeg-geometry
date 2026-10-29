@@ -1,0 +1,74 @@
+{
+  "semantic_report_execution_design_data_opening": {
+    "behavioral_report_values": false,
+    "context_target_values": false,
+    "emotion_category_values": false,
+    "new_EEG_signal_values": false,
+    "stimulus_identity_target_values": false
+  },
+  "semantic_report_execution_design_role": "operationalize and specification exact source lineage, joins, multiplicity, execution order, and held-out target-opening rules for the already-prespecified semantic_report_dissociation_design semantic/report tests A1/A2/B2/B3; semantic_report_execution_design itself opens no behavioral values",
+  "activation_condition_from_semantic_report_dissociation_design_satisfied": true,
+  "forbidden": [
+    "opening behavioral values in semantic_report_execution_design",
+    "using behavior to alter K, centroids, support thresholds, or family IDs",
+    "selecting one experience or transition K based on semantic strength",
+    "split-specific relabeling",
+    "family semantic naming before a separately prespecified naming rule",
+    "claims of distortion/dishonesty/suppression/exaggeration/conscious editing",
+    "external-replication claim"
+  ],
+  "generated_at": "2026-08-20T01:47:33+03:30",
+  "outcome_free_B1_status": {
+    "behavior_used": false,
+    "executed_under_semantic_report_dissociation_design_prespecification": true,
+    "interpretation": "experience and report-transition partitions show consistently low descriptive overlap across all three internal splits; this supports treating them as distinct structural organizations for subsequent tests, but does not establish independent biological mechanisms",
+    "metrics": "ARI/NMI plus participant-balanced contingency and directional occupancy",
+    "split_overlap_summary": {
+      "Confirmation": {
+        "common_participants": 12,
+        "common_trials": 459,
+        "max_ARI_across_K_pairs": 0.014725169677271575,
+        "max_NMI_across_K_pairs": 0.009561870058445086,
+        "min_ARI_across_K_pairs": 0.0014804851652234702,
+        "min_NMI_across_K_pairs": 0.001198528833772791
+      },
+      "Discovery": {
+        "common_participants": 31,
+        "common_trials": 1237,
+        "max_ARI_across_K_pairs": 0.025618909658132086,
+        "max_NMI_across_K_pairs": 0.025038717169617714,
+        "min_ARI_across_K_pairs": 0.017727561567846942,
+        "min_NMI_across_K_pairs": 0.0075634664041811395
+      },
+      "Validation": {
+        "common_participants": 12,
+        "common_trials": 437,
+        "max_ARI_across_K_pairs": 0.022081020174948673,
+        "max_NMI_across_K_pairs": 0.02487825584852626,
+        "min_ARI_across_K_pairs": 0.00957552640063587,
+        "min_NMI_across_K_pairs": 0.005672531326388971
+      }
+    }
+  },
+  "phase": "cross_split_report_transition_structure_synthesis",
+  "post_semantic_report_execution_design_execution_requires_separate_phase": true,
+  "required_hypotheses_carried_forward": [
+    "A1 nominal emotion-category vs experience-family many-to-many mapping",
+    "A2 joint 10-report profile vs experience families",
+    "B2 incremental joint-report mapping from continuous report-transition signature beyond continuous experience signature",
+    "B3 joint-report mapping to replicated discrete report-transition families as a secondary gated test"
+  ],
+  "semantic_execution_in_semantic_report_execution_design_permitted": false,
+  "structural_prerequisites": {
+    "experience_resolutions_replicated": [
+      2,
+      3,
+      4
+    ],
+    "report_transition_crosssplit_lock_complete": true,
+    "report_transition_resolutions_replicated": [
+      2,
+      3
+    ]
+  }
+}

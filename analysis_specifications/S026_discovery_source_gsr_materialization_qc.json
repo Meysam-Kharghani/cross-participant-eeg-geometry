@@ -1,0 +1,13 @@
+{
+  "Confirmation_GSR_derivative_values_opened": false,
+  "Validation_GSR_derivative_values_opened": false,
+  "generated_at": "2026-08-12T11:33:31+03:30",
+  "if_materialization_gate_fails": {
+    "role": "Close author-GSR stimulus-dynamic fallback without DG1-DG3 inference."
+  },
+  "if_materialization_gate_passes": {
+    "role": "Discovery-only prespecified DG1-DG3 inference using discovery_source_gsr_materialization_qc materialized GSR dynamics plus fixed cross_person_alignment_fit/mapping_design family/geometry, with Holm and prespecified robustness."
+  },
+  "phase": "discovery_source_gsr_materialization_qc",
+  "rating_period_physio_tested": false
+}

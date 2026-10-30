@@ -1,0 +1,16 @@
+{
+  "n_trials": 1237,
+  "n_participants": 31,
+  "prespecified_counts": {
+    "1": 749,
+    "2": 488
+  },
+  "recomputed_objective": 79.47131395752426,
+  "released_objective": 79.47131395752426,
+  "recomputed_weighted_silhouette": 0.2892249518335221,
+  "released_weighted_silhouette": 0.2892249518335221,
+  "released_LOPO_agreement": 0.994341147938561,
+  "released_LOPO_min_subject": 0.9333333333333333,
+  "released_LOPO_subjects_ge_0_95": 30,
+  "observed_relative_SSE_gain_K1_to_K2": 0.3113760781635641
+}

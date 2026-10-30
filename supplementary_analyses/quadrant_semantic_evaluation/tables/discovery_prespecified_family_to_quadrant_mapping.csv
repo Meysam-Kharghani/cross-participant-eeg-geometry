@@ -1,0 +1,13 @@
+hypothesis_id,hypothesis,family_k4,quadrant,learned_in
+H1,valence_x_arousal,1,HIGH_LOW,Discovery
+H1,valence_x_arousal,2,HIGH_HIGH,Discovery
+H1,valence_x_arousal,3,LOW_HIGH,Discovery
+H1,valence_x_arousal,4,LOW_LOW,Discovery
+H2,liking_x_arousal,1,HIGH_LOW,Discovery
+H2,liking_x_arousal,2,HIGH_HIGH,Discovery
+H2,liking_x_arousal,3,LOW_LOW,Discovery
+H2,liking_x_arousal,4,LOW_HIGH,Discovery
+H3,valence_x_liking,1,HIGH_HIGH,Discovery
+H3,valence_x_liking,2,LOW_HIGH,Discovery
+H3,valence_x_liking,3,HIGH_LOW,Discovery
+H3,valence_x_liking,4,LOW_LOW,Discovery

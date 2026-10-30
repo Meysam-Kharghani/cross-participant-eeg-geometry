@@ -1,0 +1,7 @@
+hypothesis_id,hypothesis,tier,split,raw_p,holm_family,p_holm
+H1,valence_x_arousal,PRIMARY,Validation,0.976004799040192,H1_validation_confirmation,0.976004799040192
+H1,valence_x_arousal,PRIMARY,Confirmation,0.4303139372125575,H1_validation_confirmation,0.860627874425115
+H2,liking_x_arousal,SECONDARY,Validation,0.8152369526094781,H2_H3_x_validation_confirmation,0.8152369526094781
+H2,liking_x_arousal,SECONDARY,Confirmation,0.007198560287942412,H2_H3_x_validation_confirmation,0.028794241151769647
+H3,valence_x_liking,SECONDARY,Validation,0.04999000199960008,H2_H3_x_validation_confirmation,0.14997000599880025
+H3,valence_x_liking,SECONDARY,Confirmation,0.3075384923015397,H2_H3_x_validation_confirmation,0.6150769846030794

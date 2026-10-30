@@ -1,0 +1,4 @@
+hypothesis,status,gate,max_claim_if_pass
+H1_K4_experience_to_K2_transition_coarsening,NOT_REPLICATED,"Both heldout: BA>0.5, bootstrap lower95>0.5, Holm p<0.05",Internally replicated statistical coarsening alignment under the fixed Discovery map; not family identity or mechanism.
+H2_experience_transition_conditional_association,NOT_REPLICATED,Both heldout: Holm-adjusted within-participant permutation p<0.05; effect size reported as weighted NMI/uncertainty reduction.,"Internally replicated conditional association; not determinism, independence, or biological mechanism."
+H3_shared_14D_geometry_correspondence,DESCRIPTIVE_ONLY,"No inferential pass gate. Fixed-map contrast cosine, bootstrap CI, and rank among 14 mappings are descriptive.","Shared-coordinate profile resemblance only; not metric identity, source identity, or mechanism."

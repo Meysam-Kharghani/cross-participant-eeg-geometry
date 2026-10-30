@@ -1,0 +1,23 @@
+{
+  "phase": "experience_transition_relational_analysis_experience_transition_relational_architecture",
+  "scientific_status": "POST_HOC_SEPARATE_FROM_PRESPECIFIED_CORE",
+  "timestamp": "2026-08-26T05:00:31.058309",
+  "seed": 20260826,
+  "n_permutations": 5000,
+  "n_bootstrap": 5000,
+  "cross_split_semantic_report_synthesis_final_lock_verified": true,
+  "prespecified_primary_analysis_modified": false,
+  "behavioral_or_semantic_values_opened": false,
+  "discovery_selected_mapping": "E1->T1;E2->T1;E3->T2;E4->T2",
+  "H1_status": "NOT_REPLICATED",
+  "H2_status": "NOT_REPLICATED",
+  "H3_status": "DESCRIPTIVE_ONLY",
+  "historical_note": "cross_split_report_transition_structure_synthesis already reported low ARI/NMI plus descriptive directional conditionals. experience_transition_relational_analysis adds formal fixed-map K4→K2 coarsening inference and descriptive geometry correspondence.",
+  "claim_boundary": [
+    "No biological independence claim",
+    "No family identity claim from coarsening alone",
+    "No causal or source-localized interpretation",
+    "No external replication claim",
+    "H3 geometry is descriptive because experience and transition are distinct stage-to-stage representations"
+  ]
+}

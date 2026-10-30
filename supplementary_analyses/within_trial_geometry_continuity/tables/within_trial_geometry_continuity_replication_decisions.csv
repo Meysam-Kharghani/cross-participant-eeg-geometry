@@ -1,0 +1,4 @@
+hypothesis,split,pass,primary_excess_cosine,primary_ci_low,primary_holm_p,transformed_sensitivity_excess_cosine
+H1_within_trial_continuous_geometry_continuity,Validation,True,0.17666794953144271,0.14231152478612685,0.0003999200159968006,0.01835395292746857
+H1_within_trial_continuous_geometry_continuity,Confirmation,True,0.18512511152153696,0.1395194675599958,0.0003999200159968006,0.023919668489590335
+H1_within_trial_continuous_geometry_continuity,CROSS_HELDOUT,True,,,,

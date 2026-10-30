@@ -1,0 +1,11 @@
+{
+  "equal_rows_per_participant": 30,
+  "median_BIC1_minus_BIC2": -2.642022406739443,
+  "p10_BIC1_minus_BIC2": -9.639120755549811,
+  "p90_BIC1_minus_BIC2": 6.302112630125614,
+  "fraction_BIC_favors_2": 0.3333333333333333,
+  "fraction_BIC_strong_gt10": 0.016666666666666666,
+  "median_Ashman_D": 1.3991939296778066,
+  "p10_Ashman_D": 1.2746875745543857,
+  "p90_Ashman_D": 1.5371712554121941
+}

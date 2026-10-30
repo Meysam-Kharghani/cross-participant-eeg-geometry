@@ -1,0 +1,7 @@
+algorithm,ARI_vs_prespecified6D
+unweighted_kmeans,0.9935255829831864
+ward_unweighted,0.5254426646981817
+gmm2_full_unweighted,0.048409040245469416
+gmm2_diag_unweighted,0.5123034296326241
+gmm2_tied_unweighted,0.15760352479510278
+gmm2_spherical_unweighted,0.6828527517146863

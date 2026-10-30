@@ -1,0 +1,7 @@
+representation,split_a,split_b,acute_axis_angle_deg
+six_coordinate,Discovery,Validation,5.341326002820943
+six_coordinate,Discovery,Confirmation,8.288286444134805
+six_coordinate,Validation,Confirmation,4.076536799357652
+primitive_three_coordinate,Discovery,Validation,2.9552081092528826
+primitive_three_coordinate,Discovery,Confirmation,9.215780569796365
+primitive_three_coordinate,Validation,Confirmation,6.260574182090357

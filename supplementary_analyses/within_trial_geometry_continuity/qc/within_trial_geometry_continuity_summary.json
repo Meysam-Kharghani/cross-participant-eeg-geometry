@@ -1,0 +1,13 @@
+{
+  "phase": "within_trial_geometry_continuity_within_trial_geometry_continuity",
+  "status": "PASS",
+  "scientific_status": "POST_HOC_SEPARATE_FROM_PRESPECIFIED_CORE",
+  "primary_replication_gate": true,
+  "primary_definition": "participant-balanced same-trial cosine minus within-participant×context mismatched cosine in standardized 14D coordinates",
+  "sensitivity": "transformed 14D excess cosine must have same positive direction in both held-out splits",
+  "n_perm": 5000,
+  "n_boot": 5000,
+  "seed": 20260826,
+  "prespecified_primary_analysis_modified": false,
+  "claim_boundary": "A PASS supports within-trial continuity of continuous signal-space geometry; it does not establish family identity, semantic identity, causal mechanism, biological independence, or source localization."
+}

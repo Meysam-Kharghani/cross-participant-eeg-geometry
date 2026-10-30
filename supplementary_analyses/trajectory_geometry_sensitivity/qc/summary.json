@@ -1,0 +1,98 @@
+{
+  "phase": "trajectory_geometry_sensitivity",
+  "scientific_status": "POST_HOC_SEPARATE_FROM_PRESPECIFIED_CORE",
+  "primary_analysis_unchanged": true,
+  "primary_reproduction": {
+    "n_trials": 1237,
+    "n_participants": 31,
+    "prespecified_counts": {
+      "1": 749,
+      "2": 488
+    },
+    "recomputed_objective": 79.47131395752426,
+    "released_objective": 79.47131395752426,
+    "recomputed_weighted_silhouette": 0.2892249518335221,
+    "released_weighted_silhouette": 0.2892249518335221,
+    "released_LOPO_agreement": 0.994341147938561,
+    "released_LOPO_min_subject": 0.9333333333333333,
+    "released_LOPO_subjects_ge_0_95": 30,
+    "observed_relative_SSE_gain_K1_to_K2": 0.3113760781635641
+  },
+  "primitive3": {
+    "aligned_agreement_vs_prespecified6D": 0.9628132578819724,
+    "ARI_vs_prespecified6D": 0.8561952256306699,
+    "own_LOPO_agreement": 0.995957962813258,
+    "weighted_silhouette": 0.3184961708000747
+  },
+  "context_preserving_null": [
+    {
+      "null_type": "late_rating_pair",
+      "reps": 400,
+      "observed_relative_SSE_gain": 0.311376078163564,
+      "mean_gain": 0.3037001312019807,
+      "sd_gain": 0.0066357099746561,
+      "p95_gain": 0.3133257868114781,
+      "p99_gain": 0.3161016506067578,
+      "empirical_p_gain_ge_observed": 0.0897755610972568,
+      "mean_pb_support": 0.9898884837297504,
+      "sd_pb_support": 0.0029208354336368,
+      "mean_pb_family1": 0.6072574191915262,
+      "mean_min_sq_dist": 2.5632829919539755,
+      "mean_ARI_vs_observed": -0.0008762643636989,
+      "mean_aligned_agreement_vs_observed": 0.5186641067097817
+    },
+    {
+      "null_type": "late_rating_independent",
+      "reps": 400,
+      "observed_relative_SSE_gain": 0.311376078163564,
+      "mean_gain": 0.3051492061890606,
+      "sd_gain": 0.0075565808803511,
+      "p95_gain": 0.3159037949901255,
+      "p99_gain": 0.3200894731374419,
+      "empirical_p_gain_ge_observed": 0.1795511221945137,
+      "mean_pb_support": 0.9904518895738408,
+      "sd_pb_support": 0.0032386984763002,
+      "mean_pb_family1": 0.6031837991702764,
+      "mean_min_sq_dist": 2.5468720882247684,
+      "mean_ARI_vs_observed": -0.0006734275712919,
+      "mean_aligned_agreement_vs_observed": 0.5191976556184317
+    },
+    {
+      "null_type": "rating_only",
+      "reps": 400,
+      "observed_relative_SSE_gain": 0.311376078163564,
+      "mean_gain": 0.3083738454441584,
+      "sd_gain": 0.0078634373870565,
+      "p95_gain": 0.3179724142163306,
+      "p99_gain": 0.3226179650020698,
+      "empirical_p_gain_ge_observed": 0.3192019950124688,
+      "mean_pb_support": 0.9892535438815926,
+      "sd_pb_support": 0.0032053853310627,
+      "mean_pb_family1": 0.6052721221212568,
+      "mean_min_sq_dist": 2.5985817646646,
+      "mean_ARI_vs_observed": 0.006653153107421,
+      "mean_aligned_agreement_vs_observed": 0.547489894907033
+    }
+  ],
+  "continuous_axis": [
+    {
+      "representation": "prespecified6D",
+      "mean_axis_cosine": 0.9990592450447674,
+      "min_axis_cosine": 0.9951410934473608,
+      "mean_axis_angle_deg": 1.5229267172849512,
+      "median_axis_angle_deg": 0.4072790161388284,
+      "max_axis_angle_deg": 5.6504483590863765,
+      "mean_LOPO_assignment_agreement": 0.9939520812258814
+    },
+    {
+      "representation": "primitive3D",
+      "mean_axis_cosine": 0.9999259791077744,
+      "min_axis_cosine": 0.9996570947136312,
+      "mean_axis_angle_deg": 0.5692851442765564,
+      "median_axis_angle_deg": 0.4409661539235894,
+      "max_axis_angle_deg": 1.5005039098229327,
+      "mean_LOPO_assignment_agreement": 0.9958466024752411
+    }
+  ],
+  "interpretation_boundary": "Highly reproducible low-dimensional geometry; K=2 is a stable parsimonious coarse-graining, not evidence for two privileged discrete biological or psychological states."
+}

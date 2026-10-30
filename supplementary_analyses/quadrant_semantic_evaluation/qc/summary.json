@@ -1,0 +1,75 @@
+{
+  "canonical_master_sha256": "70eff894db94ed51d65d103392004162c839bfd3f2850dd3fc15ff3685fd28a6",
+  "historical_boundaries": {
+    "branch_status": "POST_HOC_SEPARATE_FROM_PRESPECIFIED_CORE",
+    "cross_split_semantic_report_synthesis_final_lock_path": "<PROJECT_ROOT>/outputs/interpretability/cross_split_semantic_report_synthesis_final_crosssplit_semantic_report_synthesis/qc/cross_split_semantic_report_synthesis_final_output_lock_hashes.json",
+    "cross_split_semantic_report_synthesis_final_lock_sha256": "967c5cc35877e0e788a672d621c7825300eba7ab88ca2508a49030b081d2bd25",
+    "cross_split_semantic_report_synthesis_verified": true
+  },
+  "hypothesis_results": [
+    {
+      "allowed_interpretation_if_pass": "K4 assignments show internally replicated statistical alignment with the pre-specified person-relative report quadrant; this does not establish true emotion identities, biological independence, causality, or external validity.",
+      "confirmation_pass": false,
+      "details_json": "[{\"ba_ci_high\": 0.2329671221777716, \"ba_ci_low\": 0.18653213606065608, \"balanced_accuracy\": 0.20752271211050938, \"occupancy_gate\": true, \"p_holm\": 0.976004799040192, \"pass\": false, \"raw_p\": 0.976004799040192, \"split\": \"Validation\"}, {\"ba_ci_high\": 0.2745530025220543, \"ba_ci_low\": 0.21724565482343458, \"balanced_accuracy\": 0.24782845328891617, \"occupancy_gate\": true, \"p_holm\": 0.860627874425115, \"pass\": false, \"raw_p\": 0.4303139372125575, \"split\": \"Confirmation\"}]",
+      "heldout_replication_gate_pass": false,
+      "hypothesis": "valence_x_arousal",
+      "hypothesis_id": "H1",
+      "interpretation_if_fail": "No internally replicated K4-to-quadrant semantic mapping under this prespecified test.",
+      "tier": "PRIMARY",
+      "validation_pass": false
+    },
+    {
+      "allowed_interpretation_if_pass": "K4 assignments show internally replicated statistical alignment with the pre-specified person-relative report quadrant; this does not establish true emotion identities, biological independence, causality, or external validity.",
+      "confirmation_pass": true,
+      "details_json": "[{\"ba_ci_high\": 0.27388027737042314, \"ba_ci_low\": 0.2041697303721408, \"balanced_accuracy\": 0.24004246860034334, \"occupancy_gate\": true, \"p_holm\": 0.8152369526094781, \"pass\": false, \"raw_p\": 0.8152369526094781, \"split\": \"Validation\"}, {\"ba_ci_high\": 0.31827931476782095, \"ba_ci_low\": 0.2650990974313577, \"balanced_accuracy\": 0.2919856884428235, \"occupancy_gate\": true, \"p_holm\": 0.028794241151769647, \"pass\": true, \"raw_p\": 0.007198560287942412, \"split\": \"Confirmation\"}]",
+      "heldout_replication_gate_pass": false,
+      "hypothesis": "liking_x_arousal",
+      "hypothesis_id": "H2",
+      "interpretation_if_fail": "No internally replicated K4-to-quadrant semantic mapping under this prespecified test.",
+      "tier": "SECONDARY",
+      "validation_pass": false
+    },
+    {
+      "allowed_interpretation_if_pass": "K4 assignments show internally replicated statistical alignment with the pre-specified person-relative report quadrant; this does not establish true emotion identities, biological independence, causality, or external validity.",
+      "confirmation_pass": false,
+      "details_json": "[{\"ba_ci_high\": 0.37176551107235256, \"ba_ci_low\": 0.2739075950922807, \"balanced_accuracy\": 0.31167093573337845, \"occupancy_gate\": true, \"p_holm\": 0.14997000599880025, \"pass\": false, \"raw_p\": 0.04999000199960008, \"split\": \"Validation\"}, {\"ba_ci_high\": 0.32013216616625956, \"ba_ci_low\": 0.21117812910132314, \"balanced_accuracy\": 0.26889596650626063, \"occupancy_gate\": true, \"p_holm\": 0.6150769846030794, \"pass\": false, \"raw_p\": 0.3075384923015397, \"split\": \"Confirmation\"}]",
+      "heldout_replication_gate_pass": false,
+      "hypothesis": "valence_x_liking",
+      "hypothesis_id": "H3",
+      "interpretation_if_fail": "No internally replicated K4-to-quadrant semantic mapping under this prespecified test.",
+      "tier": "SECONDARY",
+      "validation_pass": false
+    }
+  ],
+  "new_eeg_feature_extraction": false,
+  "phase": "quadrant_semantic_evaluation_k4_quadrant_semantic_battery",
+  "posthoc_status_disclosed": true,
+  "prespecified_primary_analysis_modified": false,
+  "source_files": [
+    {
+      "path": "<CANONICAL_BEHAVIORAL_TABLE>",
+      "role": "canonical_master",
+      "sha256": "70eff894db94ed51d65d103392004162c839bfd3f2850dd3fc15ff3685fd28a6",
+      "size_bytes": 925615
+    },
+    {
+      "path": "<PROJECT_ROOT>/outputs/interpretability/discovery_stimulus_experience_multiresolution_fit_discovery_stimulus_experience_multiresolution_fit/tables/discovery_stimulus_experience_multiresolution_fit_family_assignments_all_k.csv",
+      "role": "discovery_k_family_assignments",
+      "sha256": "91a95a7c891bb53beec1b3c893c8018ed85a77875938efd4817d9c35ae5b21a5",
+      "size_bytes": 732929
+    },
+    {
+      "path": "<PROJECT_ROOT>/outputs/interpretability/validation_stimulus_experience_multiresolution_transfer_validation_stimulus_experience_multiresolution_transfer/tables/validation_stimulus_experience_multiresolution_transfer_validation_family_assignments_all_k.csv",
+      "role": "validation_k_family_assignments",
+      "sha256": "c83ad33c6e1485de814b6653087c5f7b929674f46c0edff8247b540fa0813fe1",
+      "size_bytes": 217843
+    },
+    {
+      "path": "<PROJECT_ROOT>/outputs/interpretability/confirmation_stimulus_experience_multiresolution_transfer_confirmation_stimulus_experience_multiresolution_transfer/tables/confirmation_stimulus_experience_multiresolution_transfer_confirmation_family_assignments_all_k.csv",
+      "role": "confirmation_k_family_assignments",
+      "sha256": "2159d0e73b3cc4333a733b1eed28634a80269420d7397f73b38ebd868f0736ed",
+      "size_bytes": 214038
+    }
+  ],
+  "structural_replication_signal_space_characterization_primary_analysis_reference_reopened": false
+}

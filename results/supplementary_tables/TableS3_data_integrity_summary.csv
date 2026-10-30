@@ -1,0 +1,6 @@
+item,status,basis
+Raw-row context hazard,addressed,The row-based rule assigning trials 1–21 to imagery and 22–42 to video was explicitly identified as invalid in the event-grammar audit.
+Discovery context,trigger-derived,Context was reconstructed from EEG annotation/event grammar rather than behavioral row number.
+Discovery stimulus/category,README-sequence-derived,A context-specific trial index was recomputed in acquisition order and mapped through the dataset README sequence.
+Validation/Confirmation stimulus/category,independently reconstructed,Held-out semantic specifications prohibit canonical stimulus/category targets and reconstruct them from authoritative context plus context-specific sequence position.
+Semantic parent tests,validated table,27 split-level parent tests are present and none pass multiplicity-adjusted significance.

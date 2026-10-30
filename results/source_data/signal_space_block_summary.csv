@@ -1,0 +1,13 @@
+domain,block,n_possible_family_contrasts,n_authorized_contrasts,authorized_contrast_coverage,n_authorized_contrast_feature_rows,n_stable_subfeature_rows,stable_fraction_within_authorized_feature_rows,n_unique_feature_indices_stable_at_least_once
+experience,time_frequency,10,6,0.6,360,110,0.3055555555555556,30
+experience,morphology,10,6,0.6,72,9,0.125,2
+experience,plv_channel,10,2,0.2,24,8,0.3333333333333333,6
+experience,waveform_dct,10,2,0.2,80,15,0.1875,12
+experience,covariance,10,2,0.2,42,17,0.4047619047619047,9
+experience,plv_global,10,3,0.3,72,16,0.2222222222222222,9
+report_transition,time_frequency,4,3,0.75,180,63,0.35,30
+report_transition,morphology,4,3,0.75,36,10,0.2777777777777778,4
+report_transition,plv_channel,4,2,0.5,24,15,0.625,9
+report_transition,waveform_dct,4,0,0.0,0,0,,0
+report_transition,covariance,4,0,0.0,0,0,,0
+report_transition,plv_global,4,2,0.5,48,14,0.2916666666666667,9

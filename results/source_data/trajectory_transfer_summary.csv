@@ -1,0 +1,4 @@
+cohort,role,roster_participants,eligible_assigned_participants,assigned_trajectories,family1_trials,family2_trials,structural_metric,structural_metric_value,structural_gate_passed,semantic_parent_tests_executed,semantic_parent_tests_supported,semantic_mapping_scope,family1_raw_fraction,family2_raw_fraction
+Discovery,discovery,31,31,1237,749,488,LOPO agreement,0.994341147938561,True,6,0,Discovery only,0.6054971705739692,0.3945028294260307
+Validation,locked transfer,12,12,437,263,174,participant-balanced in-support fraction,0.9885616120645948,True,0,0,forbidden,0.6018306636155606,0.3981693363844393
+Confirmation,locked transfer,12,11,446,270,176,participant-balanced in-support fraction,0.9933399933399932,True,0,0,forbidden,0.6053811659192825,0.3946188340807174

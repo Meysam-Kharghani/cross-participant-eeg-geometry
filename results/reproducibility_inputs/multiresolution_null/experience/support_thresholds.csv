@@ -1,0 +1,4 @@
+k,lopo_trial_agreement,lopo_participant_balanced_agreement,lopo_min_participant_agreement,lopo_agreeing_trials,in_support_squared_distance_max,low_margin_threshold,distance_reference_rule,margin_reference_rule
+2,0.992862807295797,0.9926257194156486,0.95,1252,33.783927865156436,0.19942460793320893,99.5th percentile of LOPO-agreeing held-out assigned squared distance,1st percentile of LOPO-agreeing held-out assignment margin
+3,0.9912767644726408,0.9909991929661481,0.9285714285714286,1250,27.693430782615827,0.1252297700736891,99.5th percentile of LOPO-agreeing held-out assigned squared distance,1st percentile of LOPO-agreeing held-out assignment margin
+4,0.9746233148295004,0.9749165996215561,0.9230769230769231,1229,25.8094922098869,0.058697095290682316,99.5th percentile of LOPO-agreeing held-out assigned squared distance,1st percentile of LOPO-agreeing held-out assignment margin

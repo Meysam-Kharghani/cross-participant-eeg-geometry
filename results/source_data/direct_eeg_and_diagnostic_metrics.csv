@@ -1,0 +1,13 @@
+evidence_id,analysis,endpoint,estimate,ci_low,ci_high,p_value,decision,interpretation_boundary
+E_PRIMARY_VALENCE,primary pooled signal-specific prediction,valence,-0.0045778528091537,-0.0167972712405351,0.0067417874576375,0.4675324675324675,not_supported,No signal-specific predictive support versus all frozen gates.
+E_PRIMARY_LIKING,primary pooled signal-specific prediction,liking,0.0152336083502162,-0.0043027314229354,0.034849010658727,0.0279720279720279,not_supported,No signal-specific predictive support versus all frozen gates.
+E_PERSON_LIKING,person-specific compact EEG,liking,-0.0391572908366195,,,0.2810415150597691,not_supported,No group-level support for person-specific implementation.
+E_PERSON_VALENCE,person-specific compact EEG,valence,-0.0455743069224938,,,0.0588987469673156,not_supported,No group-level support for person-specific implementation.
+E_UNSEEN_VALENCE,unseen-person universal decoding,valence,-0.0211376183282977,-0.0681631523743417,0.0042774603134554,,not_supported,No cross-person universal decoding support.
+E_UNSEEN_LIKING,unseen-person universal decoding,liking,-0.0103055252788825,-0.0337545157556397,0.0052406905464189,,not_supported,No cross-person universal decoding support.
+E_IDENTITY,subject identity probe,balanced_accuracy,0.9659545280316324,,,,strong_diagnostic_signal,"Diagnostic, not a hedonic outcome claim."
+E_CONTEXT_EARLY,context probe,context_stimulus_early,0.990863759896018,,,,diagnostic_structure_present,Shows contextual information in representation; not outcome mapping.
+E_CONTEXT_LATE,context probe,context_stimulus_late,0.9760718473671232,,,,diagnostic_structure_present,Shows contextual information in representation; not outcome mapping.
+E_CONTEXT_RATING,context probe,context_rating_early,0.6847236417957387,,,,diagnostic_structure_present,Shows contextual information in representation; not outcome mapping.
+E_SHARED_STATE_TAXONOMY,cross-person local-state alignment,selected_shared_k,,,,,no_discrete_solution_forced,Retain continuous state embedding; no universal discrete state taxonomy.
+E_TRAJECTORY_GEOMETRY,cross-person trajectory geometry,selected_shared_k,2.0,,,,stable_two_family_geometry,Outcome-free geometric structure only; LOPO agreement=0.994341.

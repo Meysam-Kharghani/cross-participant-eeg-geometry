@@ -1,0 +1,39 @@
+{
+  "prespecified_at": "2026-07-25T07:43:17+03:30",
+  "version": "v1",
+  "seed": 540,
+  "iterations": 150000,
+  "best_balance_score": 1.5858112324203137,
+  "canonical_population": {
+    "trials": 2457,
+    "participants": 60,
+    "primary_key": [
+      "subject_id",
+      "trial_number_global"
+    ]
+  },
+  "split_sizes": {
+    "discovery": 36,
+    "validation": 12,
+    "confirmation": 12
+  },
+  "hashes": {
+    "canonical_trial_table": "e31f96f918e806d466fd2bccc85b94d5c9dc96002bf97a97a442e8059a0365ed",
+    "participant_split_manifest": "0f6156e2a0de5af59dd3a7cd15b2a4a914dc0a0540b9d941fa6676a697f8d453",
+    "canonical_contract": "a0b75a8334c7756aa450646d7fcfbd11131f02ee43896ccab293fe8d532135ae",
+    "analysis_contract": "4cf1c163a2809fa03cd2cddbfdc41f0c75dbf1a31f9ec4f45e4f4d287b1d2cf4",
+    "split_contract": "ccc297ee3a0d82c18b76fc820ea39976a0fd7d013086604652e618767da0a06d"
+  },
+  "confirmation_lockbox": {
+    "type": "procedural",
+    "outcomes_used_for_split": false,
+    "prohibited_before_confirmation": [
+      "model_selection",
+      "preprocessing_tuning",
+      "feature_selection",
+      "state_number_selection",
+      "threshold_selection",
+      "hypothesis_revision"
+    ]
+  }
+}

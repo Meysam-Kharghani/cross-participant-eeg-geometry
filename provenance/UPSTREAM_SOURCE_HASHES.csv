@@ -1,0 +1,2 @@
+public_file,public_sha256,original_frozen_sha256,note
+src/analysis_pipeline/data_preparation/event_grammar_reconstruction.py,39b690bdbd692cd5a8df6f370e7ad96ddff135ba9f96e6817c6e7e77c23474ac,3d065b93307cfcea3682e7f7fdd87d85c24ac5418e0ff9948c04cafc4cca605c,"Public portability snapshot; analytic event-pairing and README-sequence logic preserved; machine-specific defaults and historical execution labels normalized."

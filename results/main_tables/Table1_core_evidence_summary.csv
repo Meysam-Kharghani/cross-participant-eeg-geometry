@@ -1,0 +1,8 @@
+Domain,Evidence summary,Status,Boundary
+Subjective architecture,2D organization; held-out valence R²=0.678; liking R²=0.724,Supported,Report architecture only
+Direct EEG hedonic reconstruction,Valence ΔR²=-0.0046; liking ΔR²=0.0152,Not supported,Representation-specific
+Outcome-free trajectory geometry,Discovery LOPO agreement 0.9943; Validation support 0.9886; Confirmation 0.9933,Supported internally,Within-dataset transfer
+Multiresolution experience structure,"K=2,3,4 met cross-split structural-transfer criteria across D/V/C",Supported structural transfer,Held-out support is compatibility metric; later null calibration shows it is not null-specific evidence of discrete structure
+Multiresolution report-transition structure,"K=2,3 met cross-split structural-transfer criteria across D/V/C",Supported structural transfer,No preferred K; held-out support is permissive under matched continuous reference
+Semantic/report parent tests,0/27 corrected parent tests passed,Not supported,No rescue or cross-split p pooling
+Compact EEG signal-space stability,31/31 authorized block-pairs had stable subfeatures; 277/938 stable instances,Supported descriptive,No source/causal claim

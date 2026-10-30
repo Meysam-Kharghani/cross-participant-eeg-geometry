@@ -1,0 +1,9 @@
+h5py
+joblib
+matplotlib
+mne
+numpy
+pandas
+pyedflib
+scipy
+scikit-learn

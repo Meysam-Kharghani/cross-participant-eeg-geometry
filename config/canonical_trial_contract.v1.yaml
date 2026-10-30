@@ -1,0 +1,42 @@
+schema_version: 1
+status: prespecified
+
+canonical_trial_population:
+  source_table: "<CANONICAL_BEHAVIORAL_TABLE>"
+  rows: 2457
+  participants: 60
+  primary_key:
+    - subject_id
+    - trial_number_global
+  secondary_key:
+    - subject_id
+    - context
+    - context_trial_index
+  eligible_rows: 2457
+  excluded_rows: 55
+  eligibility_requires_nonmissing:
+    - stimulus_id
+    - valence
+    - arousal
+    - familiarity
+    - liking
+
+participant_split:
+  seed: 540
+  discovery: 36
+  validation: 12
+  confirmation: 12
+  outcome_values_used_for_split: false
+  confirmation_is_procedural_lockbox: true
+
+analysis_boundaries:
+  - use one canonical trial key across branches
+  - preserve non-overlapping participant splits
+  - do not use outcome values for split construction
+  - do not tune model selection, feature selection, state number, or support thresholds on Confirmation
+
+physiology_boundary:
+  raw_gsr_ppg_participants: 47
+  corrected_trial_level_physio_participants: 46
+  exact_event_level_eeg_peripheral_synchronization_recovered: false
+  note: "Coarse temporal span overlap does not establish event-level synchronization."

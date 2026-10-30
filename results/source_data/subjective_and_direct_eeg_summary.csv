@@ -1,0 +1,15 @@
+evidence_id,domain,analysis,estimate,status,scope,interpretation_boundary,source
+S_SUBJECTIVE_2D,subjective,continuous person-relative subjective geometry,Discovery: 2 dimensions; Validation: 2 dimensions; max subspace angle 15.10 deg,supported,Discovery + one-shot Validation,Organization of reports; not neural mechanism.,subjective_discovery/subjective_validation
+S_REPORT_VALENCE,subjective,prespecified profile_raw8 prediction of valence,Validation R2=0.678397,supported,Validation,Predictability from other reports; not biomarker evidence.,subjective_validation
+S_REPORT_LIKING,subjective,prespecified profile_raw8 prediction of liking,Validation R2=0.723933,supported,Validation,Predictability from other reports; not biomarker evidence.,subjective_validation
+S_DISCRETE_GMM,subjective,five-component subjective density summary,K=5; validation secondary criteria not met,exploratory_only,Discovery + Validation,Cannot be promoted to biological-state taxonomy.,subjective_discovery/subjective_validation
+E_PRIMARY_VALENCE,EEG_direct,pooled EEG signal-specific valence prediction,-0.0045778528091537,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_PRIMARY_LIKING,EEG_direct,pooled EEG signal-specific liking prediction,0.0152336083502162,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_PERSON_VALENCE,EEG_direct,person-specific valence EEG,-0.0455743069224938,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_PERSON_LIKING,EEG_direct,person-specific liking EEG,-0.0391572908366195,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_UNSEEN_VALENCE,EEG_direct,unseen-person valence EEG,-0.0211376183282977,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_UNSEEN_LIKING,EEG_direct,unseen-person liking EEG,-0.0103055252788825,not_supported,Discovery,Failure is model/representation-specific; not evidence EEG contains no hedonic information.,discovery_synthesis
+E_IDENTITY,EEG_diagnostic,subject identity probe,0.9659545280316324,diagnostic_structure_present,Discovery,Diagnostic representation structure; not hedonic interpretation.,discovery_synthesis
+E_CONTEXT_EARLY,EEG_diagnostic,context probe stimulus_early,0.990863759896018,diagnostic_structure_present,Discovery,Diagnostic representation structure; not hedonic interpretation.,discovery_synthesis
+E_CONTEXT_LATE,EEG_diagnostic,context probe stimulus_late,0.9760718473671232,diagnostic_structure_present,Discovery,Diagnostic representation structure; not hedonic interpretation.,discovery_synthesis
+E_CONTEXT_RATING,EEG_diagnostic,context probe rating_early,0.6847236417957387,diagnostic_structure_present,Discovery,Diagnostic representation structure; not hedonic interpretation.,discovery_synthesis

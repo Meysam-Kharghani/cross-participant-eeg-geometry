@@ -1,0 +1,9 @@
+metric,value,threshold,passed
+parallel_dimensions,2,2,True
+one_component_reconstruction_mse,0.5911349971093584,,True
+two_component_reconstruction_mse,0.356169649656497,,True
+relative_reconstruction_improvement,0.3974817065506839,0.15,True
+max_subspace_angle_degrees,15.099741785558813,30.0,True
+mean_subspace_angle_degrees,8.931508839997722,,True
+frozen_two_axis_variance_fraction,0.6438303503435053,,True
+geometry_replication,True,True,True

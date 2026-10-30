@@ -1,0 +1,6 @@
+structure,k,structurally_replicated_across_all_three_splits,semantic_name_permitted,rank_as_single_preferred_resolution
+experience,2,True,False,False
+experience,3,True,False,False
+experience,4,True,False,False
+report_transition,2,True,False,False
+report_transition,3,True,False,False

@@ -1,0 +1,3 @@
+domain,n_possible_family_contrasts,n_authorized_contrast_block_pairs,n_authorized_feature_instances,n_stable_subfeature_instances,fraction_stable_within_authorized_feature_instances,n_distinct_authorized_blocks,all_authorized_blocks_have_stable_subfeature
+experience,10,21,650,175,0.2692307692307692,6,True
+report_transition,4,10,288,102,0.3541666666666667,4,True
